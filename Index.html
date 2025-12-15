@@ -16,7 +16,7 @@
             --black-bg: #212121;   /* Burns / Extreme Warning */
             --teal-bg: #006064;    /* GI / Medical */
             --yellow-bg: #fbc02d;  /* Toxicology */
-            --grey-light: #f5f5f5;
+            --grey-header: #333333; /* Standard Step Header */
         }
 
         * {
@@ -28,7 +28,7 @@
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            background-color: #333;
+            background-color: #555;
         }
 
         /* --- PRINT BUTTON --- */
@@ -56,7 +56,7 @@
             margin: 20px auto;
             position: relative;
             display: flex;
-            overflow: hidden; /* Ensures content fits strictly */
+            overflow: hidden;
             page-break-after: always;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
@@ -67,7 +67,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%);
             padding: 20mm;
             border: 12px solid var(--blue-bg);
         }
@@ -82,7 +82,7 @@
         .gp-section { margin-bottom: 10mm; }
         .gp-title { font-size: 16pt; font-weight: 700; color: var(--blue-bg); margin-bottom: 4mm; display: flex; align-items: center; gap: 10px; }
         .gp-text { font-size: 12pt; line-height: 1.5; color: #444; }
-        .gp-box { background: #eee; padding: 20px; border-radius: 6px; border-left: 8px solid var(--red-bg); margin-top: auto; font-size: 11pt; }
+        .gp-box { background: #fff3e0; padding: 20px; border-radius: 6px; border-left: 8px solid var(--red-bg); margin-top: auto; font-size: 11pt; color: #d84315; font-weight: bold; }
 
         /* --- CONTENTS PAGE (PG 3) --- */
         .contents-page { flex-direction: column; padding: 15mm; }
@@ -96,64 +96,88 @@
         /* --- COMMON LAYOUT (PAGES 4+) --- */
         .side-strip { width: 14mm; height: 100%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-right: 1px solid #ccc; z-index: 2; }
         .side-strip span { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 900; letter-spacing: 3px; font-size: 11pt; white-space: nowrap; color: white; text-transform: uppercase; }
-        .content-area { flex: 1; padding: 8mm 10mm; display: flex; flex-direction: column; gap: 3mm; background-color: #fdfdfd; height: 100%; }
+        .content-area { flex: 1; padding: 8mm 10mm; display: flex; flex-direction: column; background-color: #fdfdfd; height: 100%; }
         
         /* Headers */
-        .main-header { position: relative; background-color: var(--red-bg); color: white; text-align: center; padding: 8px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70px; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 2mm; }
+        .main-header { position: relative; color: white; text-align: center; padding: 8px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70px; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 6mm; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .logo-img { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); height: 40px; width: auto; background: white; padding: 2px; border-radius: 4px; }
         .main-header h1 { margin: 0; font-size: 18pt; text-transform: uppercase; line-height: 1; font-weight: 900; }
         .main-header h2 { margin: 2px 0 0 0; font-size: 10pt; font-weight: 700; background-color: rgba(0,0,0,0.25); padding: 2px 10px; border-radius: 3px; }
 
         /* --- WALKTHROUGH (PAGE A) STYLES --- */
         .wt-layout { display: flex; flex-direction: column; height: 100%; width: 100%; }
-        .wt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; flex-grow: 1; margin-bottom: 0; }
-        .wt-col { display: flex; flex-direction: column; gap: 4mm; }
-        .wt-box { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
-        .wt-box-header { background: #eee; padding: 4px 8px; font-weight: 700; font-size: 10pt; border-bottom: 1px solid #ccc; text-transform: uppercase; letter-spacing: 0.5px; }
-        .wt-box-content { padding: 8px; font-size: 9.5pt; line-height: 1.35; flex-grow: 1; color: #222; }
+        .wt-header { padding: 6px 10px; font-weight: 900; color: white; text-transform: uppercase; margin-bottom: 4mm; border-radius: 4px; font-size: 14pt; }
+        .wt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; flex-grow: 1; margin-bottom: 0; }
+        .wt-col { display: flex; flex-direction: column; gap: 6mm; }
+        .wt-box { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .wt-box-header { background: #eee; color: #333; padding: 6px 10px; font-weight: 800; font-size: 10pt; border-bottom: 1px solid #ccc; text-transform: uppercase; letter-spacing: 0.5px; }
+        .wt-box-content { padding: 12px; font-size: 10pt; line-height: 1.4; flex-grow: 1; color: #222; }
         
         /* Checklists */
-        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 5px; }
-        .checkbox { width: 14px; height: 14px; border: 1px solid #555; margin-right: 8px; flex-shrink: 0; border-radius: 2px; background: white; }
+        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 8px; font-weight: 500; }
+        .checkbox { width: 16px; height: 16px; border: 2px solid #555; margin-right: 10px; flex-shrink: 0; border-radius: 3px; background: white; }
         
         /* Numbered Lists */
         .step-list { counter-reset: step; list-style: none; padding: 0; margin: 0; }
-        .step-list li { position: relative; padding-left: 20px; margin-bottom: 6px; }
-        .step-list li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; font-weight: 800; color: #444; font-size: 0.9em; }
+        .step-list li { position: relative; padding-left: 25px; margin-bottom: 8px; }
+        .step-list li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; font-weight: 800; color: var(--blue-bg); font-size: 0.9em; }
 
-        /* Specific Colours for Walkthrough Boxes */
-        .wt-indications { border-top: 4px solid var(--green-bg); }
-        .wt-kit { border-top: 4px solid var(--blue-bg); }
-        .wt-steps { border-top: 4px solid var(--purple-bg); }
-        .wt-alert { border-top: 4px solid var(--red-bg); }
+        /* --- FLOWCHART (PAGE B) STYLES - NEW DESIGN --- */
+        /* Principle: "Use Colour Sparingly" & "White Space" */
+        
+        .section { 
+            background: white; 
+            border: 1px solid #e0e0e0; 
+            border-left: 6px solid var(--grey-header); /* Default Neutral */
+            border-radius: 4px; 
+            margin-bottom: 6mm; /* White Space! */
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08); /* Cognitive Separation */
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+        }
 
-        /* --- FLOWCHART (PAGE B) STYLES --- */
-        .section { border-radius: 4px; padding: 6px 10px; color: white; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; margin-bottom: 1px; }
-        .section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
-        .icon-box { width: 24px; height: 24px; background: rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11pt; font-weight: bold; flex-shrink: 0; }
+        .section-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            padding: 6px 10px; 
+            background-color: var(--grey-header); 
+            color: white; 
+        }
+
+        /* Specific header colors for functional meaning */
+        .step-critical .section-header { background-color: var(--red-bg); }
+        .step-critical { border-left-color: var(--red-bg); }
+        
+        .step-warning { border: 2px solid var(--red-bg); background-color: #ffebee; }
+        .step-warning .section-content { color: #b71c1c; font-weight: bold; }
+
+        .icon-box { 
+            width: 24px; height: 24px; 
+            background: rgba(255,255,255,0.2); 
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 11pt; font-weight: bold; flex-shrink: 0; 
+        }
+
         .section-title { font-size: 12pt; font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: 0.5px; }
-        .section-content { padding-left: 32px; font-size: 10pt; font-weight: 500; line-height: 1.25; }
-        .section-content ul { margin: 2px 0; padding: 0; list-style: none; }
-        .section-content li { margin-bottom: 2px; display: flex; align-items: flex-start; }
-        .section-content li::before { content: "➤"; margin-right: 5px; color: rgba(255,255,255,0.9); font-size: 0.8em; margin-top: 3px; font-weight: bold; }
         
-        .info-box { background-color: rgba(255,255,255,0.96); color: #111; padding: 4px 8px; border-radius: 3px; margin-top: 4px; font-size: 9pt; font-weight: 700; border-left: 4px solid; display: flex; align-items: center; justify-content: space-between; }
-        
-        .footer-spacer { margin-top: auto; }
-        .ref-bar { text-align: center; padding: 4px; font-size: 7.5pt; color: #666; border-top: 1px solid #ddd; margin-top: 4px; font-weight: 600; }
+        .section-content { 
+            padding: 10px 12px 10px 32px; /* Indent content */
+            font-size: 10.5pt; 
+            font-weight: 500; 
+            line-height: 1.35; 
+            color: #222; /* High Contrast Black on White */
+        }
 
-        /* Colour Classes */
-        .bg-black { background-color: var(--black-bg); }
-        .bg-red { background-color: var(--red-bg); }
-        .bg-blue { background-color: var(--blue-bg); }
-        .bg-purple { background-color: var(--purple-bg); }
-        .bg-pink { background-color: var(--pink-bg); }
-        .bg-green { background-color: var(--green-bg); }
-        .bg-orange { background-color: var(--orange-bg); }
-        .bg-teal { background-color: var(--teal-bg); }
-        .bg-yellow { background-color: var(--yellow-bg); color: #000; }
-        .border-red { border-color: var(--red-bg); }
-        .border-blue { border-color: var(--blue-bg); }
+        .section-content ul { margin: 2px 0; padding: 0; list-style: none; }
+        .section-content li { margin-bottom: 4px; display: flex; align-items: flex-start; }
+        .section-content li::before { content: "•"; margin-right: 8px; color: #555; font-weight: bold; font-size: 1.2em; line-height: 0.8; }
+        
+        /* Footer */
+        .footer-spacer { margin-top: auto; }
+        .ref-bar { text-align: center; padding: 4px; font-size: 7.5pt; color: #888; border-top: 1px solid #eee; margin-top: 4px; font-weight: 600; }
 
         /* Print Media Query */
         @media print {
@@ -162,13 +186,21 @@
             .page { margin: 0; box-shadow: none; page-break-after: always; width: 210mm; height: 297mm; }
             .page:last-child { page-break-after: auto; }
         }
+
+        /* Helper for Theme Borders (Optional - assigns left border color to match page theme) */
+        .theme-pink .section { border-left-color: var(--pink-bg); }
+        .theme-red .section { border-left-color: var(--red-bg); }
+        .theme-blue .section { border-left-color: var(--blue-bg); }
+        .theme-purple .section { border-left-color: var(--purple-bg); }
+        .theme-green .section { border-left-color: var(--green-bg); }
+        .theme-teal .section { border-left-color: var(--teal-bg); }
+        .theme-orange .section { border-left-color: var(--orange-bg); }
     </style>
 </head>
 <body>
 
     <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
 
-    <!-- 1. TITLE PAGE -->
     <div class="page title-page">
         <img src="https://iili.io/KGQOvkl.md.png" class="tp-logo" alt="Logo">
         <div class="tp-main-title">HALO</div>
@@ -179,7 +211,6 @@
         </div>
     </div>
 
-    <!-- 2. USER GUIDE -->
     <div class="page guide-page">
         <div class="gp-header">How to use this guide</div>
         
@@ -188,34 +219,34 @@
             <div class="gp-text">
                 Every procedure consists of two sequential pages:<br><br>
                 <strong>Page A: The Walkthrough (Preparation)</strong><br>
-                Use this during the "Kit Dump" phase. It includes specific equipment checklists, anatomy notes, and detailed setup instructions. One person should read this aloud while the team prepares.<br><br>
+                Use this during the "Kit Dump" phase. It includes specific equipment checklists, anatomy notes, and detailed setup instructions.<br><br>
                 <strong>Page B: The Flowchart (Action)</strong><br>
-                Use this during the procedure itself. Designed for high-stress cognitive processing: high contrast, minimal text, and clear steps.
+                Use this during the procedure itself. Designed for high-stress cognitive processing: high contrast, white space, and clear steps.
             </div>
         </div>
 
         <div class="gp-section">
-            <div class="gp-title"><span>2.</span> Safety</div>
+            <div class="gp-title"><span>2.</span> Design Principles</div>
             <div class="gp-text">
-                <strong>Equipment Checklists:</strong> Use the check-boxes to ensure closed-loop communication (e.g., "Scalpel?" - "Check").<br>
-                <strong>Warnings:</strong> Critical safety stops (e.g., gastric balloon inflation volumes) are highlighted in RED boxes.
+                <strong>Standard Steps (Grey):</strong> Routine actions and setups.<br>
+                <strong>Critical Steps (Red):</strong> Dangerous actions (incisions) or stops.<br>
+                <strong>White Space:</strong> Blocks are separated to prevent reading errors.
             </div>
         </div>
 
         <div class="gp-box">
             <strong>⚠️ CLINICAL DISCLAIMER</strong><br>
-            These guides are cognitive aids for trained medical professionals. They do not replace clinical judgment. Guidelines are subject to change. Always verify with your local Trust protocols.
+            These guides are cognitive aids for trained medical professionals. They do not replace clinical judgment. Guidelines are subject to change.
         </div>
     </div>
 
-    <!-- 3. CONTENTS PAGE -->
     <div class="page contents-page">
         <div class="gp-header">Contents</div>
         
         <div class="toc-grid">
             <div class="toc-column">
                 <div class="toc-group">
-                    <div class="toc-header bg-pink">Obstetric</div>
+                    <div class="toc-header" style="background: var(--pink-bg);">Obstetric</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Resuscitative Hysterotomy</span> <span>Pg 4-5</span></li>
                         <li class="toc-item"><span>Emergency Breech Delivery</span> <span>Pg 6-7</span></li>
@@ -223,7 +254,7 @@
                 </div>
 
                 <div class="toc-group">
-                    <div class="toc-header bg-red">Trauma / Critical</div>
+                    <div class="toc-header" style="background: var(--red-bg);">Trauma / Critical</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Resuscitative Thoracotomy</span> <span>Pg 8-9</span></li>
                         <li class="toc-item"><span>Escharotomy (Burns)</span> <span>Pg 10-11</span></li>
@@ -231,14 +262,14 @@
                 </div>
 
                 <div class="toc-group">
-                    <div class="toc-header bg-blue">Thoracic</div>
+                    <div class="toc-header" style="background: var(--blue-bg);">Thoracic</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Chest Drain (Open)</span> <span>Pg 12-13</span></li>
                     </ul>
                 </div>
 
                 <div class="toc-group">
-                    <div class="toc-header bg-purple">Cardiac / Vascular</div>
+                    <div class="toc-header" style="background: var(--purple-bg);">Cardiac / Vascular</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Pericardiocentesis</span> <span>Pg 14-15</span></li>
                         <li class="toc-item"><span>External Pacing</span> <span>Pg 16-17</span></li>
@@ -249,14 +280,14 @@
 
             <div class="toc-column">
                 <div class="toc-group">
-                    <div class="toc-header bg-teal">Gastrointestinal</div>
+                    <div class="toc-header" style="background: var(--teal-bg);">Gastrointestinal</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Sengstaken / Minnesota</span> <span>Pg 20-21</span></li>
                     </ul>
                 </div>
 
                 <div class="toc-group">
-                    <div class="toc-header bg-orange">Specialist</div>
+                    <div class="toc-header" style="background: var(--orange-bg);">Specialist</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Lateral Canthotomy</span> <span>Pg 22-23</span></li>
                         <li class="toc-item"><span>Severe Max-Fax Bleed</span> <span>Pg 24-25</span></li>
@@ -264,14 +295,14 @@
                 </div>
 
                 <div class="toc-group">
-                    <div class="toc-header bg-yellow">Toxicology</div>
+                    <div class="toc-header" style="background: var(--yellow-bg); color: black;">Toxicology</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>LAST (Lipid Rescue)</span> <span>Pg 26-27</span></li>
                     </ul>
                 </div>
 
                 <div class="toc-group" style="margin-top:20px;">
-                    <div class="toc-header bg-blue">Airway (Rescue)</div>
+                    <div class="toc-header" style="background: var(--blue-bg);">Airway (Rescue)</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Surgical Airway (eFONA)</span> <span>Pg 28-29</span></li>
                     </ul>
@@ -280,15 +311,12 @@
         </div>
     </div>
 
-    <!-- === OBSTETRIC === -->
-
-    <!-- [4] HYSTEROTOMY WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--pink-bg);">Hysterotomy Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Indications</div>
                         <div class="wt-box-content">
                             • Maternal Cardiac Arrest.<br>
@@ -297,7 +325,7 @@
                             • <strong>GOAL:</strong> Delivery by minute 5.
                         </div>
                     </div>
-                    <div class="wt-box wt-kit">
+                    <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10/20)</div>
@@ -312,7 +340,7 @@
                     </div>
                 </div>
                 <div class="wt-col">
-                    <div class="wt-box wt-steps">
+                    <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Detailed Steps</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
@@ -330,25 +358,26 @@
         </div>
     </div>
 
-    <!-- [5] HYSTEROTOMY FLOWCHART -->
     <div class="page">
-        <div class="side-strip bg-pink"><span>OBSTETRIC EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--pink-bg); border-color: #560027;">
+        <div class="side-strip" style="background: var(--pink-bg);"><span>OBSTETRIC EMERGENCY</span></div>
+        <div class="content-area theme-pink">
+            <div class="main-header" style="background-color: var(--pink-bg);">
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Resuscitative Hysterotomy</h1>
                 <h2>Perimortem C-Section (>20 Weeks)</h2>
             </div>
-            <div class="section" style="background: white; color: black; border: 3px solid var(--red-bg);">
-                <div class="section-header"><div class="icon-box" style="background: var(--red-bg); color: white;">!</div><div class="section-title" style="color: var(--red-bg);">GOAL: DELIVERY < 5 MINS</div></div>
+            
+            <div class="section step-warning">
                 <div class="section-content">
                     <ul>
+                        <li><strong>GOAL: DELIVERY < 5 MINS</strong></li>
                         <li><strong>Indication:</strong> Maternal Arrest. Uterus ≥ Umbilicus.</li>
                         <li><strong>Location:</strong> Operate on trolley. DO NOT move to theatre.</li>
                     </ul>
                 </div>
             </div>
-            <div class="section bg-blue">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">CPR MODIFICATIONS</div></div>
                 <div class="section-content">
                     <ul>
@@ -357,7 +386,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-red">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">THE INCISION</div></div>
                 <div class="section-content">
                     <ul>
@@ -366,7 +396,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-purple">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">UTERINE ENTRY</div></div>
                 <div class="section-content">
                     <ul>
@@ -375,7 +406,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-green">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">4</div><div class="section-title">POST-DELIVERY</div></div>
                 <div class="section-content">
                     <ul>
@@ -389,13 +421,12 @@
         </div>
     </div>
 
-    <!-- [6] BREECH WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--pink-bg);">Breech Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Principles</div>
                         <div class="wt-box-content">
                             • <strong>Hands Off:</strong> Touching causes gasping/head extension.<br>
@@ -406,7 +437,7 @@
                     </div>
                 </div>
                 <div class="wt-col">
-                    <div class="wt-box wt-steps">
+                    <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Manoeuvres</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
@@ -421,25 +452,26 @@
         </div>
     </div>
 
-    <!-- [7] BREECH FLOWCHART -->
     <div class="page">
-        <div class="side-strip bg-pink"><span>OBSTETRIC EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--pink-bg); border-color: #560027;">
+        <div class="side-strip" style="background: var(--pink-bg);"><span>OBSTETRIC EMERGENCY</span></div>
+        <div class="content-area theme-pink">
+            <div class="main-header" style="background-color: var(--pink-bg);">
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Emergency Breech</h1>
                 <h2>Vaginal Delivery Manoeuvres</h2>
             </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">THE GOLDEN RULE</div></div>
+            
+            <div class="section step-warning">
                 <div class="section-content">
                     <ul>
-                        <li><strong>HANDS OFF THE BREECH.</strong></li>
+                        <li><strong>THE GOLDEN RULE: HANDS OFF.</strong></li>
                         <li>Allow breech to hang. Call Obs/Paeds.</li>
+                        <li>Only intervene if descent stops.</li>
                     </ul>
                 </div>
             </div>
-            <div class="section bg-blue">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">LEGS STUCK (Pinard's)</div></div>
                 <div class="section-content">
                     <ul>
@@ -448,7 +480,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-purple">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">ARMS STUCK (Loveset's)</div></div>
                 <div class="section-content">
                     <ul>
@@ -457,7 +490,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-red">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">HEAD STUCK (MSV)</div></div>
                 <div class="section-content">
                     <ul>
@@ -471,15 +505,12 @@
         </div>
     </div>
 
-    <!-- === TRAUMA / CRITICAL === -->
-
-    <!-- [8] THORACOTOMY WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--red-bg);">Thoracotomy Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Indications (FPHC/RCEM)</div>
                         <div class="wt-box-content">
                             • <strong>Penetrating:</strong> Arrest < 15 mins. Signs of Life on scene.<br>
@@ -487,7 +518,7 @@
                             • "Signs of Life": Pupils, gasping, cardiac motion.
                         </div>
                     </div>
-                    <div class="wt-box wt-kit">
+                    <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10/20)</div>
@@ -501,7 +532,7 @@
                     </div>
                 </div>
                 <div class="wt-col">
-                    <div class="wt-box wt-steps">
+                    <div class="wt-box">
                         <div class="wt-box-header">Clamshell Technique</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
@@ -519,17 +550,16 @@
         </div>
     </div>
 
-    <!-- [9] THORACOTOMY FLOWCHART -->
     <div class="page">
-        <div class="side-strip bg-red"><span>TRAUMA ARREST</span></div>
-        <div class="content-area">
-            <div class="main-header">
+        <div class="side-strip" style="background: var(--red-bg);"><span>TRAUMA ARREST</span></div>
+        <div class="content-area theme-red">
+            <div class="main-header" style="background-color: var(--red-bg);">
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Resuscitative Thoracotomy</h1>
                 <h2>"The Clamshell" Approach</h2>
             </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS</div></div>
+            
+            <div class="section step-warning">
                 <div class="section-content">
                     <ul>
                         <li><strong>Penetrating:</strong> Arrest < 15 mins. Signs of Life.</li>
@@ -537,7 +567,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-blue">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">INCISION (CLAMSHELL)</div></div>
                 <div class="section-content">
                     <ul>
@@ -546,7 +577,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-red">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">EXPOSURE</div></div>
                 <div class="section-content">
                     <ul>
@@ -555,7 +587,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-purple">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">ACTIONS</div></div>
                 <div class="section-content">
                     <ul>
@@ -564,7 +597,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-green">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">4</div><div class="section-title">AORTIC CROSS CLAMP</div></div>
                 <div class="section-content">
                     <ul>
@@ -578,13 +612,12 @@
         </div>
     </div>
 
-    <!-- [10] ESCHAROTOMY WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--black-bg);">Escharotomy Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Indications</div>
                         <div class="wt-box-content">
                             • Circumferential full-thickness burns.<br>
@@ -592,7 +625,7 @@
                             • <strong>Limbs:</strong> Ischaemia (Pallor, Absent Doppler).
                         </div>
                     </div>
-                    <div class="wt-box wt-kit">
+                    <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Diathermy (Preferred)</div>
@@ -603,7 +636,7 @@
                     </div>
                 </div>
                 <div class="wt-col">
-                    <div class="wt-box wt-steps">
+                    <div class="wt-box">
                         <div class="wt-box-header">Lines of Incision</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
@@ -619,17 +652,16 @@
         </div>
     </div>
 
-    <!-- [11] ESCHAROTOMY FLOWCHART -->
     <div class="page">
-        <div class="side-strip bg-black"><span>BURNS EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: #424242; border-color: #000;">
+        <div class="side-strip" style="background: var(--black-bg);"><span>BURNS EMERGENCY</span></div>
+        <div class="content-area" style="border-left: 0;">
+            <div class="main-header" style="background-color: #333;">
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Escharotomy</h1>
                 <h2>Circumferential Burns</h2>
             </div>
-            <div class="section bg-red">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS</div></div>
+            
+            <div class="section step-warning">
                 <div class="section-content">
                     <ul>
                         <li><strong>Chest:</strong> Ventilation compromise.</li>
@@ -637,7 +669,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-blue">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">CHEST ("BREASTPLATE")</div></div>
                 <div class="section-content">
                     <ul>
@@ -646,7 +679,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-purple">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">UPPER LIMBS</div></div>
                 <div class="section-content">
                     <ul>
@@ -655,7 +689,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-green">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">LOWER LIMBS</div></div>
                 <div class="section-content">
                     <ul>
@@ -669,22 +704,19 @@
         </div>
     </div>
 
-    <!-- === THORACIC === -->
-
-    <!-- [12] CHEST DRAIN WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--blue-bg);">Chest Drain Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Indications</div>
                         <div class="wt-box-content">
                             • Traumatic Haemothorax / Pneumothorax.<br>
                             • Massive Pleural Effusion (Unstable).
                         </div>
                     </div>
-                    <div class="wt-box wt-kit">
+                    <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
@@ -698,7 +730,7 @@
                     </div>
                 </div>
                 <div class="wt-col">
-                    <div class="wt-box wt-steps">
+                    <div class="wt-box" style="border-top: 4px solid var(--blue-bg);">
                         <div class="wt-box-header">Technique</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
@@ -716,16 +748,16 @@
         </div>
     </div>
 
-    <!-- [13] CHEST DRAIN FLOWCHART -->
     <div class="page">
-        <div class="side-strip bg-blue"><span>THORACIC EMERGENCY</span></div>
-        <div class="content-area">
+        <div class="side-strip" style="background: var(--blue-bg);"><span>THORACIC EMERGENCY</span></div>
+        <div class="content-area theme-blue">
             <div class="main-header" style="background-color: var(--blue-bg);">
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Chest Drain (Open)</h1>
                 <h2>Trauma / Haemothorax</h2>
             </div>
-            <div class="section bg-black">
+            
+            <div class="section">
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">SAFETY TRIANGLE</div></div>
                 <div class="section-content">
                     <ul>
@@ -734,7 +766,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-red">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">INCISION & DISSECTION</div></div>
                 <div class="section-content">
                     <ul>
@@ -743,7 +776,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-purple">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">PLEURAL ENTRY</div></div>
                 <div class="section-content">
                     <ul>
@@ -752,7 +786,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-green">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">4</div><div class="section-title">INSERTION</div></div>
                 <div class="section-content">
                     <ul>
@@ -766,15 +801,12 @@
         </div>
     </div>
 
-    <!-- === CARDIAC / VASCULAR === -->
-
-    <!-- [14] PERICARDIO WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--purple-bg);">Pericardio Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Indications</div>
                         <div class="wt-box-content">
                             • Cardiac Tamponade (Non-Traumatic).<br>
@@ -782,7 +814,7 @@
                             • In Trauma: Thoracotomy is preferred.
                         </div>
                     </div>
-                    <div class="wt-box wt-kit">
+                    <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Spinal Needle / Long Cannula</div>
@@ -793,7 +825,7 @@
                     </div>
                 </div>
                 <div class="wt-col">
-                    <div class="wt-box wt-steps">
+                    <div class="wt-box" style="border-top: 4px solid var(--purple-bg);">
                         <div class="wt-box-header">Technique</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
@@ -810,24 +842,25 @@
         </div>
     </div>
 
-    <!-- [15] PERICARDIO FLOWCHART -->
     <div class="page">
-        <div class="side-strip bg-purple"><span>CARDIAC EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--purple-bg); border-color: #4a148c;">
+        <div class="side-strip" style="background: var(--purple-bg);"><span>CARDIAC EMERGENCY</span></div>
+        <div class="content-area theme-purple">
+            <div class="main-header" style="background-color: var(--purple-bg);">
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Pericardiocentesis</h1>
                 <h2>Tamponade Decompression</h2>
             </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">DIAGNOSIS</div></div>
+            
+            <div class="section step-warning">
                 <div class="section-content">
                     <ul>
                         <li>Beck's Triad. <strong>POCUS:</strong> Fluid + RV Collapse.</li>
+                        <li>In Trauma -> Consider Thoracotomy.</li>
                     </ul>
                 </div>
             </div>
-            <div class="section bg-blue">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">APPROACH</div></div>
                 <div class="section-content">
                     <ul>
@@ -836,7 +869,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-purple">
+
+            <div class="section step-critical">
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">TECHNIQUE</div></div>
                 <div class="section-content">
                     <ul>
@@ -846,7 +880,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="section bg-green">
+
+            <div class="section">
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">MANAGEMENT</div></div>
                 <div class="section-content">
                     <ul>
@@ -860,692 +895,19 @@
         </div>
     </div>
 
-    <!-- [16] PACING WALKTHROUGH -->
     <div class="page">
         <div class="content-area wt-layout">
             <div class="wt-header" style="background-color: var(--green-bg);">Pacing Walkthrough</div>
             <div class="wt-grid">
                 <div class="wt-col">
-                    <div class="wt-box wt-indications">
+                    <div class="wt-box">
                         <div class="wt-box-header">Indications</div>
                         <div class="wt-box-content">
                             • Symptomatic Bradycardia unresponsive to drugs.<br>
                             • Mobitz II or Complete Heart Block.
                         </div>
                     </div>
-                    <div class="wt-box wt-kit">
+                    <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Defib/Pacer Unit</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Pacing Pads</div>
-                            <div class="checklist-item"><div class="checkbox"></div> ECG Electrodes (3-lead)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Sedation (Ketamine/Midaz)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Steps</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Pads:</strong> Anterior-Posterior is best.</li>
-                                <li><strong>Mode:</strong> Select "Pacer". Rate 70-80.</li>
-                                <li><strong>Current:</strong> Start 30mA. Increase until Electrical Capture (Spike+QRS).</li>
-                                <li><strong>Confirm:</strong> Check Femoral pulse (Mechanical Capture).</li>
-                                <li><strong>Safety:</strong> Set current +10mA above threshold.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [17] PACING FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-green"><span>CARDIAC EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--green-bg); border-color: #1b5e20;">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>External Pacing</h1>
-                <h2>Unstable Bradycardia</h2>
-            </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Symptomatic Bradycardia unresponsive to drugs.</li>
-                        <li>Mobitz II or CHB.</li>
-                        <li><strong>Sedation:</strong> Ketamine/Midazolam (Painful).</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">SETUP</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Pads: Anterior-Posterior. Connect ECG.</li>
-                        <li>Select "Pacer". Rate: 70-80 bpm.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-red">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">CAPTURE (mA)</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Start 30 mA. Increase gradually.</li>
-                        <li>Look for <strong>Electrical Capture:</strong> Spike + Broad QRS.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">CONFIRMATION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Mechanical Capture:</strong> Palpate Femoral Pulse.</li>
-                        <li>Set current <strong>10 mA above</strong> threshold.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: Resus Council UK ALS 2021.</div>
-        </div>
-    </div>
-
-    <!-- [18] SUBCLAVIAN WALKTHROUGH -->
-    <div class="page">
-        <div class="content-area wt-layout">
-            <div class="wt-header" style="background-color: var(--green-bg);">Subclavian Walkthrough</div>
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box wt-indications">
-                        <div class="wt-box-header">Indications</div>
-                        <div class="wt-box-content">
-                            • Crash vascular access.<br>
-                            • IJ/Femoral not suitable/accessible.
-                        </div>
-                    </div>
-                    <div class="wt-box wt-kit">
-                        <div class="wt-box-header">Equipment</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> CVC Kit</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Sterile Gown/Gloves</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Flush</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Suture</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Landmarks</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Position:</strong> Head down (Trendelenburg). Towel between shoulders.</li>
-                                <li><strong>Landmark:</strong> Junction of Medial/Middle third of clavicle.</li>
-                                <li><strong>Insert:</strong> 1cm below clavicle.</li>
-                                <li><strong>Aim:</strong> Sternal Notch. Keep syringe flat.</li>
-                                <li><strong>Seldinger:</strong> Flash -> Wire -> Dilate -> Railraod.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [19] SUBCLAVIAN FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-green"><span>VASCULAR ACCESS</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--green-bg); border-color: #1b5e20;">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Subclavian Line</h1>
-                <h2>Infraclavicular Landmark Approach</h2>
-            </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">NOTE</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Use Ultrasound if available.</strong> Crash use only.</li>
-                        <li>Right side preferred.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">POSITION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Trendelenburg 15°. Rolled towel between scapulae.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-red">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">LANDMARKS</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Junction of Medial/Middle third of clavicle.</li>
-                        <li>Insert 1cm below. <strong>Aim:</strong> Sternal Notch. <strong>Keep flat</strong>.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">SELDINGER</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Venous Flash -> Stabilise. Insert Wire.</li>
-                        <li>Dilate -> Catheter -> Aspirate -> Suture.</li>
-                        <li><strong>Mandatory CXR.</strong></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: AAGBI Safe Vascular Access.</div>
-        </div>
-    </div>
-
-    <!-- === GASTROINTESTINAL === -->
-
-    <!-- [20] SENGSTAKEN WALKTHROUGH -->
-    <div class="page">
-        <div class="content-area wt-layout">
-            <div class="wt-header" style="background-color: var(--teal-bg);">Sengstaken Walkthrough</div>
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box wt-indications">
-                        <div class="wt-box-header">Indications</div>
-                        <div class="wt-box-content">
-                            • Life-threatening Variceal Haemorrhage.<br>
-                            • Uncontrolled by endoscopy/drugs.<br>
-                            • <strong>Intubate First.</strong>
-                        </div>
-                    </div>
-                    <div class="wt-box wt-kit">
-                        <div class="wt-box-header">Equipment</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Tube (Sengstaken/Minnesota)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> 50ml Syringe (Catheter tip)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Strong Clamps (x2)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lubricant</div>
-                            <div class="checklist-item"><div class="checkbox"></div> 1L Saline Bag (Weight)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Technique</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Check:</strong> Inflate balloons underwater. Deflate.</li>
-                                <li><strong>Insert:</strong> To 50cm. Aspirate stomach.</li>
-                                <li><strong>Test:</strong> 50ml Air -> Gastric Balloon.</li>
-                                <li><strong>X-Ray:</strong> CONFIRM position below diaphragm.</li>
-                                <li><strong>Inflate:</strong> 250ml Air -> Gastric Balloon. Clamp.</li>
-                                <li><strong>Traction:</strong> Pull back. 1kg weight.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [21] SENGSTAKEN FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-teal"><span>GI HAEMORRHAGE</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--teal-bg); border-color: #004d40;">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Sengstaken / Minnesota</h1>
-                <h2>Uncontrollable Variceal Bleed</h2>
-            </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">PREPARATION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Intubate First.</strong> Mandatory.</li>
-                        <li>Test balloons underwater. Lubricate.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">INSERTION & SAFETY</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Insert to 50cm.</li>
-                        <li>Inflate Gastric Balloon with <strong>50ml Air ONLY</strong>.</li>
-                        <li><strong>STOP & CXR.</strong> Confirm balloon below diaphragm.</li>
-                        <li>If confirmed: Inflate to <strong>250ml</strong>. Clamp.</li>
-                    </ul>
-                    <div class="info-box border-red">
-                        <div>Warning: Oesophageal inflation = Rupture/Death.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">TRACTION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Gently pull back until resistance felt.</li>
-                        <li>Apply <strong>1kg Traction</strong> (e.g. 1L Saline bag).</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-red">
-                <div class="section-header"><div class="icon-box">4</div><div class="section-title">OESOPHAGEAL BALLOON</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Rescue Only.</strong> Use if bleeding continues.</li>
-                        <li>Inflate to 30-40 mmHg (Manometer).</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: BSG Guidelines 2025.</div>
-        </div>
-    </div>
-
-    <!-- === SPECIALIST === -->
-
-    <!-- [22] CANTHOTOMY WALKTHROUGH -->
-    <div class="page">
-        <div class="content-area wt-layout">
-            <div class="wt-header" style="background-color: var(--orange-bg);">Canthotomy Walkthrough</div>
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box wt-indications">
-                        <div class="wt-box-header">Indications</div>
-                        <div class="wt-box-content">
-                            • Retrobulbar Haematoma.<br>
-                            • Proptosis + Pain + Reduced Vision.<br>
-                            • IOP > 40 mmHg ("Rock hard").<br>
-                            • <strong>Time is Vision.</strong> No CT first.
-                        </div>
-                    </div>
-                    <div class="wt-box wt-kit">
-                        <div class="wt-box-header">Equipment</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine w/ Adrenaline</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Syringe/Orange Needle</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Saline</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Mosquito Forceps</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Iris/Tenotomy Scissors</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Toothed Forceps</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Steps</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Inj:</strong> LA to lateral canthus.</li>
-                                <li><strong>Crush:</strong> Mosquito forceps horizontally (1 min).</li>
-                                <li><strong>Cut:</strong> Cut crushed skin.</li>
-                                <li><strong>Cantholysis:</strong> Pull lid down. Feel "guitar string" (Inferior Crus).</li>
-                                <li><strong>Snip:</strong> Cut Inferior Crus. Lid must go loose.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [23] CANTHOTOMY FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-orange"><span>OPHTHALMIC EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--orange-bg); border-color: #e65100;">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Lateral Canthotomy</h1>
-                <h2>Retrobulbar Haematoma</h2>
-            </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Proptosis + Trauma + Decreased VA.</li>
-                        <li>IOP > 40 mmHg. <strong>Time is Vision.</strong></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">PREPARE</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Irrigate eye. Local Anaesthetic w/ Adrenaline.</li>
-                        <li>Aim needle away from globe.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">CRUSH & CUT</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Crush lateral canthus with Mosquito Forceps (1 min).</li>
-                        <li>Cut the crushed tissue (Skin & Orbicularis).</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-green">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">CANTHOLYSIS</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Pull lower lid down to reveal <strong>Inferior Crus</strong>.</li>
-                        <li>"Strum" and <strong>Cut Inferior Crus</strong>.</li>
-                        <li>Re-check IOP. If high -> Cut Superior Crus.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: RCEM & Royal College of Ophthalmologists Consensus (2025).</div>
-        </div>
-    </div>
-
-    <!-- [24] MAX FAX WALKTHROUGH -->
-    <div class="page">
-        <div class="content-area wt-layout">
-            <div class="wt-header" style="background-color: var(--orange-bg);">Max-Fax Walkthrough</div>
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box wt-indications">
-                        <div class="wt-box-header">Priorities</div>
-                        <div class="wt-box-content">
-                            • Airway Obstruction (Blood/Teeth/Tongue).<br>
-                            • Exsanguination (Midface/Scalp).<br>
-                            • C-Spine protection.
-                        </div>
-                    </div>
-                    <div class="wt-box wt-kit">
-                        <div class="wt-box-header">Equipment</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Suction (x2)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Bite Blocks</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Rapid Rhino Packs</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Foley Catheter (Nasopharynx)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> TXA (1g)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Key Manoeuvres</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Sit Up:</strong> If conscious, lean forward.</li>
-                                <li><strong>Disimpaction:</strong> Fingers behind upper teeth. Pull midface forward. Insert Bite Block.</li>
-                                <li><strong>Mandible:</strong> Jaw thrust. Suture tongue if flail.</li>
-                                <li><strong>Nose:</strong> Rapid Rhinos or Foley (inflate, pull back, clamp).</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [25] MAX FAX FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-orange"><span>MAX-FAX TRAUMA</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: #d84315; border-color: #bf360c;">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Severe Max-Fax Bleed</h1>
-                <h2>Stabilisation</h2>
-            </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">AIRWAY</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Conscious: Sit up, lean forward.</li>
-                        <li>Unconscious: Intubate (RSI). Avoid nasal route.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">MIDFACE REDUCTION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Action:</strong> Gloved fingers behind upper teeth.</li>
-                        <li><strong>Pull Forward</strong> to disimpact the floating face.</li>
-                        <li>Use Bite Block or Gag to maintain position.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">NASAL PACKING</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Rapid Rhino:</strong> Bilateral.</li>
-                        <li><strong>Foley Catheter:</strong> Insert, inflate 15ml, pull back, clamp.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-green">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">ADJUNCTS</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>TXA 1g IV</strong>.</li>
-                        <li>Activate MHP. ROTEM guided replacement.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: RCEM & FPHC Consensus (2025).</div>
-        </div>
-    </div>
-
-    <!-- === TOXICOLOGY === -->
-
-    <!-- [26] LAST WALKTHROUGH -->
-    <div class="page">
-        <div class="content-area wt-layout">
-            <div class="wt-header" style="background-color: var(--yellow-bg); color: black;">LAST Walkthrough</div>
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box wt-indications">
-                        <div class="wt-box-header">Signs</div>
-                        <div class="wt-box-content">
-                            • Metallic taste, Tinnitus, Agitation.<br>
-                            • Seizures.<br>
-                            • CVS collapse (Bradycardia, Broad QRS, Asystole).
-                        </div>
-                    </div>
-                    <div class="wt-box wt-kit">
-                        <div class="wt-box-header">Lipid Rescue Kit</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Intralipid 20% (x3 bags)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> 50ml Syringe</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Giving Sets</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Action</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Stop</strong> Injection. Call Help.</li>
-                                <li><strong>Airway:</strong> Intubate. Hyperventilate (pH > 7.45).</li>
-                                <li><strong>Bolus:</strong> 1.5ml/kg (approx 100ml). Repeat x2 if needed.</li>
-                                <li><strong>Infusion:</strong> 15ml/kg/hr.</li>
-                                <li><strong>CPR:</strong> Continue for >1 hour if needed.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [27] LAST FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-yellow"><span style="color:black;">ANAESTHETIC EMERGENCY</span></div>
-        <div class="content-area">
-            <div class="main-header" style="background-color: var(--yellow-bg); border-color: #f9a825; color: black;">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>LAST (Lipid Rescue)</h1>
-                <h2>Local Anaesthetic Toxicity</h2>
-            </div>
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">!</div><div class="section-title">RECOGNITION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>CNS:</strong> Tingling, metallic taste, seizure.</li>
-                        <li><strong>CVS:</strong> Bradycardia, Broad QRS, Arrest.</li>
-                        <li><strong>Action:</strong> STOP INJECTION. Call for Lipid.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">AIRWAY & CPR</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Intubate. <strong>Hyperventilate</strong> (alkalosis).</li>
-                        <li>Prolonged CPR. Avoid Lidocaine.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-red">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">INTRALIPID 20% (BOLUS)</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Bolus:</strong> 1.5 ml/kg (approx 100ml).</li>
-                        <li>Repeat q5min if unstable (Max 3).</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">INTRALIPID 20% (INFUSION)</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Rate:</strong> 15 ml/kg/hour (approx 1000ml/hr).</li>
-                        <li>Double rate if unstable.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: AAGBI Safety Guideline 2023.</div>
-        </div>
-    </div>
-
-    <!-- === AIRWAY (LAST RESORT) === -->
-
-    <!-- [28] eFONA WALKTHROUGH -->
-    <div class="page">
-        <div class="content-area wt-layout">
-            <div class="wt-header" style="background-color: var(--blue-bg);">eFONA Walkthrough</div>
-            
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box wt-indications" style="background-color: #ffebee;">
-                        <div class="wt-box-header" style="background-color: #ef9a9a; color: black;">LOCATION</div>
-                        <div class="wt-box-content" style="font-size: 13pt; font-weight: bold; text-align: center; color: var(--red-bg);">
-                            EQUIPMENT LOCATED IN<br>DIFFICULT AIRWAY TROLLEY
-                        </div>
-                    </div>
-                    
-                    <div class="wt-box wt-kit">
-                        <div class="wt-box-header">Equipment Checklist</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Bougie (Coude tip)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> ETT Size 6.0 (Cuffed)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lubricant</div>
-                            <div class="checklist-item"><div class="checkbox"></div> 10ml Syringe</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Tube Tie</div>
-                            <div class="checklist-item"><div class="checkbox"></div> BVM / EtCO2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="wt-col">
-                    <div class="wt-box wt-steps">
-                        <div class="wt-box-header">Detailed Steps (DAS Plan D)</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>Position:</strong> Maximize neck extension.</li>
-                                <li><strong>Laryngeal Handshake:</strong> Identify CTM.</li>
-                                <li><strong>Incision:</strong> Transverse stab. Rotate blade 90°. <strong>Do not withdraw blade.</strong></li>
-                                <li><strong>Bougie:</strong> Slide bougie down blade into trachea.</li>
-                                <li><strong>Railroad:</strong> Advance tube over bougie. Twist.</li>
-                                <li><strong>Ventilate:</strong> Inflate cuff, check EtCO2.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- [29] eFONA FLOWCHART -->
-    <div class="page">
-        <div class="side-strip bg-blue"><span>DAS GUIDELINES 2025</span></div>
-        <div class="content-area">
-            <div class="main-header">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Surgical Airway (eFONA)</h1>
-                <h2>Can't Intubate, Can't Oxygenate (CICO)</h2>
-            </div>
-            
-            <div class="section" style="background: #ffebee; border: 2px solid var(--red-bg); color: black;">
-                <div class="section-content" style="text-align: center; font-weight: bold; font-size: 12pt; padding: 10px;">
-                    ⚠️ GRAB KIT FROM DIFFICULT AIRWAY TROLLEY
-                </div>
-            </div>
-
-            <div class="section bg-black">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">DECLARE EMERGENCY</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Call out:</strong> "CICO. Proceeding to Emergency Front of Neck Airway."</li>
-                        <li><strong>Action:</strong> 100% Oxygen to face. Extend Neck.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-blue">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">LARYNGEAL HANDSHAKE</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Grasp Hyoid and Thyroid. Slide finger to <strong>Cricothyroid Membrane</strong>.</li>
-                        <li><strong>Plan:</strong> Scalpel - Bougie - Tube.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-red">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">INCISION (SCALPEL)</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Transverse Stab</strong> through CTM.</li>
-                        <li><strong>Turn Blade 90°</strong> (Sharp edge caudal).</li>
-                        <li><strong>DO NOT REMOVE SCALPEL.</strong> Swap hands if needed.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-purple">
-                <div class="section-header"><div class="icon-box">4</div><div class="section-title">RAILROAD</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Slide <strong>Bougie</strong> down the blade into trachea.</li>
-                        <li>Remove Scalpel. Railroad <strong>6.0 ETT</strong>.</li>
-                        <li>Twist tube. Inflate cuff.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section bg-green">
-                <div class="section-header"><div class="icon-box">5</div><div class="section-title">CONFIRMATION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Connect BVM. <strong>Confirm EtCO2</strong>.</li>
-                        <li>Suction trachea. Secure tube.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="ref-bar">Reference: Difficult Airway Society (DAS) 2025 Guidelines.</div>
-        </div>
-    </div>
-
-</body>
-</html>
-
+                            <div class="checklist-item"><div
