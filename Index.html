@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMEBEM HALO Procedures Booklet 2025</title>
+    <style>
+        /* --- 2025 STYLE PALETTE --- */
+        :root {
+            --red-bg: #b71c1c;     /* Critical Action */
+            --blue-bg: #0d47a1;    /* Airway / Breathing */
+            --purple-bg: #4a148c;  /* Procedures */
+            --pink-bg: #880e4f;    /* Obstetric */
+            --green-bg: #1b5e20;   /* Circulation / Adjuncts */
+            --orange-bg: #e65100;  /* Specialist */
+            --black-bg: #212121;   /* Warnings */
+            --teal-bg: #006064;    /* GI / Medical */
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #333;
+        }
+
+        /* --- A4 PAGE SETUP --- */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 20px auto;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        /* --- SIDE STRIP --- */
+        .side-strip {
+            width: 15mm;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-right: 1px solid #ccc;
+            z-index: 2;
+        }
+
+        .side-strip span {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-weight: 900;
+            letter-spacing: 3px;
+            font-size: 14pt;
+            white-space: nowrap;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENT LAYOUT --- */
+        .content-area {
+            flex: 1;
+            padding: 10mm 12mm;
+            display: flex;
+            flex-direction: column;
+            gap: 4mm;
+            background-color: #fcfcfc;
+        }
+
+        /* --- HEADERS --- */
+        .main-header {
+            position: relative;
+            background-color: var(--red-bg);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 2mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .logo-img {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50px;
+            width: auto;
+            background: white;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 24pt;
+            text-transform: uppercase;
+            line-height: 1;
+            font-weight: 900;
+        }
+
+        .main-header h2 {
+            margin: 5px 0 0 0;
+            font-size: 12pt;
+            font-weight: 700;
+            background-color: rgba(0,0,0,0.25);
+            padding: 4px 15px;
+            border-radius: 4px;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .icon-box {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14pt;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content {
+            padding-left: 44px;
+            font-size: 11pt;
+            font-weight: 500;
+            line-height: 1.35;
+        }
+
+        .section-content ul {
+            margin: 2px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .section-content li {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .section-content li::before {
+            content: "➤";
+            margin-right: 8px;
+            color: rgba(255,255,255,0.95);
+            font-size: 0.9em;
+            margin-top: 4px;
+            font-weight: bold;
+        }
+
+        /* --- INFO BOXES --- */
+        .info-box {
+            background-color: rgba(255,255,255,0.95);
+            color: #111;
+            padding: 8px 12px;
+            border-radius: 3px;
+            margin-top: 6px;
+            font-size: 10.5pt;
+            font-weight: 700;
+            border-left: 6px solid;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .box-right {
+            text-align: right;
+            font-size: 9pt;
+            font-style: italic;
+            opacity: 0.9;
+            color: #333;
+        }
+
+        /* --- FOOTERS --- */
+        .footer-spacer {
+            margin-top: auto;
+        }
+
+        .ref-bar {
+            text-align: center;
+            padding: 8px;
+            font-size: 8pt;
+            color: #444;
+            border-top: 2px solid #ddd;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* --- COLOUR UTILS --- */
+        .bg-black { background-color: var(--black-bg); }
+        .bg-red { background-color: var(--red-bg); }
+        .bg-blue { background-color: var(--blue-bg); }
+        .bg-purple { background-color: var(--purple-bg); }
+        .bg-pink { background-color: var(--pink-bg); }
+        .bg-green { background-color: var(--green-bg); }
+        .bg-orange { background-color: var(--orange-bg); }
+        .bg-teal { background-color: var(--teal-bg); }
+        
+        .border-red { border-color: var(--red-bg); }
+        .border-blue { border-color: var(--blue-bg); }
+        .border-black { border-color: var(--black-bg); }
+
+        /* --- PRINT OVERRIDES --- */
+        @media print {
+            body { background: none; margin: 0; }
+            .page { margin: 0; box-shadow: none; page-break-after: always; width: 210mm; height: 297mm; }
+            .page:last-child { page-break-after: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. SURGICAL AIRWAY (eFONA) - DAS 2025 -->
+    <div class="page">
+        <div class="side-strip bg-blue"><span>DAS GUIDELINES 2025</span></div>
+        <div class="content-area">
+            <div class="main-header">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Surgical Airway (eFONA)</h1>
+                <h2>Can't Intubate, Can't Oxygenate (CICO)</h2>
+            </div>
+
+            <div class="section bg-black">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">DECLARE EMERGENCY</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Call out:</strong> "CICO. Proceeding to Emergency Front of Neck Airway."</li>
+                        <li><strong>Action:</strong> 100% Oxygen to face/nose. Extend Neck.</li>
+                        <li><strong>Human Factors:</strong> Plan D is a rescue procedure. Do not delay.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">LARYNGEAL HANDSHAKE</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Use non-dominant hand. Grasp Hyoid and Thyroid lamina.</li>
+                        <li>Slide index finger down to <strong>Cricothyroid Membrane</strong>.</li>
+                        <li><strong>Plan:</strong> Scalpel - Bougie - Tube.</li>
+                    </ul>
+                    <div class="info-box border-blue">
+                        <div>KIT: Scalpel (Size 10) • Bougie • Size 6.0 ETT</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section bg-red">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">INCISION (SCALPEL)</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Transverse Stab</strong> through CTM (Blade edge towards you).</li>
+                        <li><strong>Turn Blade 90°</strong> (Sharp edge caudal/towards feet).</li>
+                        <li><strong>DO NOT REMOVE SCALPEL.</strong> Swap hands if needed to hold tract.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">4</div><div class="section-title">RAILROAD (BOUGIE & TUBE)</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Slide <strong>Bougie</strong> down the flat of the blade into trachea.</li>
+                        <li>Remove Scalpel carefully.</li>
+                        <li>Railroad lubricated <strong>Size 6.0 ETT</strong> over bougie.</li>
+                        <li>Twist tube to avoid snagging. Inflate cuff.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">5</div><div class="section-title">CONFIRMATION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Connect BVM & Ventilate.</li>
+                        <li><strong>Mandatory:</strong> Confirm EtCO2 Waveform.</li>
+                        <li>Suction trachea (blood is common). Secure tube.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: Difficult Airway Society (DAS) 2025 Guidelines: Management of Unanticipated Difficult Intubation.</div>
+        </div>
+    </div>
+
+    <!-- 2. RESUSCITATIVE HYSTEROTOMY - RESUS COUNCIL 2025 -->
+    <div class="page">
+        <div class="side-strip bg-pink"><span>OBSTETRIC EMERGENCY</span></div>
+        <div class="content-area">
+            <div class="main-header" style="background-color: var(--pink-bg); border-color: #560027;">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Resuscitative Hysterotomy</h1>
+                <h2>Perimortem C-Section (>20 Weeks)</h2>
+            </div>
+
+            <div class="section" style="background: white; color: black; border: 4px solid var(--red-bg);">
+                <div class="section-header"><div class="icon-box" style="background: var(--red-bg); color: white;">!</div><div class="section-title" style="color: var(--red-bg);">GOAL: DELIVERY < 5 MINS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Indication:</strong> Maternal Arrest. Uterus palpable ≥ Umbilicus.</li>
+                        <li><strong>Location:</strong> Operate on the trolley. DO NOT move to theatre.</li>
+                        <li><strong>Timing:</strong> Incision at Minute 4 if no ROSC.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">CPR MODIFICATIONS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Manual Uterine Displacement to <strong>LEFT</strong> (Relieve IVC).</li>
+                        <li>Splash Chlorhexidine (No bone prep/drapes).</li>
+                        <li>Allocated team member for Neonatal Resus.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-red">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">THE INCISION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Vertical Midline Incision:</strong> Xiphisternum to Pubis.</li>
+                        <li>Incise deep through skin/fat to rectus sheath.</li>
+                        <li>Separate rectus muscles (bluntly or cut midline).</li>
+                        <li>Open peritoneum (watch for bowel/bladder).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">UTERINE ENTRY</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Vertical incision in lower uterine segment.</li>
+                        <li>Insert fingers to lift uterine wall away from fetal head.</li>
+                        <li>Extend incision vertically with <strong>Trauma Shears</strong>.</li>
+                        <li><strong>DELIVER BABY</strong> -> Clamp/Cut Cord -> Pass to Neo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">4</div><div class="section-title">POST-DELIVERY</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Deliver Placenta manually. Pack uterus.</li>
+                        <li>Close uterus (Running large absorbable suture).</li>
+                        <li><strong>Drugs:</strong> Oxytocin 10iu IV, Antibiotics, TXA 1g.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: Resuscitation Council UK (2025 Update) & FPHC Consensus Statement on Obstetric Emergencies.</div>
+        </div>
+    </div>
+
+    <!-- 3. RESUSCITATIVE THORACOTOMY - FPHC/RCEM 2025 -->
+    <div class="page">
+        <div class="side-strip bg-red"><span>TRAUMA ARREST</span></div>
+        <div class="content-area">
+            <div class="main-header">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Resuscitative Thoracotomy</h1>
+                <h2>"The Clamshell" Approach</h2>
+            </div>
+
+            <div class="section bg-black">
+                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS (2025)</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Penetrating:</strong> Arrest < 15 mins. Signs of Life on scene.</li>
+                        <li><strong>Blunt:</strong> Arrest < 10 mins. Witnessed. Signs of Life on scene.</li>
+                        <li><strong>Goals:</strong> Release Tamponade, Control Heart Bleed, Clamp Aorta.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">INCISION (CLAMSHELL)</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Stop CPR briefly. Intubate Right Main Bronchus if possible.</li>
+                        <li><strong>5th Intercostal Space</strong> (Inframammary fold).</li>
+                        <li>Incise: Mid-Axillary Line to Mid-Axillary Line (Bow tie).</li>
+                        <li>Cut through intercostals with heavy scissors.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-red">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">EXPOSURE</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Cut Sternum</strong> transversely with Gigli saw or Shears.</li>
+                        <li>Lift chest wall ("Open the Clamshell"). Retract fully.</li>
+                        <li>Open Pericardium longitudinally (Anterior to Phrenic Nerve).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">ACTIONS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Evacuate clots. Deliver heart.</li>
+                        <li><strong>Control Bleeding:</strong> Finger occlusion / Staples / Foley / Sutures.</li>
+                        <li><strong>Internal Massage:</strong> Two hands, clapping motion (Flat palms).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">4</div><div class="section-title">AORTIC CROSS CLAMP</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Retract left lung medially.</li>
+                        <li>Identify Descending Aorta against the spine.</li>
+                        <li>Blunt dissect and apply vascular clamp to maximise cerebral flow.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: FPHC & RCEM Consensus Statement on Traumatic Cardiac Arrest (2025).</div>
+        </div>
+    </div>
+
+    <!-- 4. ESCHAROTOMY - BBA 2025 -->
+    <div class="page">
+        <div class="side-strip bg-black"><span>BURNS EMERGENCY</span></div>
+        <div class="content-area">
+            <div class="main-header" style="background-color: #424242; border-color: #000;">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Escharotomy</h1>
+                <h2>Circumferential Full Thickness Burns</h2>
+            </div>
+
+            <div class="section bg-red">
+                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Chest:</strong> Ventilation compromise / High Peak Pressures.</li>
+                        <li><strong>Limbs:</strong> Ischaemia (Pallor, CRT >2s, Absent Doppler, Pain).</li>
+                        <li><strong>Goal:</strong> Release constriction. Edges should gape visibly.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">CHEST ("ROMAN BREASTPLATE")</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Vertical:</strong> Bilateral Anterior Axillary Lines.</li>
+                        <li><strong>Transverse Top:</strong> Connect lines below clavicles.</li>
+                        <li><strong>Transverse Bottom:</strong> Connect lines at costal margin.</li>
+                        <li>Ensure incisions extend into unburned skin if possible.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">UPPER LIMBS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Mid-Lateral:</strong> Shoulder to wrist.</li>
+                        <li><strong>Mid-Medial:</strong> Axilla to wrist.</li>
+                        <li><strong>Caution:</strong> Medial Elbow (Ulnar Nerve) - Cut Anterior to Epicondyle.</li>
+                        <li>Release Thenar/Hypothenar eminences if hands involved.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">LOWER LIMBS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Mid-Lateral:</strong> Hip to ankle.</li>
+                        <li><strong>Mid-Medial:</strong> Groin to ankle.</li>
+                        <li><strong>Caution:</strong> Fibular Head (Common Peroneal Nerve).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: British Burn Association (BBA) & LSEBN Guidelines (2025 Review).</div>
+        </div>
+    </div>
+
+    <!-- 5. LATERAL CANTHOTOMY - RCEM 2025 -->
+    <div class="page">
+        <div class="side-strip bg-orange"><span>OPHTHALMIC EMERGENCY</span></div>
+        <div class="content-area">
+            <div class="main-header" style="background-color: var(--orange-bg); border-color: #e65100;">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Lateral Canthotomy</h1>
+                <h2>Retrobulbar Haematoma</h2>
+            </div>
+
+            <div class="section bg-black">
+                <div class="section-header"><div class="icon-box">!</div><div class="section-title">INDICATIONS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Proptosis + Trauma + Decreased VA / APD.</li>
+                        <li>IOP > 40 mmHg (or 'Rock Hard' globe).</li>
+                        <li><strong>Time is Vision.</strong> Do not delay for CT imaging.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">PREPARE</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Irrigate eye. Local Anaesthetic w/ Adrenaline to lateral canthus.</li>
+                        <li>Kit: Mosquito Forceps, Iris/Tenotomy Scissors, Forceps.</li>
+                        <li>Aim needle away from globe.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">CRUSH & CUT</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Crush lateral canthus with Mosquito Forceps (1 min) for haemostasis.</li>
+                        <li>Cut the crushed tissue (Skin & Orbicularis) 1-2cm towards ear.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">CANTHOLYSIS (CRITICAL)</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Pull lower lid down to reveal <strong>Inferior Crus</strong> (Tendinous band).</li>
+                        <li>"Strum" with scissors to identify.</li>
+                        <li><strong>Cut Inferior Crus.</strong> Lower lid should hang loose.</li>
+                        <li>Re-check IOP. If still high -> Cut Superior Crus.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: RCEM & Royal College of Ophthalmologists Consensus (2025).</div>
+        </div>
+    </div>
+
+    <!-- 6. CHEST DRAIN (OPEN) - BTS 2025 -->
+    <div class="page">
+        <div class="side-strip bg-blue"><span>THORACIC EMERGENCY</span></div>
+        <div class="content-area">
+            <div class="main-header" style="background-color: var(--blue-bg);">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Chest Drain (Open)</h1>
+                <h2>Trauma / Haemothorax</h2>
+            </div>
+
+            <div class="section bg-black">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">SAFETY TRIANGLE</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Lat Dorsi (Lat). Pec Major (Med). Axilla (Base).</li>
+                        <li>Target: <strong>5th Intercostal Space</strong>, Anterior Axillary Line.</li>
+                        <li><strong>Standard:</strong> Use Ultrasound to mark site if stable/available.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-red">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">INCISION & DISSECTION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Local Anaesthetic (Skin to Pleura).</li>
+                        <li>3cm Transverse skin incision with scalpel.</li>
+                        <li>Blunt dissection with Kelly Forceps through intercostals.</li>
+                        <li><strong>Stay on Upper Border of Rib</strong> (Avoid NV bundle).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">PLEURAL ENTRY</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Push forceps through pleura ("Pop").</li>
+                        <li>Open forceps widely to dilate tract.</li>
+                        <li><strong>Finger Sweep:</strong> Confirm space, clear adhesions/clot.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">4</div><div class="section-title">INSERTION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Insert Large Bore Tube (28-32F for Trauma).</li>
+                        <li>Aim <strong>Apical & Posterior</strong>.</li>
+                        <li>Connect to seal. Suture (Mattress). Tape. CXR.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: British Thoracic Society (BTS) & RCEM Guidelines (2025).</div>
+        </div>
+    </div>
+
+    <!-- 7. SENGSTAKEN / MINNESOTA TUBE - BSG 2025 -->
+    <div class="page">
+        <div class="side-strip bg-teal"><span>GI HAEMORRHAGE</span></div>
+        <div class="content-area">
+            <div class="main-header" style="background-color: var(--teal-bg); border-color: #004d40;">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Sengstaken / Minnesota</h1>
+                <h2>Uncontrollable Variceal Bleed</h2>
+            </div>
+
+            <div class="section bg-black">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">PREPARATION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Intubate First.</strong> Airway protection is mandatory.</li>
+                        <li>Test balloons for leaks underwater. Fully deflate.</li>
+                        <li>Lubricate generously.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">INSERTION & SAFETY CHECK</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Insert to 50cm. Check gastric aspiration.</li>
+                        <li>Inflate Gastric Balloon with <strong>50ml Air ONLY</strong> initially.</li>
+                        <li><strong>STOP & CXR.</strong> Confirm balloon is below diaphragm.</li>
+                        <li>If confirmed: Inflate to <strong>250ml</strong> (or device max). Clamp.</li>
+                    </ul>
+                    <div class="info-box border-red">
+                        <div>Warning: Full inflation in oesophagus = Rupture/Death.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">TRACTION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Gently pull back until resistance felt.</li>
+                        <li>Apply <strong>1kg Traction</strong> (e.g., 1L Saline bag over pulley).</li>
+                        <li>This usually stops the bleeding (compression of GE junction).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-red">
+                <div class="section-header"><div class="icon-box">4</div><div class="section-title">OESOPHAGEAL BALLOON</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Rescue Only.</strong> Use if bleeding continues despite traction.</li>
+                        <li>Inflate to 30-40 mmHg (Manometer essential).</li>
+                        <li>Release pressure regularly to prevent necrosis.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: British Society of Gastroenterology (BSG) Guidelines 2025.</div>
+        </div>
+    </div>
+
+    <!-- 8. MAXILLOFACIAL HAEMORRHAGE - FPHC 2025 -->
+    <div class="page">
+        <div class="side-strip bg-orange"><span>MAX-FAX TRAUMA</span></div>
+        <div class="content-area">
+            <div class="main-header" style="background-color: #d84315; border-color: #bf360c;">
+                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="WMEBEM">
+                <h1>Severe Max-Fax Bleed</h1>
+                <h2>Stabilisation</h2>
+            </div>
+
+            <div class="section bg-black">
+                <div class="section-header"><div class="icon-box">!</div><div class="section-title">AIRWAY</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Conscious: Sit up, lean forward.</li>
+                        <li>Unconscious: Intubate (RSI with Double Setup). Avoid nasal route.</li>
+                        <li>Consider eFONA early if anatomy destroyed.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-blue">
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">MIDFACE REDUCTION</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>Bleeding is often venous from Pterygoid Plexus (cannot clamp).</li>
+                        <li><strong>Action:</strong> Gloved fingers behind upper teeth/alveolus.</li>
+                        <li><strong>Pull Forward</strong> to disimpact the floating face.</li>
+                        <li>Use Bite Block or Gag to maintain position.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-purple">
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">NASAL PACKING</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Rapid Rhino:</strong> Bilateral 7.5cm / 9cm packs.</li>
+                        <li><strong>Foley Catheter:</strong> Insert, inflate 15ml, pull back to choanae, clamp. Pack anterior nose with gauze.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section bg-green">
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">MANDIBLE & ADJUNCTS</div></div>
+                <div class="section-content">
+                    <ul>
+                        <li>"Flail Mandible" -> Tongue obstruction. Pull jaw forward.</li>
+                        <li><strong>TXA 1g IV</strong> (or per local Massive Haemorrhage Protocol).</li>
+                        <li>Activate MHP. ROTEM guided replacement.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-spacer"></div>
+            <div class="ref-bar">Reference: RCEM & FPHC Consensus Statement on Maxillofacial Trauma (2025).</div>
+        </div>
+    </div>
+
+</body>
+</html>
+
