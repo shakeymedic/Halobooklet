@@ -104,7 +104,7 @@ body {
 
 /* --- WALKTHROUGH (PAGE A) STYLES --- */
 .wt-layout { display: flex; flex-direction: column; height: 100%; width: 100%; }
-.wt-header { padding: 6px 10px; font-weight: 900; color: white; text-transform: uppercase; margin-bottom: 4mm; border-radius: 4px; font-size: 14pt; }
+.wt-header { padding: 6px 10px; font-weight: 900; color: white; text-transform: uppercase; margin-bottom: 4mm; border-radius: 4px; font-size: 14pt; display: flex; justify-content: space-between; align-items: center; }
 .wt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; flex-grow: 1; margin-bottom: 0; }
 .wt-col { display: flex; flex-direction: column; gap: 6mm; }
 .wt-box { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
@@ -225,3 +225,19 @@ body {
 .theme-green .section { border-left-color: var(--green-bg); }
 .theme-teal .section { border-left-color: var(--teal-bg); }
 .theme-orange .section { border-left-color: var(--orange-bg); }
+
+/* --- NEW HALO TROLLEY BADGE --- */
+.halo-badge {
+    background: white;
+    color: black;
+    font-size: 0.6em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
