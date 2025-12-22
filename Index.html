@@ -5,249 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMEBEM HALO Procedures Master 2025 (Final Layout)</title>
     
-    <!-- ========================================== -->
-    <!--               CSS STYLES                   -->
-    <!-- ========================================== -->
-    <style>
-        /* --- COLOUR PALETTE --- */
-        :root {
-            --red-bg: #b71c1c;     /* Critical / Trauma */
-            --blue-bg: #0d47a1;    /* Airway / Breathing */
-            --purple-bg: #4a148c;  /* Cardiac / Invasive */
-            --pink-bg: #880e4f;    /* Obstetric */
-            --green-bg: #1b5e20;   /* Vascular / Adjuncts */
-            --orange-bg: #e65100;  /* Specialist / MaxFax */
-            --black-bg: #212121;   /* Burns / Extreme Warning */
-            --teal-bg: #006064;    /* GI / Medical */
-            --yellow-bg: #fbc02d;  /* Toxicology */
-            --grey-header: #333333; /* Standard Step Header */
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            background-color: #555;
-        }
-
-        /* --- PRINT BUTTON --- */
-        .print-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: white;
-            color: #333;
-            border: 2px solid #333;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 9999;
-            border-radius: 6px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .print-btn:hover { background-color: #eee; }
-
-        /* --- A4 PAGE CONTAINER --- */
-        .page {
-            width: 210mm;
-            height: 297mm;
-            background: white;
-            margin: 20px auto;
-            position: relative;
-            display: flex;
-            overflow: hidden;
-            page-break-after: always;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
-
-        /* --- TITLE PAGE (PG 1) --- */
-        .title-page {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%);
-            padding: 20mm;
-            border: 12px solid var(--blue-bg);
-        }
-        .tp-logo { width: 160px; margin-bottom: 20mm; }
-        .tp-main-title { font-size: 65pt; font-weight: 900; color: var(--blue-bg); line-height: 0.9; margin-bottom: 5mm; letter-spacing: -2px; }
-        .tp-subtitle { font-size: 22pt; font-weight: 300; color: var(--red-bg); letter-spacing: 4px; margin-bottom: 25mm; text-transform: uppercase; }
-        .tp-edition { font-size: 16pt; font-weight: 700; border: 3px solid #333; padding: 10px 40px; display: inline-block; margin-bottom: 30mm; color: #333; }
-
-        /* --- GUIDE PAGE (PG 2) --- */
-        .guide-page { flex-direction: column; padding: 15mm; }
-        .gp-header { font-size: 26pt; font-weight: 800; border-bottom: 4px solid #333; margin-bottom: 10mm; text-transform: uppercase; }
-        .gp-section { margin-bottom: 10mm; }
-        .gp-title { font-size: 16pt; font-weight: 700; color: var(--blue-bg); margin-bottom: 4mm; display: flex; align-items: center; gap: 10px; }
-        .gp-text { font-size: 12pt; line-height: 1.5; color: #444; }
-        .gp-box { background: #fff3e0; padding: 20px; border-radius: 6px; border-left: 8px solid var(--red-bg); margin-top: auto; font-size: 11pt; color: #d84315; font-weight: bold; }
-
-        /* --- CONTENTS PAGE (PG 3) --- */
-        .contents-page { flex-direction: column; padding: 15mm; }
-        .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; align-content: start; }
-        .toc-group { margin-bottom: 8mm; page-break-inside: avoid; }
-        .toc-header { font-size: 12pt; font-weight: 800; color: white; padding: 4px 10px; margin-bottom: 4px; border-radius: 4px; text-transform: uppercase; }
-        .toc-list { list-style: none; padding: 0; margin: 0; }
-        .toc-item { font-size: 10.5pt; padding: 4px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; color: #333; }
-        .toc-item span:last-child { font-weight: 600; color: #666; }
-
-        /* --- COMMON LAYOUT (PAGES 4+) --- */
-        .side-strip { width: 14mm; height: 100%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 2; }
-        .side-strip span { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 900; letter-spacing: 3px; font-size: 11pt; white-space: nowrap; color: white; text-transform: uppercase; }
-        
-        /* Side Strip Logic: Left vs Right Borders */
-        .page > .side-strip:first-child { border-right: 1px solid #ccc; border-left: none; }
-        .page > .side-strip:last-child { border-left: 1px solid #ccc; border-right: none; }
-
-        .content-area { flex: 1; padding: 8mm 10mm; display: flex; flex-direction: column; background-color: #fdfdfd; height: 100%; }
-
-        /* Headers */
-        .main-header { position: relative; color: white; text-align: center; padding: 8px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70px; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 6mm; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .logo-img { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); height: 40px; width: auto; background: white; padding: 2px; border-radius: 4px; }
-        .main-header h1 { margin: 0; font-size: 18pt; text-transform: uppercase; line-height: 1; font-weight: 900; }
-        .main-header h2 { margin: 2px 0 0 0; font-size: 10pt; font-weight: 700; background-color: rgba(0,0,0,0.25); padding: 2px 10px; border-radius: 3px; }
-
-        /* --- WALKTHROUGH (PAGE A) STYLES --- */
-        .wt-layout { display: flex; flex-direction: column; height: 100%; width: 100%; }
-        .wt-header { padding: 6px 10px; font-weight: 900; color: white; text-transform: uppercase; margin-bottom: 4mm; border-radius: 4px; font-size: 14pt; }
-        .wt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; flex-grow: 1; margin-bottom: 0; }
-        .wt-col { display: flex; flex-direction: column; gap: 6mm; }
-        .wt-box { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .wt-box-header { background: #eee; color: #333; padding: 6px 10px; font-weight: 800; font-size: 10pt; border-bottom: 1px solid #ccc; text-transform: uppercase; letter-spacing: 0.5px; }
-        .wt-box-content { padding: 12px; font-size: 9.5pt; line-height: 1.4; flex-grow: 1; color: #222; }
-
-        /* Checklists */
-        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 8px; font-weight: 500; border-bottom: 1px dashed #eee; padding-bottom: 4px; }
-        .checklist-item:last-child { border-bottom: none; }
-        .checkbox { width: 16px; height: 16px; border: 2px solid #555; margin-right: 10px; flex-shrink: 0; border-radius: 3px; background: white; }
-
-        /* Numbered Lists */
-        .step-list { counter-reset: step; list-style: none; padding: 0; margin: 0; }
-        .step-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
-        .step-list li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; font-weight: 800; color: var(--blue-bg); font-size: 0.9em; }
-
-        /* --- DIAGRAMS --- */
-        .diagram-container {
-            margin: 10px 0;
-            text-align: center;
-            background: #fafafa;
-            border: 1px solid #eee;
-            padding: 8px;
-            border-radius: 4px;
-        }
-        .diagram-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 3px;
-            display: block;
-            margin: 0 auto;
-            border: 1px solid #ddd;
-        }
-        .diagram-caption {
-            font-size: 8pt;
-            color: #666;
-            margin-top: 4px;
-            font-weight: 600;            font-style: italic;
-        }
-
-        /* --- FLOWCHART (PAGE B) STYLES --- */
-        .section { 
-            background: white; 
-            border: 1px solid #e0e0e0; 
-            border-left: 6px solid var(--grey-header);
-            border-radius: 4px; 
-            margin-bottom: 5mm; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.08); 
-            display: flex; 
-            flex-direction: column; 
-            overflow: hidden;
-        }
-
-        .section-header { 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            padding: 6px 10px; 
-            background-color: var(--grey-header); 
-            color: white; 
-        }
-
-        .step-critical .section-header { background-color: var(--red-bg); }
-        .step-critical { border-left-color: var(--red-bg); }
-
-        .step-warning { border: 2px solid var(--red-bg); background-color: #ffebee; }
-        .step-warning .section-content { color: #b71c1c; font-weight: bold; }
-
-        .icon-box { 
-            width: 24px; height: 24px; 
-            background: rgba(255,255,255,0.2); 
-            border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 11pt; font-weight: bold; flex-shrink: 0; 
-        }
-
-        .section-title { font-size: 12pt; font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: 0.5px; }
-
-        .section-content { 
-            padding: 10px 12px 10px 32px; 
-            font-size: 10.5pt; 
-            font-weight: 500; 
-            line-height: 1.35; 
-            color: #222; 
-        }
-
-        .section-content ul { margin: 2px 0; padding: 0; list-style: none; }
-        .section-content li { margin-bottom: 6px; display: flex; align-items: flex-start; }
-        .section-content li::before { content: "•"; margin-right: 8px; color: #555; font-weight: bold; font-size: 1.2em; line-height: 0.8; }
-
-        .pro-tip {
-            margin-top: 5px;
-            font-size: 9pt;
-            background: #e3f2fd;
-            color: #0d47a1;
-            padding: 4px 8px;
-            border-radius: 3px;
-            border-left: 3px solid #0d47a1;
-        }
-
-        /* Footer */
-        .footer-spacer { margin-top: auto; }
-        .ref-bar { text-align: center; padding: 4px; font-size: 7.5pt; color: #888; border-top: 1px solid #eee; margin-top: 4px; font-weight: 600; }
-
-        /* Print Media Query */
-        @media print {
-            body { background: none; margin: 0; }
-            .print-btn { display: none; }
-            .page { margin: 0; box-shadow: none; page-break-after: always; width: 210mm; height: 297mm; }
-            .page:last-child { page-break-after: auto; }
-        }
-
-        /* Theme Borders */
-        .theme-pink .section { border-left-color: var(--pink-bg); }
-        .theme-red .section { border-left-color: var(--red-bg); }
-        .theme-blue .section { border-left-color: var(--blue-bg); }
-        .theme-purple .section { border-left-color: var(--purple-bg); }
-        .theme-green .section { border-left-color: var(--green-bg); }
-        .theme-teal .section { border-left-color: var(--teal-bg); }
-        .theme-orange .section { border-left-color: var(--orange-bg); }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!--             UI ELEMENTS                    -->
-    <!-- ========================================== -->
     <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
 
-    <!-- ========================================== -->
-    <!--             TITLE PAGE (1)                 -->
-    <!-- ========================================== -->
     <div class="page title-page">
         <img src="https://iili.io/KGQOvkl.md.png" class="tp-logo" alt="Logo">
         <div class="tp-main-title">HALO</div>
@@ -258,9 +21,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             GUIDE PAGE (2)                 -->
-    <!-- ========================================== -->
     <div class="page guide-page">
         <div class="gp-header">How to use this guide</div>
 
@@ -290,9 +50,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             CONTENTS PAGE (3)              -->
-    <!-- ========================================== -->
     <div class="page contents-page">
         <div class="gp-header">Contents</div>
 
@@ -364,9 +121,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             HYSTEROTOMY (A)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--pink-bg);"><span>OBSTETRIC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -436,9 +190,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             HYSTEROTOMY (B)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-pink">
             <div class="main-header" style="background-color: var(--pink-bg);">
@@ -507,9 +258,6 @@
         <div class="side-strip" style="background: var(--pink-bg);"><span>OBSTETRIC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             BREECH (A)                     -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--pink-bg);"><span>OBSTETRIC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -568,9 +316,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             BREECH (B)                     -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-pink">
             <div class="main-header" style="background-color: var(--pink-bg);">
@@ -627,9 +372,6 @@
         <div class="side-strip" style="background: var(--pink-bg);"><span>OBSTETRIC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             THORACOTOMY (A)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--red-bg);"><span>TRAUMA ARREST</span></div>
         <div class="content-area wt-layout">
@@ -685,9 +427,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             THORACOTOMY (B)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-red">
             <div class="main-header" style="background-color: var(--red-bg);">
@@ -755,9 +494,6 @@
         <div class="side-strip" style="background: var(--red-bg);"><span>TRAUMA ARREST</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             ESCHAROTOMY (A)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--black-bg);"><span>BURNS EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -813,9 +549,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             ESCHAROTOMY (B)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area" style="border-left: 0;">
             <div class="main-header" style="background-color: #333;">
@@ -871,9 +604,6 @@
         <div class="side-strip" style="background: var(--black-bg);"><span>BURNS EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             CHEST DRAIN (A)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--blue-bg);"><span>THORACIC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -927,9 +657,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             CHEST DRAIN (B)                -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-blue">
             <div class="main-header" style="background-color: var(--blue-bg);">
@@ -986,9 +713,6 @@
         <div class="side-strip" style="background: var(--blue-bg);"><span>THORACIC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--         PERICARDIOCENTESIS (A)             -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--purple-bg);"><span>CARDIAC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -1048,9 +772,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--         PERICARDIOCENTESIS (B)             -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-purple">
             <div class="main-header" style="background-color: var(--purple-bg);">
@@ -1109,9 +830,6 @@
         <div class="side-strip" style="background: var(--purple-bg);"><span>CARDIAC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             PACING (A)                     -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--green-bg);"><span>CARDIAC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -1166,9 +884,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             PACING (B)                     -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-green">
             <div class="main-header" style="background-color: var(--green-bg);">
@@ -1224,9 +939,6 @@
         <div class="side-strip" style="background: var(--green-bg);"><span>CARDIAC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             SUBCLAVIAN (A)                 -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--green-bg);"><span>VASCULAR ACCESS</span></div>
         <div class="content-area wt-layout">
@@ -1278,9 +990,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             SUBCLAVIAN (B)                 -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-green">
             <div class="main-header" style="background-color: var(--green-bg);">
@@ -1336,9 +1045,6 @@
         <div class="side-strip" style="background: var(--green-bg);"><span>VASCULAR ACCESS</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             SENGSTAKEN (A)                 -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--teal-bg);"><span>GI HAEMORRHAGE</span></div>
         <div class="content-area wt-layout">
@@ -1391,9 +1097,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             SENGSTAKEN (B)                 -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-teal">
             <div class="main-header" style="background-color: var(--teal-bg);">
@@ -1453,9 +1156,6 @@
         <div class="side-strip" style="background: var(--teal-bg);"><span>GI HAEMORRHAGE</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             CANTHOTOMY (A)                 -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--orange-bg);"><span>OPHTHALMIC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -1510,9 +1210,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             CANTHOTOMY (B)                 -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-orange">
             <div class="main-header" style="background-color: var(--orange-bg);">
@@ -1567,9 +1264,6 @@
         <div class="side-strip" style="background: var(--orange-bg);"><span>OPHTHALMIC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             MAX-FAX (A)                    -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--orange-bg);"><span>MAX-FAX TRAUMA</span></div>
         <div class="content-area wt-layout">
@@ -1623,9 +1317,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             MAX-FAX (B)                    -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-orange">
             <div class="main-header" style="background-color: var(--orange-bg);">
@@ -1681,9 +1372,6 @@
         <div class="side-strip" style="background: var(--orange-bg);"><span>MAX-FAX TRAUMA</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             LAST (A)                       -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--yellow-bg);"><span style="color:black;">ANAESTHETIC EMERGENCY</span></div>
         <div class="content-area wt-layout">
@@ -1735,9 +1423,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             LAST (B)                       -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-yellow">
             <div class="main-header" style="background-color: var(--yellow-bg); color: black;">
@@ -1795,9 +1480,6 @@
         <div class="side-strip" style="background: var(--yellow-bg);"><span style="color:black;">ANAESTHETIC EMERGENCY</span></div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             eFONA (A)                      -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="side-strip" style="background: var(--blue-bg);"><span>DAS GUIDELINES 2025</span></div>
         <div class="content-area wt-layout">
@@ -1849,9 +1531,6 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!--             eFONA (B)                      -->
-    <!-- ========================================== -->
     <div class="page">
         <div class="content-area theme-blue">
             <div class="main-header" style="background-color: var(--blue-bg);">
