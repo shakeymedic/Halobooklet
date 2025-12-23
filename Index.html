@@ -7,9 +7,11 @@
     
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Extra style for the Difficult Airway Badge to make it distinct */
+        /* --- NEW STYLES FOR UPDATES --- */
+        
+        /* Difficult Airway Badge */
         .da-badge {
-            background: #b71c1c; /* Red background */
+            background: #b71c1c;
             color: white;
             font-size: 0.6em;
             padding: 2px 8px;
@@ -23,11 +25,70 @@
             gap: 4px;
             margin-top: 5px;
         }
-        /* Style for the trolley icon in the table of contents */
-        .toc-icon {
-            margin-right: 5px;
-            font-size: 0.9em;
+
+        /* Paediatric Note Box */
+        .paeds-box {
+            border: 2px dashed #0288d1;
+            background: #e1f5fe;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 9.5pt;
+            color: #01579b;
         }
+        .paeds-header {
+            font-weight: 900;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 4px;
+        }
+
+        /* Failure / Plan B Box */
+        .plan-b-box {
+            background: #ffebee;
+            border-left: 4px solid #d32f2f;
+            padding: 8px 12px;
+            margin-top: 8px;
+            font-size: 9.5pt;
+            color: #b71c1c;
+        }
+        .plan-b-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            margin-bottom: 2px;
+        }
+
+        /* Stop Criteria Box */
+        .stop-box {
+            background: #212121;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 9.5pt;
+            text-align: center;
+        }
+
+        /* Hot Debrief Page */
+        .debrief-page {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20mm;
+        }
+        .debrief-card {
+            background: white;
+            padding: 10mm;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-top: 10px solid #2e7d32;
+            width: 100%;
+            max-width: 160mm;
+        }
+        .toc-icon { margin-right: 5px; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -52,9 +113,9 @@
             <div class="gp-text">
                 Every procedure consists of two sequential pages:<br><br>
                 <strong>Page A: The Walkthrough (Preparation)</strong><br>
-                Use this during the "Kit Dump" phase. It includes specific equipment checklists, anatomy notes, and detailed setup instructions.<br><br>
+                Use this during the "Kit Dump" phase. It includes specific equipment checklists and detailed setup instructions.<br><br>
                 <strong>Page B: The Flowchart (Action)</strong><br>
-                Use this during the procedure itself. Designed for high-stress cognitive processing: high contrast, white space, and clear steps.
+                Use this during the procedure itself. Designed for high-stress cognitive processing.
             </div>
         </div>
 
@@ -63,7 +124,7 @@
             <div class="gp-text">
                 <strong>Standard Steps (Grey):</strong> Routine actions and setups.<br>
                 <strong>Critical Steps (Red):</strong> Dangerous actions (incisions) or stops.<br>
-                <strong>Pro Tips (Blue):</strong> Expert advice to avoid common pitfalls.
+                <strong>Plan B (Red Box):</strong> Fallback plans if the primary method fails.
             </div>
         </div>
 
@@ -209,6 +270,7 @@
                         </div>
                     </div> 
                     <div class="diagram-container">
+                        <img src="images/hysterotomy.jpg" class="diagram-img" alt="Hysterotomy Incision">
                         <div class="diagram-caption">Vertical Midline Incision: Speed is priority</div>
                     </div>
                 </div>
@@ -292,7 +354,7 @@
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Emergency Breech</h1>
                 <h2>Page 1: Walkthrough (Preparation)</h2>
-                </div>
+            </div>
             <div class="wt-grid">
                 <div class="wt-col">
                     <div class="wt-box">
@@ -352,7 +414,7 @@
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>Emergency Breech</h1>
                 <h2>Page 2: Action (Vaginal Manoeuvres)</h2>
-                </div>
+            </div>
 
             <div class="section step-warning">
                 <div class="section-content">
@@ -445,6 +507,7 @@
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Vascular Clamp</strong> (Satinsky/DeBakey)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Internal Paddles</strong> (for Defib)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Foley Catheter</strong> (20F)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Prolene/Silk 2-0</strong> (Horizontal Mattress)</div>
                         </div>
                     </div>
                      <div class="wt-box" style="border-top: 4px solid var(--red-bg);">
@@ -462,19 +525,26 @@
                         <div class="wt-box-header">Clamshell Technique</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
-                                <li><strong>PREP:</strong> Splash Betadine. Stop ventilation (prevent lung injury).</li>
-                                <li><strong>INCISION:</strong> 4th or 5th Intercostal Space (Nipple level). Cut from Mid-Axillary Line to Mid-Axillary Line. Curve under breasts.</li>
-                                <li><strong>CUT MUSCLE:</strong> Cut deep through pectoralis/intercostals to pleura.</li>
-                                <li><strong>CUT STERNUM:</strong> Tunnel forceps <em>under</em> sternum to clear pericardium. Use Gigli Saw or Tuff Cut Scissors to snap sternum.</li>
-                                <li><strong>RETRACT:</strong> Insert Finochietto. Handle points <strong>DOWN</strong> (towards legs). Crank open.</li>
-                                <li><strong>PERICARDIUM:</strong> Lift pericardium with toothed forceps. Cut longitudinally (Head to Toe). Avoid Phrenic Nerves laterally.</li>
+                                <li><strong>PREP:</strong> Splash Betadine. Stop ventilation.</li>
+                                <li><strong>INCISION (SKIN):</strong> 4th/5th ICS. <strong>Scalpel</strong> from Mid-Axillary to Mid-Axillary.</li>
+                                <li><strong>INCISION (DEEP):</strong> Use <strong>Tuff Cut Scissors</strong> to cut through muscle and intercostals.</li>
+                                <li><strong>STERNUM:</strong> Tunnel forceps under sternum. Cut sternum with <strong>Gigli Saw</strong> or heavy shears.</li>
+                                <li><strong>RETRACT:</strong> Insert Finochietto. Handle points <strong>DOWN</strong>. Crank open.</li>
+                                <li><strong>PERICARDIUM:</strong> Lift with toothed forceps. Cut longitudinally (Head to Toe).</li>
                                 <li><strong>DELIVER HEART:</strong> Scoop heart out of sac ("Luxate"). Inspect for wounds.</li>
-                                <li><strong>CONTROL:</strong> Internal massage (clap hands). Staple wounds. Clamp Aorta. Internal Defib if VF.</li>
+                                <li><strong>CONTROL:</strong> Internal massage. Clamp Aorta. Suture wounds (Horizontal Mattress).</li>
                             </ol>
                         </div>
                     </div>
                     <div class="diagram-container">
+                        <img src="images/thoracotomy.png" class="diagram-img" alt="Thoracotomy Incision">
                         <div class="diagram-caption">Clamshell: Mid-axillary to Mid-axillary</div>
+                    </div>
+                    <div class="paeds-box">
+                        <div class="paeds-header">👶 PAEDIATRIC NOTE</div>
+                        • <strong>Indications are extremely rare.</strong><br>
+                        • <strong>Incision:</strong> Avoid cutting too low (Liver is large).<br>
+                        • <strong>Defib:</strong> 4 Joules/kg (Internal 1-2 J/kg).
                     </div>
                 </div>
             </div>
@@ -501,12 +571,12 @@
             </div>
 
             <div class="section step-critical">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">INCISION (CLAMSHELL)</div></div>
+                <div class="section-header"><div class="icon-box">1</div><div class="section-title">INCISION ORDER</div></div>
                 <div class="section-content">
                     <ul>
-                        <li>Stop ventilation briefly. <strong>5th Intercostal Space</strong>.</li>
-                        <li>Incise: Mid-Axillary to Mid-Axillary. Cut through all muscle layers.</li>
-                        <li><strong>Fracture Sternum</strong> (Gigli saw / Scissors). Retract ribs.</li>
+                        <li><strong>1. Scalpel:</strong> Cut Skin and Subcut fat (Mid-Ax to Mid-Ax).</li>
+                        <li><strong>2. Tuff Cut Scissors:</strong> Cut Muscle and Sternum.</li>
+                        <li>Stop ventilation before cutting pleura.</li>
                     </ul>
                 </div>
             </div>
@@ -516,30 +586,34 @@
                 <div class="section-content">
                     <ul>
                         <li><strong>H</strong>eart: Relieve tamponade. Open Pericardium (Longitudinal).</li>
-                        <li><strong>O</strong>utflow: Plug holes (Foley/Finger/Staples).</li>
+                        <li><strong>O</strong>utflow: Plug holes (Foley/Finger).</li>
                         <li><strong>T</strong>horax: Clamp Descending Aorta against spine.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="section">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">DEFIBRILLATION</div></div>
+                <div class="section-header"><div class="icon-box">3</div><div class="section-title">REPAIR (SUTURING)</div></div>
                 <div class="section-content">
                     <ul>
-                        <li><strong>Internal:</strong> Sterile paddles directly on heart. 10-20 Joules (Biphasic).</li>
-                        <li><strong>External:</strong> If chest closed, standard pads.</li>
-                        <li>Internal Massage: "Clap" hands together (Apex to Base).</li>
+                        <li>Use <strong>Horizontal Mattress Sutures</strong> (Prolene/Silk).</li>
+                        <li>Use Pledgets if available (to prevent tear through).</li>
+                        <li><span style="color:#b71c1c; font-weight:900;">⚠️ WARNING: DO NOT OCCLUDE CORONARY ARTERIES (LAD/CIRCUMFLEX).</span> Lift vessels to suture under them if needed.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="section">
-                <div class="section-header"><div class="icon-box">4</div><div class="section-title">POST-ROSC</div></div>
+                <div class="section-header"><div class="icon-box">4</div><div class="section-title">DEFIBRILLATION & STOP</div></div>
                 <div class="section-content">
                     <ul>
-                        <li>Close chest with dressings.</li>
-                        <li><strong>Transfer:</strong> Emergent Theatre with Cardiothoracics.</li>
+                        <li><strong>Internal:</strong> Sterile paddles directly on heart. 10-20 Joules.</li>
                     </ul>
+                    <div class="stop-box">
+                        <strong>🛑 STOP CRITERIA</strong><br>
+                        Asystole > 20 mins despite Tamponade release, Aortic Clamp and Fluid loading.<br>
+                        Consensus decision to cease.
+                    </div>
                 </div>
             </div>
             <div class="footer-spacer"></div>
@@ -580,6 +654,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
+                        <img src="images/escharotomy.png" class="diagram-img" alt="Escharotomy Lines">
                         <div class="diagram-caption">Mark lines before cutting</div>
                     </div>
                 </div>
@@ -602,6 +677,12 @@
                                     <br>- <strong>Knee Safety:</strong> Pass POSTERIOR to fibular head (Avoid Common Peroneal Nerve).</li>
                             </ol>
                         </div>
+                    </div>
+                     <div class="paeds-box">
+                        <div class="paeds-header">👶 PAEDIATRIC NOTE</div>
+                        • <strong>Hypothermia:</strong> Risk is extreme. Warm room.<br>
+                        • <strong>Blood Loss:</strong> Relatively small loss causes shock.<br>
+                        • <strong>Fluid:</strong> Parkland Formula (3-4ml x kg x %TBSA).
                     </div>
                 </div>
             </div>
@@ -710,6 +791,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
+                        <img src="images/chest tube.png" class="diagram-img" alt="Chest Tube Triangle">
                         <div class="diagram-caption">Triangle of Safety: Lat Dorsi, Pec Major, Axilla, Nipple</div>
                     </div>
                 </div>
@@ -728,6 +810,12 @@
                                 <li><strong>INSERT:</strong> Clamp tube tip with forceps. Guide into chest. Aim Apical (Air) or Basal (Blood). Connect seal. Secure.</li>
                             </ol>
                         </div>
+                    </div>
+                    <div class="paeds-box">
+                        <div class="paeds-header">👶 PAEDIATRIC NOTE</div>
+                        • <strong>Tube Size:</strong> (Age/4) + 4.<br>
+                        • <strong>Depth:</strong> Smaller depth. Don't go deep.<br>
+                        • <strong>Finger:</strong> Use little finger for sweep.
                     </div>
                 </div>
             </div>
@@ -773,6 +861,12 @@
                         <li><strong>Finger Sweep</strong> mandatory (Verify cavity).</li>
                         <li>Insert Tube. Look for fogging/swinging.</li>
                     </ul>
+                    <div class="plan-b-box">
+                        <div class="plan-b-title">🛑 PLAN B: CANNOT INSERT?</div>
+                        • Enlarge incision. Insert Finger again.<br>
+                        • Use Bougie to guide tube.<br>
+                        • Decompress with Finger Thoracostomy if arresting.
+                    </div>
                 </div>
             </div>
 
@@ -850,6 +944,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
+                        <img src="images/pericardiocentesis.jpg" class="diagram-img" alt="Ultrasound approach">
                         <div class="diagram-caption">Use Ultrasound to select best window</div>
                     </div>
                 </div>
@@ -923,7 +1018,7 @@
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>External Pacing</h1>
                 <h2>Page 1: Walkthrough (Preparation)</h2>
-                </div>
+            </div>
             <div class="wt-grid">
                 <div class="wt-col">
                     <div class="wt-box">
@@ -977,7 +1072,7 @@
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>External Pacing</h1>
                 <h2>Page 2: Action (Unstable Bradycardia)</h2>
-                </div>
+            </div>
 
             <div class="section step-warning">
                 <div class="section-content">
@@ -1020,6 +1115,12 @@
                         <li>Set output <strong>10 mA above</strong> threshold.</li>
                         <li><strong>After:</strong> Refer to Cardiology for Transvenous/Permanent Pacemaker. Monitor conscious level.</li>
                     </ul>
+                    <div class="plan-b-box">
+                        <div class="plan-b-title">🛑 PLAN B: NO CAPTURE?</div>
+                        • Check Pads/Leads. Swap Pad position.<br>
+                        • Start Adrenaline/Isoprenaline Infusion.<br>
+                        • Consider Hyperkalaemia/Toxicity.
+                    </div>
                 </div>
             </div>
             <div class="footer-spacer"></div>
@@ -1080,6 +1181,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
+                        <img src="images/subclavian.jpg" class="diagram-img" alt="Subclavian Landmark">
                         <div class="diagram-caption">Landmark: Medial/Mid 1/3 Clavicle -> Sternal Notch</div>
                     </div>
                 </div>
@@ -1136,6 +1238,12 @@
                         <li><strong>Mandatory CXR.</strong> (Exclude Pneumothorax).</li>
                         <li>Check line position before use.</li>
                     </ul>
+                     <div class="plan-b-box">
+                        <div class="plan-b-title">🛑 PLAN B: FAILED ACCESS?</div>
+                        • Intraosseous (Humeral/Tibial).<br>
+                        • Femoral Line.<br>
+                        • Ultrasound Guided Peripheral IV (Long catheter).
+                    </div>
                 </div>
             </div>
             <div class="footer-spacer"></div>
@@ -1313,6 +1421,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
+                        <img src="images/canthotomy.png" class="diagram-img" alt="Canthotomy Steps">
                         <div class="diagram-caption">Cut Inferior Crus (Inferior Cantholysis)</div>
                     </div>
                 </div>
@@ -1368,6 +1477,12 @@
                         <li><strong>Success:</strong> Lower lid hangs loose. IOP drops.</li>
                         <li><strong>After:</strong> Urgent Ophthalmology/MaxFax review. CT Orbit.</li>
                     </ul>
+                     <div class="plan-b-box">
+                        <div class="plan-b-title">🛑 PLAN B: IOP STILL HIGH?</div>
+                        • Cut Superior Crus.<br>
+                        • Ensure cuts are deep enough to rim.<br>
+                        • Medical Management (Mannitol/Acetazolamide).
+                    </div>
                 </div>
             </div>
             <div class="footer-spacer"></div>
@@ -1498,7 +1613,7 @@
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>LAST (Lipid Rescue)</h1>
                 <h2>Page 1: Walkthrough (Preparation)</h2>
-                </div>
+            </div>
             <div class="wt-grid">
                 <div class="wt-col">
                     <div class="wt-box">
@@ -1552,7 +1667,7 @@
                 <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
                 <h1>LAST (Lipid Rescue)</h1>
                 <h2>Page 2: Action (Local Anaesthetic Toxicity)</h2>
-                </div>
+            </div>
 
             <div class="section step-warning">
                 <div class="section-content">
@@ -1724,6 +1839,27 @@
             <div class="ref-bar">Reference: Difficult Airway Society (DAS) 2025 Guidelines.</div>
         </div>
         <div class="side-strip" style="background: var(--blue-bg);"><span>DAS GUIDELINES 2025</span></div>
+    </div>
+
+    <div class="page debrief-page">
+         <img src="https://iili.io/KGQOvkl.md.png" class="tp-logo" alt="Logo" style="margin-bottom: 10mm; width: 100px;">
+         <div class="debrief-card">
+            <h1 style="color: #2e7d32; text-align: center; text-transform: uppercase; font-weight: 900; margin-bottom: 20px;">STOP 5 Hot Debrief</h1>
+            <p style="text-align: center; color: #555; margin-bottom: 30px;">Perform immediately after the event, before team disperses.</p>
+            
+            <div style="font-size: 14pt; line-height: 1.8; color: #333;">
+                <strong>1. S</strong>ummarise the case (1 minute).<br>
+                <strong>2. T</strong>hings that went well?<br>
+                <strong>3. O</strong>pportunities to improve?<br>
+                <strong>4. P</strong>oints for action (Fix equipment, reporting).<br>
+                <strong>5. 5</strong> minutes max.
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 2px dashed #ccc; text-align: center; color: #777; font-size: 10pt;">
+                Is everyone okay? Does anyone need specific support right now?<br>
+                <em>Check on your colleagues.</em>
+            </div>
+         </div>
     </div>
 
 </body>
