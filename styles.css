@@ -67,7 +67,8 @@ body {
 .tp-logo { width: 160px; margin-bottom: 20mm; }
 .tp-main-title { font-size: 65pt; font-weight: 900; color: var(--blue-bg); line-height: 0.9; margin-bottom: 5mm; letter-spacing: -2px; }
 .tp-subtitle { font-size: 22pt; font-weight: 300; color: var(--red-bg); letter-spacing: 4px; margin-bottom: 25mm; text-transform: uppercase; }
-.tp-edition { font-size: 16pt; font-weight: 700; border: 3px solid #333; padding: 10px 40px; display: inline-block; margin-bottom: 30mm; color: #333; }
+.tp-edition { font-size: 16pt; font-weight: 700; border: 3px solid #333; padding: 10px 40px; display: inline-block; margin-bottom: 5mm; color: #333; }
+.tp-version { font-size: 10pt; font-weight: 600; color: #666; margin-bottom: 30mm; font-family: monospace; }
 
 /* --- GUIDE PAGE (PG 2) --- */
 .guide-page { flex-direction: column; padding: 15mm; }
@@ -76,6 +77,21 @@ body {
 .gp-title { font-size: 16pt; font-weight: 700; color: var(--blue-bg); margin-bottom: 4mm; display: flex; align-items: center; gap: 10px; }
 .gp-text { font-size: 12pt; line-height: 1.5; color: #444; }
 .gp-box { background: #fff3e0; padding: 20px; border-radius: 6px; border-left: 8px solid var(--red-bg); margin-top: auto; font-size: 11pt; color: #d84315; font-weight: bold; }
+
+/* Glossary Grid */
+.abbrev-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    font-size: 9.5pt;
+    color: #444;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+.abbrev-item { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding-bottom: 2px;}
+.abbrev-item strong { color: var(--blue-bg); margin-right: 10px; min-width: 60px;}
 
 /* --- CONTENTS PAGE (PG 3) --- */
 .contents-page { flex-direction: column; padding: 15mm; }
@@ -205,9 +221,40 @@ body {
     border-left: 3px solid #0d47a1;
 }
 
-/* Footer */
+/* Footer & References */
 .footer-spacer { margin-top: auto; }
-.ref-bar { text-align: center; padding: 4px; font-size: 7.5pt; color: #888; border-top: 1px solid #eee; margin-top: 4px; font-weight: 600; }
+.footer-email {
+    font-size: 8pt;
+    color: #777;
+    text-align: center;
+    margin-top: 4px;
+    font-style: italic;
+}
+.ref-bar { 
+    text-align: center; 
+    padding: 6px; 
+    font-size: 7.5pt; 
+    color: #555; 
+    border-top: 1px solid #eee; 
+    margin-top: 4px; 
+    font-weight: 600; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.ref-qr {
+    width: 65px;
+    height: 65px;
+    margin-top: 2px;
+    border: 1px solid #ddd;
+    padding: 2px;
+    background: white;
+}
+.ref-link-text {
+    text-decoration: none;
+    color: #0d47a1;
+}
 
 /* Print Media Query */
 @media print {
