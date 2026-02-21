@@ -90,6 +90,28 @@
         }
         .toc-icon { margin-right: 5px; font-size: 0.9em; }
 
+        /* Storage Location Box for Lipid Rescue */
+        .storage-box {
+            border: 4px solid #b71c1c;
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .storage-header {
+            font-weight: 900;
+            color: #b71c1c;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        .storage-text {
+            font-size: 12pt;
+            font-weight: 800;
+            color: #000;
+        }
+
     </style>
 </head>
 <body>
@@ -101,7 +123,7 @@
         <div class="tp-main-title">HALO</div>
         <div class="tp-subtitle">High Acuity Low Occurrence<br>Emergency Procedures</div>
         <div class="tp-edition">2025 MASTER EDITION</div>
-        <div class="tp-version">Version 2.0 (Dec 2025)</div>
+        <div class="tp-version">Version 2.1 (Feb 2026)</div>
         <div style="margin-top:auto; font-size: 10pt; color: #555;">
             Verified against DAS, RCEM, FPHC and Resuscitation Council UK Guidelines
         </div>
@@ -186,7 +208,9 @@
                         <li class="toc-item"><span><span class="toc-icon">🧰</span>Chest Drain (Open)</span> <span>Pg 12-13</span></li>
                     </ul>
                 </div>
+            </div>
 
+            <div class="toc-column">
                 <div class="toc-group">
                     <div class="toc-header" style="background: var(--purple-bg);">Cardiac / Vascular</div>
                     <ul class="toc-list">
@@ -195,35 +219,26 @@
                         <li class="toc-item"><span><span class="toc-icon">🧰</span>Subclavian Central Line</span> <span>Pg 18-19</span></li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="toc-column">
-                <div class="toc-group">
-                    <div class="toc-header" style="background: var(--teal-bg);">Gastrointestinal</div>
-                    <ul class="toc-list">
-                        <li class="toc-item"><span><span class="toc-icon">🧰</span>Sengstaken / Minnesota</span> <span>Pg 20-21</span></li>
-                    </ul>
-                </div>
 
                 <div class="toc-group">
                     <div class="toc-header" style="background: var(--orange-bg);">Specialist</div>
                     <ul class="toc-list">
-                        <li class="toc-item"><span><span class="toc-icon">🧰</span>Lateral Canthotomy</span> <span>Pg 22-23</span></li>
-                        <li class="toc-item"><span><span class="toc-icon">🧰</span>Severe Max-Fax Bleed</span> <span>Pg 24-25</span></li>
+                        <li class="toc-item"><span><span class="toc-icon">🧰</span>Lateral Canthotomy</span> <span>Pg 20-21</span></li>
+                        <li class="toc-item"><span><span class="toc-icon">🧰</span>Severe Max-Fax Bleed</span> <span>Pg 22-23</span></li>
                     </ul>
                 </div>
 
                 <div class="toc-group">
                     <div class="toc-header" style="background: var(--yellow-bg); color: black;">Toxicology</div>
                     <ul class="toc-list">
-                        <li class="toc-item"><span>LAST (Lipid Rescue)</span> <span>Pg 26-27</span></li>
+                        <li class="toc-item"><span>LAST (Lipid Rescue)</span> <span>Pg 24-25</span></li>
                     </ul>
                 </div>
 
                 <div class="toc-group" style="margin-top:px;">
                     <div class="toc-header" style="background: var(--blue-bg);">Airway (Rescue)</div>
                     <ul class="toc-list">
-                        <li class="toc-item"><span>Surgical Airway (eFONA)</span> <span>Pg 28-29</span></li>
+                        <li class="toc-item"><span>Surgical Airway (eFONA)</span> <span>Pg 26-27</span></li>
                     </ul>
                 </div>
             </div>
@@ -259,9 +274,9 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment & Setup</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine (Splash)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel:</strong> Size 10 or 20</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Tuff Cut Scissors</strong></div>
-                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine (Splash)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Suction x2</strong> (Wide bore/Yankauer)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Large Swabs (for packing)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Stapler / Clingfilm / Large Dressings</div>
@@ -400,7 +415,8 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Specific Equipment</div>
                         <div class="wt-box-content">
-                             <div class="checklist-item"><div class="checkbox"></div> Forceps (Neville Barnes / Piper's)</div>
+                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
+                             <div class="checklist-item"><div class="checkbox"></div> Neonatal Resuscitation Kit</div>
                              <div class="checklist-item"><div class="checkbox"></div> Oxytocin (for post-delivery)</div>
                              <div class="checklist-item"><div class="checkbox"></div> GTN Spray (Uterine relaxation)</div>
                              <div class="checklist-item"><div class="checkbox"></div> Episiotomy Scissors</div>
@@ -542,6 +558,7 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment Tray</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel:</strong> Size 22 (Large blade)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Tuff Cut Scissors</strong> (Heavy Duty)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Gigli Saw</strong> (Handles + Wire) or Bone Cutters</div>
@@ -570,7 +587,7 @@
                         <div class="wt-box-header">Clamshell Technique</div>
                         <div class="wt-box-content">
                             <ol class="step-list">
-                                <li><strong>PREP:</strong> Splash Betadine. Stop ventilation.</li>
+                                <li><strong>PREP:</strong> Splash Chlorhexidine. Stop ventilation.</li>
                                 <li><strong>INCISION (SKIN):</strong> 4th/5th ICS. <strong>Scalpel</strong> from Mid-Axillary to Mid-Axillary.</li>
                                 <li><strong>INCISION (DEEP):</strong> Use <strong>Tuff Cut Scissors</strong> to cut through muscle and intercostals.</li>
                                 <li><strong>STERNUM:</strong> Tunnel forceps under sternum. Cut sternum with <strong>Gigli Saw</strong> or heavy shears.</li>
@@ -700,10 +717,10 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Diathermy</strong> (Ideal - cuts and coags)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel</strong> (Size 22) if no diathermy</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel</strong> (Size 22)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Sharpie Marker</strong> (Draw lines first)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Kaltostat / Algisite</strong> (Haemostatic dressing)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Haemostatic Gauze</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Adrenaline 1:1000</strong> (Soaked gauze)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Loose Bandages (Crepe)</div>
                         </div>
@@ -736,7 +753,7 @@
                      <div class="wt-box" style="border-top: 4px solid var(--black-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
                         <div class="wt-box-content">
-                            • Apply haemostatic alginate dressings. Loosely bandage.<br>
+                            • Apply haemostatic gauze. Loosely bandage.<br>
                             • Elevate limbs.<br>
                             • <strong>Transfer:</strong> Specialist Burns Centre / ICU.
                         </div>
@@ -808,7 +825,7 @@
                 <div class="section-header"><div class="icon-box">4</div><div class="section-title">POST-PROCEDURE</div></div>
                 <div class="section-content">
                     <ul>
-                        <li>Apply haemostatic alginate dressings. Loosely bandage.</li>
+                        <li>Apply haemostatic gauze. Loosely bandage.</li>
                         <li>Elevate limbs.</li>
                         <li><strong>Transfer:</strong> Specialist Burns Centre / ICU.</li>
                     </ul>
@@ -861,7 +878,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
-                        <img src="images/chest%20tube.jpg" class="diagram-img" alt="Chest Tube Triangle">
+                        <img src="images/chest tube.png" class="diagram-img" alt="Chest Tube Triangle">
                         <div class="diagram-caption">Triangle of Safety: Lat Dorsi, Pec Major, Axilla, Nipple</div>
                     </div>
                 </div>
@@ -994,6 +1011,7 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Ultrasound</strong> (Probe Cover + Gel)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Pericardiocentesis Kit</strong> OR</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Central Line Kit</strong> (16G Grey Cannula)</div>
@@ -1138,6 +1156,7 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Defibrillator (Pacer Mode)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Pacing Pads</strong> (AP Position)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>3-Lead ECG</strong> (Required for sensing)</div>
@@ -1270,9 +1289,9 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Central Line Kit (Triple Lumen)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Sterile Gown, Gloves, Drapes</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1%</div>
                             <div class="checklist-item"><div class="checkbox"></div> Saline Flushes x3</div>
                             <div class="checklist-item"><div class="checkbox"></div> Suture (Silk) + Scalpel</div>
@@ -1385,136 +1404,6 @@
     </div>
 
     <div class="page">
-        <div class="side-strip" style="background: var(--teal-bg);"><span>GI HAEMORRHAGE</span></div>
-        <div class="content-area wt-layout">
-            <div class="main-header" style="background-color: var(--teal-bg);">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Sengstaken / Minnesota</h1>
-                <h2>Page 1: Walkthrough (Preparation)</h2>
-                <div class="halo-badge">🧰 HALO TROLLEY</div>
-            </div>
-            <div class="wt-grid">
-                <div class="wt-col">
-                    <div class="wt-box">
-                        <div class="wt-box-header">Indications</div>
-                        <div class="wt-box-content">
-                             • <strong>Call 2222 "Major Haemorrhage"</strong>.<br>
-                            • <strong>Exsanguinating</strong> Variceal Bleed (Oesophageal/Gastric).<br>
-                            • Endoscopy unavailable or failed.<br>
-                            • <strong>Prerequisite:</strong> Patient MUST be intubated (Airway protection).<br>
-                            • <strong>Duration:</strong> Bridge to TIPS/Endoscopy (less than 24 hrs).
-                        </div>
-                    </div>
-                    <div class="wt-box">
-                        <div class="wt-box-header">Equipment</div>
-                        <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Sengstaken / Minnesota Tube</div>
-                            <div class="checklist-item"><div class="checkbox"></div> 50ml Catheter Tip Syringe</div>
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Spigots / Clamps</strong> (x2)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lubricant (Generous)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> 1L Saline Bag (Weight) + Giving Set</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Manometer (for Oesophageal balloon)</div>
-                        </div>
-                    </div>
-                    <div class="wt-box" style="border-top: 4px solid var(--teal-bg);">
-                        <div class="wt-box-header">Post-Procedure Plan</div>
-                        <div class="wt-box-content">
-                            • ICU Admission.<br>
-                            • Urgent TIPS / Endoscopy (less than 24 hrs).
-                        </div>
-                    </div>
-                </div>
-                <div class="wt-col">
-                    <div class="wt-box" style="border-top: 4px solid var(--teal-bg);">
-                        <div class="wt-box-header">Critical Safety Protocol</div>
-                        <div class="wt-box-content">
-                            <ol class="step-list">
-                                <li><strong>TEST:</strong> Inflate balloons underwater. Check for leaks. Deflate fully.</li>
-                                <li><strong>INSERT:</strong> Lubricate. Insert to <strong>50cm</strong> mark at lips.</li>
-                                <li><strong>ASPIRATE:</strong> Confirm gastric position (Acidic pH / aspirate).</li>
-                                <li><strong>PRE-INFLATE:</strong> Inflate Gastric Balloon with <strong>50ml Air ONLY</strong>.</li>
-                                <li><strong>X-RAY CHECK:</strong> <span style="color:#b71c1c; font-weight:bold;">STOP. MANDATORY CXR.</span> Confirm balloon is below diaphragm.</li>
-                                <li><strong>FULL INFLATION:</strong> Inflate Gastric Balloon to <strong>250ml total</strong>. Clamp.</li>
-                                <li><strong>TRACTION:</strong> Pull back until resistance (Balloon hits GEJ). Attach 1kg weight (1L Saline) over pulley/pole.</li>
-                                <li><strong>OESOPHAGEAL BALLOON:</strong> Rescue only. Inflate to 30-40mmHg if bleeding persists.</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="diagram-container">
-                        <img src="images/sengstaken.png" class="diagram-img" alt="Sengstaken Tube">
-                        <div class="diagram-caption">Gastric Balloon (Below Diaphragm) & Traction</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="page">
-        <div class="content-area theme-teal">
-            <div class="main-header" style="background-color: var(--teal-bg);">
-                <img src="https://iili.io/KGQOvkl.md.png" class="logo-img" alt="Logo">
-                <h1>Sengstaken / Minnesota</h1>
-                <h2>Page 2: Action (Variceal Bleed)</h2>
-                <div class="halo-badge">🧰 HALO TROLLEY</div>
-            </div>
-
-            <div class="section step-warning">
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Intubate First.</strong> Aspiration risk is 100%.</li>
-                        <li>Test balloons before insertion.</li>
-                        <li><strong>Call:</strong> 2222 Major Haemorrhage Protocol.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section step-critical">
-                <div class="section-header"><div class="icon-box">1</div><div class="section-title">INSERTION & SAFETY</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Insert to 50cm. Inflate Gastric with <strong>50ml Air</strong>.</li>
-                        <li><strong>STOP & CXR.</strong> Verify position below diaphragm.</li>
-                        <li>Then inflate to <strong>250ml</strong> total. Clamp securely.</li>
-                    </ul>
-                    <div style="color:#b71c1c; font-weight:bold; margin-top:5px; border-left:3px solid #b71c1c; padding-left:5px;">
-                        Warning: Oesophageal inflation = Rupture/Death.
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">TRACTION</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li>Pull back until resistance (GEJ).</li>
-                        <li>Apply <strong>1kg Traction</strong> (1L Saline bag).</li>
-                        <li>Tape tube to face to maintain position (optional).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section step-critical">
-                <div class="section-header"><div class="icon-box">3</div><div class="section-title">POST-PROCEDURE</div></div>
-                <div class="section-content">
-                    <ul>
-                        <li><strong>Oesophageal Balloon:</strong> Rescue Only. Inflate 30-40 mmHg if traction fails.</li>
-                        <li><strong>Transfer:</strong> ICU Admission.</li>
-                        <li><strong>Plan:</strong> Arrange urgent TIPS or Endoscopy (less than 24 hours).</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="footer-email">Feedback/Updates: jake.turner@uhb.nhs.uk</div>
-            <div class="ref-bar">
-                Reference: BSG Guidelines 2025.
-                <a href="https://www.bsg.org.uk/clinical-resource/acute-upper-gi-bleeding-in-adults/" target="_blank" class="ref-link-text">Open Guideline</a>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.bsg.org.uk/clinical-resource/acute-upper-gi-bleeding-in-adults/" alt="QR Code" class="ref-qr">
-            </div>
-        </div>
-        <div class="side-strip" style="background: var(--teal-bg);"><span>GI HAEMORRHAGE</span></div>
-    </div>
-
-    <div class="page">
         <div class="side-strip" style="background: var(--orange-bg);"><span>OPHTHALMIC EMERGENCY</span></div>
         <div class="content-area wt-layout">
             <div class="main-header" style="background-color: var(--orange-bg);">
@@ -1539,6 +1428,7 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1% or 2% with Adrenaline</div>
                             <div class="checklist-item"><div class="checkbox"></div> 2ml Syringe + Orange Needle</div>
                             <div class="checklist-item"><div class="checkbox"></div> Saline Irrigation</div>
@@ -1674,6 +1564,7 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Suction x2 (Wide bore)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Bite Blocks</strong> / McKesson Props</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Option A:</strong> Nasal Epistats (Double Balloon)</div>
@@ -1814,6 +1705,12 @@
                             <div class="checklist-item"><div class="checkbox"></div> Benzos (Midazolam)</div>
                         </div>
                     </div>
+                    
+                    <div class="storage-box">
+                        <div class="storage-header">📍 STORAGE LOCATION</div>
+                        <div class="storage-text">INTRALIPID IS KEPT IN THE FIRST CUPBOARD ON THE LEFT IN THE MAJORS DRUG CUPBOARD.</div>
+                    </div>
+
                     <div class="wt-box" style="border-top: 4px solid var(--yellow-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
                         <div class="wt-box-content">
@@ -1931,6 +1828,7 @@
                         <div class="wt-box-header">Checklist</div>
                         <div class="wt-box-content">
                             • <strong>Call 2222 "Anaesthetic Emergency / CICO"</strong>.<br>
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10 or 20)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Bougie (Coude tip)</div>
                             <div class="checklist-item"><div class="checkbox"></div> ETT Size 6.0 (Cuffed)</div>
