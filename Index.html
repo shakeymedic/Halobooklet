@@ -9,6 +9,22 @@
     <style>
         /* --- NEW STYLES FOR UPDATES --- */
         
+        /* Adult Disclaimer Box */
+        .adult-disclaimer {
+            background: #b71c1c;
+            color: #ffffff;
+            border: 4px solid #000000;
+            padding: 15px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
         /* Difficult Airway Badge */
         .da-badge {
             background: #b71c1c;
@@ -26,23 +42,18 @@
             margin-top: 5px;
         }
 
-        /* Paediatric Note Box */
-        .paeds-box {
-            border: 2px dashed #0288d1;
-            background: #e1f5fe;
-            padding: 10px;
+        /* Drug Warning Badge */
+        .drug-badge {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #c62828;
+            font-size: 0.7em;
+            padding: 2px 6px;
             border-radius: 4px;
-            margin-top: 10px;
-            font-size: 9.5pt;
-            color: #01579b;
-        }
-        .paeds-header {
-            font-weight: 900;
+            margin-left: 6px;
+            font-weight: 800;
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 4px;
+            display: inline-block;
         }
 
         /* Failure / Plan B Box */
@@ -122,14 +133,24 @@
         <img src="https://iili.io/KGQOvkl.md.png" class="tp-logo" alt="Logo">
         <div class="tp-main-title">HALO</div>
         <div class="tp-subtitle">High Acuity Low Occurrence<br>Emergency Procedures</div>
+        
+        <div class="adult-disclaimer">
+            ⚠️ WARNING: ADULT PATIENTS ONLY<br>
+            <span style="font-size: 0.7em; font-weight: 600;">STRICTLY FOR USE IN PATIENTS AGED 16 AND OVER. DO NOT USE FOR PAEDIATRIC EMERGENCIES.</span>
+        </div>
+
         <div class="tp-edition">2025 MASTER EDITION</div>
-        <div class="tp-version">Version 2.1 (Feb 2026)</div>
+        <div class="tp-version">Version 2.2 (Feb 2026)</div>
         <div style="margin-top:auto; font-size: 10pt; color: #555;">
             Verified against DAS, RCEM, FPHC and Resuscitation Council UK Guidelines
         </div>
     </div>
 
     <div class="page guide-page">
+        <div class="adult-disclaimer" style="font-size: 1em; padding: 10px;">
+            ⚠️ STRICTLY FOR PATIENTS AGED 16 AND OVER
+        </div>
+        
         <div class="gp-header">How to use this guide</div>
 
         <div class="gp-section">
@@ -166,6 +187,7 @@
                 <div class="abbrev-item"><strong>BSG</strong> British Society of Gastroenterology</div>
                 <div class="abbrev-item"><strong>RCOphth</strong> Royal College of Ophthalmologists</div>
                 <div class="abbrev-item"><strong>ALS</strong> Advanced Life Support</div>
+                <div class="abbrev-item"><strong>NLS</strong> Neonatal Life Support</div>
                 <div class="abbrev-item"><strong>ROSC</strong> Return of Spontaneous Circulation</div>
                 <div class="abbrev-item"><strong>TXA</strong> Tranexamic Acid</div>
                 <div class="abbrev-item"><strong>IOP</strong> Intraocular Pressure</div>
@@ -264,7 +286,7 @@
                             • <strong>Assign Roles:</strong><br>
                             1. Person to manage Major Haemorrhage (blood/transfusion).<br>
                             2. Person to lead ALS (Defib/Drugs).<br>
-                            3. Neonatal Team/Person for NLS (Baby).<br>
+                            3. Allocate a dedicated team for Neonatal Resuscitation.<br>
                             • <strong>Start ALS + Obstetric Modifications:</strong><br>
                             - Manually displace uterus to patient's <strong>LEFT</strong>.<br>
                             - Intubate early (smaller ETT e.g., 6.0/7.0).<br>
@@ -275,6 +297,7 @@
                         <div class="wt-box-header">Equipment & Setup</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine (Splash)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Sterile Drape / Gown Pack</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel:</strong> Size 10 or 20</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Tuff Cut Scissors</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Suction x2</strong> (Wide bore/Yankauer)</div>
@@ -374,7 +397,7 @@
                 <div class="section-content">
                     <ul>
                         <li><strong>Placenta:</strong> One gentle tug. If stuck, leave in situ. One hand sweep if bleeding.</li>
-                        <li><strong>Drugs:</strong> Oxytocin 10iu IV, Antibiotics, TXA 1g.</li>
+                        <li><strong>Drugs:</strong> Oxytocin 10iu IV, Antibiotics, TXA 1g. <span class="drug-badge">Fetch Drugs</span></li>
                         <li><strong>Closure:</strong> Pack uterus. Close abdomen with dressings, clingfilm or staples.</li>
                         <li><strong>Transfer:</strong> Emergent Theatre (Obstetrics) if ROSC.</li>
                     </ul>
@@ -416,9 +439,10 @@
                         <div class="wt-box-header">Specific Equipment</div>
                         <div class="wt-box-content">
                              <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
+                             <div class="checklist-item"><div class="checkbox"></div> Sterile Drape</div>
                              <div class="checklist-item"><div class="checkbox"></div> Neonatal Resuscitation Kit</div>
-                             <div class="checklist-item"><div class="checkbox"></div> Oxytocin (for post-delivery)</div>
-                             <div class="checklist-item"><div class="checkbox"></div> GTN Spray (Uterine relaxation)</div>
+                             <div class="checklist-item"><div class="checkbox"></div> Oxytocin (for post-delivery) <span class="drug-badge">Fetch Drug</span></div>
+                             <div class="checklist-item"><div class="checkbox"></div> GTN Spray (Uterine relaxation) <span class="drug-badge">Fetch Drug</span></div>
                              <div class="checklist-item"><div class="checkbox"></div> Episiotomy Scissors</div>
                              <div class="checklist-item"><div class="checkbox"></div> Resuscitaire (Heater On)</div>
                         </div>
@@ -559,6 +583,7 @@
                         <div class="wt-box-header">Equipment Tray</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Sterile Drape / Gown Pack</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel:</strong> Size 22 (Large blade)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Tuff Cut Scissors</strong> (Heavy Duty)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Gigli Saw</strong> (Handles + Wire) or Bone Cutters</div>
@@ -601,12 +626,6 @@
                     <div class="diagram-container">
                         <img src="images/thoracotomy.png" class="diagram-img" alt="Thoracotomy Incision">
                         <div class="diagram-caption">Clamshell: Mid-axillary to Mid-axillary</div>
-                    </div>
-                    <div class="paeds-box">
-                        <div class="paeds-header">👶 PAEDIATRIC NOTE</div>
-                        • <strong>Indications are extremely rare.</strong><br>
-                        • <strong>Incision:</strong> Avoid cutting too low (Liver is large).<br>
-                        • <strong>Defib:</strong> 4 Joules/kg (Internal 1-2 J/kg).
                     </div>
                 </div>
             </div>
@@ -718,10 +737,11 @@
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Sterile Drape / Gown Pack</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel</strong> (Size 22)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Sharpie Marker</strong> (Draw lines first)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Haemostatic Gauze</strong></div>
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Adrenaline 1:1000</strong> (Soaked gauze)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Adrenaline 1:1000</strong> (Soaked gauze) <span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Loose Bandages (Crepe)</div>
                         </div>
                     </div>
@@ -757,12 +777,6 @@
                             • Elevate limbs.<br>
                             • <strong>Transfer:</strong> Specialist Burns Centre / ICU.
                         </div>
-                    </div>
-                     <div class="paeds-box">
-                        <div class="paeds-header">👶 PAEDIATRIC NOTE</div>
-                        • <strong>Hypothermia:</strong> Risk is extreme. Warm room.<br>
-                        • <strong>Blood Loss:</strong> Relatively small loss causes shock.<br>
-                        • <strong>Fluid:</strong> Parkland Formula (3-4ml x kg x %TBSA).
                     </div>
                 </div>
             </div>
@@ -866,8 +880,8 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine + Sterile Drape</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1% (20ml)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine + Sterile Drape / Gown Pack</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1% (20ml) <span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Spencer Wells Forceps</strong> (Straight)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Curved Kelly Forceps (Alternative)</div>
@@ -906,12 +920,6 @@
                             • Request CXR to confirm position.<br>
                             • Monitor output.
                         </div>
-                    </div>
-                    <div class="paeds-box">
-                        <div class="paeds-header">👶 PAEDIATRIC NOTE</div>
-                        • <strong>Tube Size:</strong> (Age/4) + 4.<br>
-                        • <strong>Depth:</strong> Smaller depth. Don't go deep.<br>
-                        • <strong>Finger:</strong> Use little finger for sweep.
                     </div>
                 </div>
             </div>
@@ -1012,12 +1020,13 @@
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Sterile Drape / Gown Pack</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Ultrasound</strong> (Probe Cover + Gel)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Pericardiocentesis Kit</strong> OR</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Central Line Kit</strong> (16G Grey Cannula)</div>
                             <div class="checklist-item"><div class="checkbox"></div> 20ml Syringe</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>3-Way Tap</strong> (Essential)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Agitated Saline (for verification)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Agitated Saline (for verification) <span class="drug-badge">Fetch Saline</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Dressings</div>
                         </div>
                     </div>
@@ -1160,8 +1169,8 @@
                             <div class="checklist-item"><div class="checkbox"></div> Defibrillator (Pacer Mode)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Pacing Pads</strong> (AP Position)</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>3-Lead ECG</strong> (Required for sensing)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Sedation (Ketamine/Midazolam)</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Analgesia (Fentanyl)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Sedation (Ketamine/Midazolam) <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Analgesia (Fentanyl) <span class="drug-badge">Fetch Drug</span></div>
                         </div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--green-bg);">
@@ -1292,8 +1301,8 @@
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
                             <div class="checklist-item"><div class="checkbox"></div> Central Line Kit (Triple Lumen)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Sterile Gown, Gloves, Drapes</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1%</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Saline Flushes x3</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1% <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Saline Flushes x3 <span class="drug-badge">Fetch Saline</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Suture (Silk) + Scalpel</div>
                             <div class="checklist-item"><div class="checkbox"></div> Dressings (Tegaderm)</div>
                         </div>
@@ -1429,7 +1438,8 @@
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1% or 2% with Adrenaline</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Sterile Drape / Gown Pack</strong></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine 1% or 2% with Adrenaline <span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> 2ml Syringe + Orange Needle</div>
                             <div class="checklist-item"><div class="checkbox"></div> Saline Irrigation</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Suturing Kit</strong> (Scissors/Forceps)</div>
@@ -1572,7 +1582,7 @@
                             <div class="checklist-item"><div class="checkbox"></div> Rapid Rhino Packs (7.5cm / 9cm)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Heavy Suture (0 Silk) - Tongue Stitch</div>
                             <div class="checklist-item"><div class="checkbox"></div> Dressings/Packs</div>
-                            <div class="checklist-item"><div class="checkbox"></div> TXA 1g IV</div>
+                            <div class="checklist-item"><div class="checkbox"></div> TXA 1g IV <span class="drug-badge">Fetch Drug</span></div>
                         </div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--orange-bg);">
@@ -1687,7 +1697,7 @@
                         <div class="wt-box-header">Recognition</div>
                         <div class="wt-box-content">
                             • <strong>Call 2222 "Anaesthetic Emergency"</strong>.<br>
-                            • <strong>History:</strong> Recent LA injection (Lignocaine/Bupivacaine).<br>
+                            • <strong>History:</strong> Recent LA injection (Lidocaine/Bupivacaine).<br>
                             • <strong>Prodrome:</strong> Tongue tingling, metallic taste, tinnitus, agitation.<br>
                             • <strong>CNS:</strong> Confusion -> Seizures -> Coma.<br>
                             • <strong>CVS:</strong> Hypertension (Early) -> Bradycardia -> Broad QRS -> Asystole.<br>
@@ -1697,12 +1707,12 @@
                     <div class="wt-box">
                         <div class="wt-box-header">Lipid Rescue Kit</div>
                         <div class="wt-box-content">
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Intralipid 20%</strong> (CHECK CONCENTRATION)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Intralipid 20%</strong> (CHECK CONCENTRATION) <span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Stock: 3-4 bags (1 Litre min)</div>
                             <div class="checklist-item"><div class="checkbox"></div> 50ml Syringe + Drawing needle</div>
                             <div class="checklist-item"><div class="checkbox"></div> Wide Bore Cannulae x2</div>
                             <div class="checklist-item"><div class="checkbox"></div> Giving Sets</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Benzos (Midazolam)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Benzos (Midazolam) <span class="drug-badge">Fetch Drug</span></div>
                         </div>
                     </div>
                     
@@ -1829,7 +1839,7 @@
                         <div class="wt-box-content">
                             • <strong>Call 2222 "Anaesthetic Emergency / CICO"</strong>.<br>
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10 or 20)</div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Scalpel (Size 10)</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> Bougie (Coude tip)</div>
                             <div class="checklist-item"><div class="checkbox"></div> ETT Size 6.0 (Cuffed)</div>
                             <div class="checklist-item"><div class="checkbox"></div> Lubricant</div>
@@ -1951,7 +1961,7 @@
             <div style="font-size: 14pt; line-height: 1.8; color: #333;">
                 <strong>1. S</strong>ummarise the case (1 minute).<br>
                 <strong>2. T</strong>hings that went well?<br>
-                <strong>3. O</strong>pportunities to improve?<br>
+                <strong>3. O</strong>opportunities to improve?<br>
                 <strong>4. P</strong>oints for action (Fix equipment, reporting).<br>
                 <strong>5. 5</strong> minutes max.
             </div>
