@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMEBEM HALO Procedures Master 2025</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
         /* --- COLOUR PALETTE --- */
         :root {
@@ -27,7 +31,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             background-color: #555;
         }
@@ -427,12 +431,22 @@
         }
         .toc-icon { margin-right: 5px; font-size: 0.9em; }
 
-        /* Print Media Query */
+        /* Print Media Query (BINDING GUTTER ADDED) */
         @media print {
             body { background: none; margin: 0; }
             .print-btn { display: none; }
             .page { margin: 0; box-shadow: none; page-break-after: always; width: 210mm; height: 297mm; }
             .page:last-child { page-break-after: auto; }
+            
+            /* Alternating Margins for Double-Sided Bound Printing */
+            @page :left {
+                margin-left: 10mm;
+                margin-right: 15mm;
+            }
+            @page :right {
+                margin-left: 15mm;
+                margin-right: 10mm;
+            }
         }
 
         /* Theme Borders */
@@ -727,7 +741,7 @@
                 <div class="section-content">
                     <ul>
                         <li><strong>Placenta:</strong>&nbsp;&nbsp;One gentle tug. If stuck, leave in situ. One hand sweep if bleeding.</li>
-                        <li>Check allergies. <strong>Drugs:</strong>&nbsp;&nbsp;Oxytocin <span class="dose">10iu</span> IV, Antibiotics, TXA <span class="dose">1g</span>. <span class="drug-badge">Fetch Drugs</span></li>
+                        <li>Check allergies. <strong>Drugs:</strong>&nbsp;&nbsp;Oxytocin <span class="dose">10iu</span> IV, Antibiotics, TXA <span class="dose">1g</span>.&nbsp;&nbsp;<span class="drug-badge">Fetch Drugs</span></li>
                         <li><strong>Closure:</strong>&nbsp;&nbsp;Pack uterus. Close abdomen with dressings, clingfilm or staples.</li>
                         <li><strong>Transfer:</strong>&nbsp;&nbsp;Emergent Theatre (Obstetrics) if ROSC.</li>
                     </ul>
@@ -770,8 +784,8 @@
                              <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine.</div>
                              <div class="checklist-item"><div class="checkbox"></div> Sterile Drape.</div>
                              <div class="checklist-item"><div class="checkbox"></div> Neonatal Resuscitation Kit.</div>
-                             <div class="checklist-item"><div class="checkbox"></div> Oxytocin (for post-delivery). <span class="drug-badge">Fetch Drug</span></div>
-                             <div class="checklist-item"><div class="checkbox"></div> GTN Spray (Uterine relaxation). <span class="drug-badge">Fetch Drug</span></div>
+                             <div class="checklist-item"><div class="checkbox"></div> Oxytocin (for post-delivery).&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
+                             <div class="checklist-item"><div class="checkbox"></div> GTN Spray (Uterine relaxation).&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
                              <div class="checklist-item"><div class="checkbox"></div> Episiotomy Scissors.</div>
                              <div class="checklist-item"><div class="checkbox"></div> Resuscitaire (Heater On).</div>
                         </div>
@@ -1079,7 +1093,7 @@
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Sharpie Marker</strong> (Draw lines first).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Haemostatic Gauze.</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Artery Forceps.</strong></div>
-                            <div class="checklist-item"><div class="checkbox"></div> <strong>Adrenaline 1:1000</strong> (Soaked gauze). <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> <strong>Adrenaline 1:1000</strong> (Soaked gauze).&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Loose Bandages (Crepe).</div>
                         </div>
                     </div>
@@ -1222,7 +1236,7 @@
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine + Sterile Drape / Gown Pack.</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine <strong>1%</strong> (<span class="dose">20ml</span>). <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine <strong>1%</strong> (<span class="dose">20ml</span>).&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Spencer Wells Forceps</strong> (Straight).</div>
                             <div class="checklist-item"><div class="checkbox"></div> Curved Kelly Forceps (Alternative).</div>
@@ -1248,7 +1262,7 @@
                                 <li><strong>INCISION:</strong>&nbsp;&nbsp;3 to 4cm Transverse cut parallel to ribs with SCALPEL.</li>
                                 <li><strong>DISSECT:</strong>&nbsp;&nbsp;Use Straight SPENCER WELLS FORCEPS. Push closed, open to spread. Tunnel over the <strong>UPPER BORDER</strong> of the rib below (Avoid intercostal vessels).</li>
                                 <li><strong>BREACH:</strong>&nbsp;&nbsp;Push forceps firmly through pleura ("POP"). Open jaws wide to dilate track.</li>
-                                <li><strong>SWEEP:</strong>&nbsp;&nbsp;Insert finger. Rotate 360 degrees. Feel lung. Break adhesions. Confirm you are in chest, not abdomen.</li>
+                                <li><strong>SWEEP:</strong>&nbsp;&nbsp;Insert finger. Rotate 360 degrees. Feel lung. Break adhesions. <strong>Finger Sweep</strong>&nbsp;&nbsp;mandatory. Confirm you are in chest, not abdomen.</li>
                                 <li><strong>INSERT:</strong>&nbsp;&nbsp;Clamp CHEST TUBE tip with forceps. Guide into chest. Aim Apical (Air) or Basal (Blood). Connect seal. Secure with SILK SUTURE.</li>
                             </ol>
                         </div>
@@ -1258,8 +1272,8 @@
                         <div class="wt-box-content">
                             • Connect to underwater seal.<br>
                             • Secure with sutures/dressings.<br>
-                            • Request CXR to confirm position.<br>
-                            • Monitor drain output. Massive output (&gt; 1500ml stat or 200ml/hr) requires immediate cardiothoracic involvement and possible thoracotomy.
+                            • <strong>Check Position:</strong>&nbsp;&nbsp;Request CXR to confirm placement.<br>
+                            • <strong>Monitor Output:</strong>&nbsp;&nbsp;Massive output (&gt; 1500ml stat or 200ml/hr) requires immediate cardiothoracic involvement.
                         </div>
                     </div>
                 </div>
@@ -1368,7 +1382,7 @@
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Central Line Kit</strong> (16G Grey Cannula).</div>
                             <div class="checklist-item"><div class="checkbox"></div> 20ml Syringe.</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>3-Way Tap</strong> (Essential).</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Agitated Saline (for verification). <span class="drug-badge">Fetch Saline</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Agitated Saline (for verification).&nbsp;&nbsp;<span class="drug-badge">Fetch Saline</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Dressings.</div>
                         </div>
                     </div>
@@ -1513,8 +1527,8 @@
                             <div class="checklist-item"><div class="checkbox"></div> Defibrillator (Pacer Mode).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Pacing Pads</strong> (AP Position).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>3-Lead ECG</strong> (Required for sensing).</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Sedation (Ketamine/Midazolam). <span class="drug-badge">Fetch Drug</span></div>
-                            <div class="checklist-item"><div class="checkbox"></div> Analgesia (Fentanyl). <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Sedation (Ketamine/Midazolam).&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Analgesia (Fentanyl).&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
                         </div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--green-bg);">
@@ -1643,8 +1657,8 @@
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine.</div>
                             <div class="checklist-item"><div class="checkbox"></div> Central Line Kit (Triple Lumen).</div>
                             <div class="checklist-item"><div class="checkbox"></div> Sterile Gown, Gloves, Drapes.</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine <strong>1%</strong>. <span class="drug-badge">Fetch Drug</span></div>
-                            <div class="checklist-item"><div class="checkbox"></div> Saline Flushes x3. <span class="drug-badge">Fetch Saline</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine <strong>1%</strong>.&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Saline Flushes x3.&nbsp;&nbsp;<span class="drug-badge">Fetch Saline</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Suture (Silk) + Scalpel.</div>
                             <div class="checklist-item"><div class="checkbox"></div> Dressings (Tegaderm).</div>
                         </div>
@@ -1817,7 +1831,7 @@
                         </div>
                     </div>
                     <div class="diagram-container">
-                        <img src="images/canthotomy.jpg" class="diagram-img" alt="Canthotomy Steps">
+                        <img src="images/canthotomy.png" class="diagram-img" alt="Canthotomy Steps">
                         <div class="diagram-caption">Cut Inferior Crus (Inferior Cantholysis)</div>
                     </div>
                 </div>
@@ -1959,6 +1973,10 @@
                             </ol>
                         </div>
                     </div>
+                    <div class="diagram-container">
+                        <img src="images/maxfax.png" class="diagram-img" alt="Max-Fax Bleed Control">
+                        <div class="diagram-caption">Midface Reduction &amp; Balloon Packing</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2087,10 +2105,6 @@
                                 <li><strong>LIPID INFUSION:</strong>&nbsp;&nbsp;<span class="dose">15 ml/kg/hr</span> (&sim; <span class="dose">1000ml/hr</span> for a 70kg adult). Double rate if unstable.</li>
                             </ol>
                         </div>
-                    </div>
-                    <div class="diagram-container">
-                        <img src="images/last.png" class="diagram-img" alt="Lipid Dosing">
-                        <div class="diagram-caption">Bolus 1.5ml/kg -&gt; Infusion 15ml/kg/hr</div>
                     </div>
                 </div>
             </div>
