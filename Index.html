@@ -149,10 +149,12 @@
         .wt-box-header { background: #eee; color: #333; padding: 6px 10px; font-weight: 800; font-size: 10pt; border-bottom: 1px solid #ccc; text-transform: uppercase; letter-spacing: 0.5px; }
         .wt-box-content { padding: 10px; font-size: 9pt; line-height: 1.4; flex-grow: 1; color: #222; }
 
-        /* Checklists */
+        /* Checklists & Interactivity */
         .checklist-item { display: flex; align-items: flex-start; margin-bottom: 6px; font-weight: 500; border-bottom: 1px dashed #eee; padding-bottom: 4px; }
         .checklist-item:last-child { border-bottom: none; }
         .checkbox { width: 14px; height: 14px; border: 2px solid #555; margin-right: 8px; flex-shrink: 0; border-radius: 3px; background: white; }
+        .checkbox.checked { background-color: var(--blue-bg); border-color: var(--blue-bg); position: relative; }
+        .checkbox.checked::after { content: '✔'; color: white; position: absolute; top: -3px; left: 2px; font-size: 10pt; }
 
         /* Numbered Lists */
         .step-list { counter-reset: step; list-style: none; padding: 0; margin: 0; }
@@ -305,6 +307,18 @@
             display: inline-block;
         }
 
+        /* Drug Doses */
+        .dose { 
+            background-color: #ffebee; 
+            border: 1px solid #d32f2f; 
+            color: #b71c1c; 
+            padding: 1px 4px; 
+            border-radius: 3px; 
+            font-weight: 900; 
+            font-family: monospace; 
+            font-size: 1.1em; 
+        }
+
         /* Stop Criteria Box */
         .stop-box {
             background: #212121;
@@ -316,7 +330,7 @@
             text-align: center;
         }
 
-        /* Storage Location Box for Lipid Rescue */
+        /* Storage Location Box */
         .storage-box {
             border: 4px solid #b71c1c;
             background: #fff3e0;
@@ -420,7 +434,7 @@
         <div class="tp-subtitle">High Acuity Low Occurrence<br>Emergency Procedures</div>
         
         <div class="adult-disclaimer">
-            ⚠️ WARNING: ADULT PATIENTS ONLY<br>
+            ⚠️ WARNING:&nbsp;&nbsp;ADULT PATIENTS ONLY<br>
             <span style="font-size: 0.7em; font-weight: 600;">STRICTLY FOR USE IN PATIENTS AGED 16 AND OVER. DO NOT USE FOR PAEDIATRIC EMERGENCIES.</span>
         </div>
 
@@ -442,9 +456,9 @@
             <div class="gp-title"><span>1.</span> The Two-Page System</div>
             <div class="gp-text">
                 Every procedure consists of two sequential pages:<br><br>
-                <strong>Page A: The Walkthrough (Preparation)</strong><br>
+                <strong>Page A:&nbsp;&nbsp;The Walkthrough (Preparation)</strong><br>
                 Use this during the "Kit Dump" phase. It includes specific equipment checklists and detailed setup instructions.<br><br>
-                <strong>Page B: The Flowchart (Action)</strong><br>
+                <strong>Page B:&nbsp;&nbsp;The Flowchart (Action)</strong><br>
                 Use this during the procedure itself. Designed for high-stress cognitive processing.
             </div>
         </div>
@@ -452,17 +466,17 @@
         <div class="gp-section">
             <div class="gp-title"><span>2.</span> Design Principles</div>
             <div class="gp-text">
-                <strong>Standard Steps (Grey):</strong> Routine actions and setups.<br>
-                <strong>Critical Steps (Red):</strong> Dangerous actions (incisions) or stops.<br>
-                <strong>Plan B (Red Box):</strong> Fallback plans if the primary method fails.
+                <strong>Standard Steps (Grey):</strong>&nbsp;&nbsp;Routine actions and setups.<br>
+                <strong>Critical Steps (Red):</strong>&nbsp;&nbsp;Dangerous actions (incisions) or stops.<br>
+                <strong>Plan B (Red Box):</strong>&nbsp;&nbsp;Fallback plans if the primary method fails.
             </div>
         </div>
         
         <div class="gp-section">
             <div class="gp-title"><span>3.</span> Human Factors & Safety</div>
             <div class="gp-text">
-                <strong>Allocate a Reader:</strong> Hand this book to a specific team member. Instruct them to read the steps aloud to reduce cognitive load for the operator.<br>
-                <strong>Pre-procedure Pause:</strong> Pause for 5 seconds before making any incision. Verbally confirm equipment, landmarks, and check the patient for severe allergies.
+                <strong>Allocate a Reader:</strong>&nbsp;&nbsp;Hand this book to a specific team member. Instruct them to read the steps aloud to reduce cognitive load for the operator.<br>
+                <strong>Pre-procedure Pause:</strong>&nbsp;&nbsp;Pause for 5 seconds before making any incision. Verbally confirm equipment, landmarks, and check the patient for severe allergies.
             </div>
         </div>
 
@@ -603,7 +617,7 @@
                         <div class="wt-box-content">
                             <strong>If ROSC Achieved:</strong>&nbsp;&nbsp;<br>
                             • Mass closure of abdomen with large dressings, clingfilm or staples.<br>
-                            • Immediate Transfer: Emergent Theatre with Obstetrics.<br>
+                            • Immediate Transfer:&nbsp;&nbsp;Emergent Theatre with Obstetrics.<br>
                             • Continue ALS / Stabilisation during transfer.
                         </div>
                     </div>
@@ -645,7 +659,7 @@
             <div class="section step-warning">
                 <div class="section-content">
                     <ul>
-                        <li><strong>GOAL:</strong>&nbsp;&nbsp;DELIVERY in less than 5 MINS (Timer starts at the exact moment of maternal cardiac arrest).</li>
+                        <li><strong>GOAL:</strong>&nbsp;&nbsp;DELIVERY in < 5 MINS (Timer starts at the exact moment of maternal cardiac arrest).</li>
                         <li><strong>Indication:</strong>&nbsp;&nbsp;Maternal Arrest. Uterus greater than or equal to Umbilicus.</li>
                         <li><strong>Call:</strong>&nbsp;&nbsp;2222 Maternal Cardiac Arrest.</li>
                     </ul>
@@ -691,7 +705,7 @@
                 <div class="section-content">
                     <ul>
                         <li><strong>Placenta:</strong>&nbsp;&nbsp;One gentle tug. If stuck, leave in situ. One hand sweep if bleeding.</li>
-                        <li>Check allergies. <strong>Drugs:</strong>&nbsp;&nbsp;Oxytocin <strong>10iu</strong> IV, Antibiotics, TXA <strong>1g</strong>. <span class="drug-badge">Fetch Drugs</span></li>
+                        <li>Check allergies. <strong>Drugs:</strong>&nbsp;&nbsp;Oxytocin <span class="dose">10iu</span> IV, Antibiotics, TXA <span class="dose">1g</span>. <span class="drug-badge">Fetch Drugs</span></li>
                         <li><strong>Closure:</strong>&nbsp;&nbsp;Pack uterus. Close abdomen with dressings, clingfilm or staples.</li>
                         <li><strong>Transfer:</strong>&nbsp;&nbsp;Emergent Theatre (Obstetrics) if ROSC.</li>
                     </ul>
@@ -741,6 +755,10 @@
                              <div class="checklist-item"><div class="checkbox"></div> Resuscitaire (Heater On).</div>
                         </div>
                     </div>
+                    <div class="storage-box">
+                        <div class="storage-header">📍 STORAGE LOCATION</div>
+                        <div class="storage-text">NEONATAL RESUSCITATION KIT IS LOCATED IN THE OBSTETRIC GRAB BAG.</div>
+                    </div>
                     <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
                         <div class="wt-box-content">
@@ -765,8 +783,8 @@
                                     • Posterior arm sweeps down over face. Deliver arm.<br>
                                     • Rotate back 180 degrees to deliver second arm.</li>
                                 <li><strong>Head Stuck (Mauriceau-Smellie-Veit):</strong>&nbsp;&nbsp;<br>
-                                    • Assistant: Suprapubic pressure (flexes head).<br>
-                                    • Operator: Rest baby on forearm ("Flying horse").<br>
+                                    • Assistant:&nbsp;&nbsp;Suprapubic pressure (flexes head).<br>
+                                    • Operator:&nbsp;&nbsp;Rest baby on forearm ("Flying horse").<br>
                                     • Fingers on cheekbones (malar). Flex head. Pull gently.</li>
                             </ol>
                         </div>
@@ -838,7 +856,7 @@
                     <ul>
                         <li>Inspect for perineal tears.</li>
                         <li>Paediatric review for baby (Check hips/limbs).</li>
-                        <li>Active management of third stage (Oxytocin <strong>10iu</strong>).</li>
+                        <li>Active management of third stage (Oxytocin <span class="dose">10iu</span>).</li>
                     </ul>
                 </div>
             </div>
@@ -868,8 +886,8 @@
                         <div class="wt-box-header">Strict Indications</div>
                         <div class="wt-box-content">
                             • Call 2222 "Trauma Cardiac Arrest". Activate Major Haemorrhage Protocol. Request O-negative blood.<br>
-                            • <strong>Penetrating:</strong>&nbsp;&nbsp;Arrest less than 15 mins.<br>
-                            • <strong>Blunt:</strong>&nbsp;&nbsp;Arrest less than 10 mins (Highly selective).<br>
+                            • <strong>Penetrating:</strong>&nbsp;&nbsp;Arrest < 15 mins.<br>
+                            • <strong>Blunt:</strong>&nbsp;&nbsp;Arrest < 10 mins (Highly selective).<br>
                             • <strong>Signs of Life:</strong>&nbsp;&nbsp;Pupils reacting, gasping, ECG activity, cardiac motion on US.<br>
                             • <strong>Goal:</strong>&nbsp;&nbsp;Release Tamponade, Internal Massage, Clamp Aorta.
                         </div>
@@ -891,6 +909,10 @@
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Prolene/Silk 2-0</strong> (Horizontal Mattress).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Dressings (Large).</strong></div>
                         </div>
+                    </div>
+                    <div class="storage-box">
+                        <div class="storage-header">📍 STORAGE LOCATION</div>
+                        <div class="storage-text">FINOCHIETTO RETRACTOR AND GIGLI SAW ARE KEPT IN THE BOTTOM DRAWER OF THE TRAUMA TROLLEY.</div>
                     </div>
                      <div class="wt-box" style="border-top: 4px solid var(--red-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
@@ -939,8 +961,8 @@
             <div class="section step-warning">
                 <div class="section-content">
                     <ul>
-                        <li><strong>Penetrating:</strong>&nbsp;&nbsp;Arrest less than 15 mins + Signs of Life.</li>
-                        <li><strong>Blunt:</strong>&nbsp;&nbsp;Arrest less than 10 mins + Witnessed.</li>
+                        <li><strong>Penetrating:</strong>&nbsp;&nbsp;Arrest < 15 mins + Signs of Life.</li>
+                        <li><strong>Blunt:</strong>&nbsp;&nbsp;Arrest < 10 mins + Witnessed.</li>
                         <li><strong>Call:</strong>&nbsp;&nbsp;2222 Trauma Cardiac Arrest. Activate Major Haemorrhage Protocol.</li>
                     </ul>
                 </div>
@@ -984,16 +1006,16 @@
                 <div class="section-header"><div class="icon-box">4</div><div class="section-title">ROSC, CLOSURE & DEFIBRILLATION</div></div>
                 <div class="section-content">
                     <ul>
-                        <li><strong>Internal Defib:</strong>&nbsp;&nbsp;Sterile paddles directly on heart. <strong>10 to 20 Joules</strong>.</li>
+                        <li><strong>Internal Defib:</strong>&nbsp;&nbsp;Sterile paddles directly on heart. <span class="dose">10-20 Joules</span>.</li>
                         <li><strong>No Internal Paddles?</strong>&nbsp;&nbsp;<br>
                             • Remove Finochietto Retractor.<br>
                             • Close Chest manually (push ribs together).<br>
-                            • Defib externally (<strong>200J</strong>). Ensure no one touching.</li>
+                            • Defib externally (<span class="dose">200J</span>). Ensure no one touching.</li>
                         <li><strong>ROSC?</strong>&nbsp;&nbsp;Clamp bleeding Internal Mammary Arteries with artery forceps.</li>
                     </ul>
                     <div class="stop-box">
                         <strong>🛑 STOP CRITERIA</strong><br>
-                        Asystole greater than 20 mins despite Tamponade release, Aortic Clamp and Fluid loading.<br>
+                        Asystole > 20 mins despite Tamponade release, Aortic Clamp and Fluid loading.<br>
                         Consensus decision to cease.
                     </div>
                 </div>
@@ -1025,7 +1047,7 @@
                         <div class="wt-box-content">
                             • Call 2222 "Trauma Team" or "Anaesthetics".<br>
                             • <strong>Circumferential</strong> full thickness burns (Painless, leathery, white/charred).<br>
-                            • <strong>Chest:</strong>&nbsp;&nbsp;Ventilation difficulty. High peak pressures (greater than 30). Hypoxia.<br>
+                            • <strong>Chest:</strong>&nbsp;&nbsp;Ventilation difficulty. High peak pressures (> 30). Hypoxia.<br>
                             • <strong>Limbs:</strong>&nbsp;&nbsp;Ischaemia. Pain on passive stretch. Loss of pulses (Late sign).
                         </div>
                     </div>
@@ -1182,7 +1204,7 @@
                         <div class="wt-box-header">Equipment</div>
                         <div class="wt-box-content">
                             <div class="checklist-item"><div class="checkbox"></div> Chlorhexidine + Sterile Drape / Gown Pack.</div>
-                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine <strong>1%</strong> (<strong>20ml</strong>). <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> Lidocaine <strong>1%</strong> (<span class="dose">20ml</span>). <span class="drug-badge">Fetch Drug</span></div>
                             <div class="checklist-item"><div class="checkbox"></div> Scalpel (Size 10).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Spencer Wells Forceps</strong> (Straight).</div>
                             <div class="checklist-item"><div class="checkbox"></div> Curved Kelly Forceps (Alternative).</div>
@@ -1208,7 +1230,7 @@
                                 <li><strong>INCISION:</strong>&nbsp;&nbsp;3 to 4cm Transverse cut parallel to ribs with SCALPEL.</li>
                                 <li><strong>DISSECT:</strong>&nbsp;&nbsp;Use Straight SPENCER WELLS FORCEPS. Push closed, open to spread. Tunnel over the <strong>UPPER BORDER</strong> of the rib below (Avoid intercostal vessels).</li>
                                 <li><strong>BREACH:</strong>&nbsp;&nbsp;Push forceps firmly through pleura ("POP"). Open jaws wide to dilate track.</li>
-                                <li><strong>SWEEP:</strong>&nbsp;&nbsp;Insert finger. Rotate 360 degrees. Feel lung. Break adhesions. Confirm you are in chest, not abdomen.</li>
+                                <li><strong>SWEEP:</strong>&nbsp;&nbsp;Insert finger. Rotate 360 degrees. Feel lung. Break adhesions. <strong>Finger Sweep</strong>&nbsp;&nbsp;mandatory. Confirm you are in chest, not abdomen.</li>
                                 <li><strong>INSERT:</strong>&nbsp;&nbsp;Clamp CHEST TUBE tip with forceps. Guide into chest. Aim Apical (Air) or Basal (Blood). Connect seal. Secure with SILK SUTURE.</li>
                             </ol>
                         </div>
@@ -1218,8 +1240,8 @@
                         <div class="wt-box-content">
                             • Connect to underwater seal.<br>
                             • Secure with sutures/dressings.<br>
-                            • Request CXR to confirm position.<br>
-                            • Monitor drain output. Massive output (greater than 1500ml stat or 200ml/hr) requires immediate cardiothoracic involvement and possible thoracotomy.
+                            • <strong>Check Position:</strong>&nbsp;&nbsp;Request CXR to confirm placement.<br>
+                            • <strong>Monitor Output:</strong>&nbsp;&nbsp;Massive output (> 1500ml stat or 200ml/hr) requires immediate cardiothoracic involvement.
                         </div>
                     </div>
                 </div>
@@ -1282,7 +1304,7 @@
                     <ul>
                         <li>Connect to underwater seal.</li>
                         <li><strong>Suture:</strong>&nbsp;&nbsp;Mattress or Stay suture (1-0 Silk). Tape securely.</li>
-                        <li><strong>Post-Procedure:</strong>&nbsp;&nbsp;Request CXR to confirm position. Monitor drain output. Massive output (greater than 1500ml stat or 200ml/hr) requires immediate cardiothoracic involvement and possible thoracotomy.</li>
+                        <li><strong>Post-Procedure:</strong>&nbsp;&nbsp;Request CXR to confirm position. Monitor drain output. Massive output (> 1500ml stat or 200ml/hr) requires immediate cardiothoracic involvement and possible thoracotomy.</li>
                     </ul>
                 </div>
             </div>
@@ -1346,7 +1368,7 @@
                     <div class="wt-box" style="border-top: 4px solid var(--purple-bg);">
                         <div class="wt-box-header">Echo-Guided Approach</div>
                         <div class="wt-box-content">
-                            <strong>Strategy:</strong>&nbsp;&nbsp;Find the largest pocket closest to skin (less than 1cm) using ULTRASOUND.
+                            <strong>Strategy:</strong>&nbsp;&nbsp;Find the largest pocket closest to skin (< 1cm) using ULTRASOUND.
                             <ol class="step-list">
                                 <li><strong>Apical (Preferred):</strong>&nbsp;&nbsp;<br>
                                     • 1 to 2cm Lateral to Apex Beat.<br>
@@ -1463,9 +1485,9 @@
                         <div class="wt-box-content">
                             • Call 2222 "Medical Emergency".<br>
                             • Call Cardiology urgently for temporary wire placement.<br>
-                            • <strong>Unstable Bradycardia:</strong>&nbsp;&nbsp;less than 40 bpm + Shock/Syncope/Ischaemia.<br>
+                            • <strong>Unstable Bradycardia:</strong>&nbsp;&nbsp;< 40 bpm + Shock/Syncope/Ischaemia.<br>
                             • Failed drug therapy (Atropine/Glyco).<br>
-                            • <strong>Risk of Asystole:</strong>&nbsp;&nbsp;Mobitz II, Complete Heart Block, Pause greater than 3s.
+                            • <strong>Risk of Asystole:</strong>&nbsp;&nbsp;Mobitz II, Complete Heart Block, Pause > 3s.
                         </div>
                     </div>
                     <div class="wt-box">
@@ -1482,7 +1504,8 @@
                     <div class="wt-box" style="border-top: 4px solid var(--green-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
                         <div class="wt-box-content">
-                            • Monitor conscious level (Sedation).
+                            • Monitor conscious level (Sedation).<br>
+                            • Ensure cardiology review happens immediately.
                         </div>
                     </div>
                 </div>
@@ -1495,10 +1518,10 @@
                                 <li><strong>LEADS:</strong>&nbsp;&nbsp;Connect 3-LEAD ECG. Confirm R-wave markers on screen.</li>
                                 <li><strong>MODE:</strong>&nbsp;&nbsp;Select PACER. Mode: Demand.</li>
                                 <li><strong>RATE:</strong>&nbsp;&nbsp;Set to 70 to 80 bpm.</li>
-                                <li><strong>CURRENT (mA):</strong>&nbsp;&nbsp;Start <strong>30 mA</strong>. Increase by <strong>10 mA</strong>.</li>
+                                <li><strong>CURRENT (mA):</strong>&nbsp;&nbsp;Start <span class="dose">30 mA</span>. Increase by <span class="dose">10 mA</span>.</li>
                                 <li><strong>ELECTRICAL CAPTURE:</strong>&nbsp;&nbsp;Pacer Spike -> Broad QRS -> T wave.</li>
                                 <li><strong>MECHANICAL CAPTURE:</strong>&nbsp;&nbsp;Palpate Femoral Pulse. Measure blood pressure immediately after capture. <br><strong>WARNING:</strong>&nbsp;&nbsp;Skeletal muscle twitching is NOT capture. Carotid pulse is unreliable due to neck twitching.</li>
-                                <li><strong>SETTING:</strong>&nbsp;&nbsp;Find threshold. Set final output to Threshold + <strong>10 mA</strong>.</li>
+                                <li><strong>SETTING:</strong>&nbsp;&nbsp;Find threshold. Set final output to Threshold + <span class="dose">10 mA</span>.</li>
                             </ol>
                         </div>
                     </div>
@@ -1557,7 +1580,7 @@
                     <ul>
                         <li><strong>Mechanical Capture:</strong>&nbsp;&nbsp;Palpate Femoral Pulse. Measure BP immediately.</li>
                         <li>Ensure pulse matches pacer rate.</li>
-                        <li>Set output <strong>10 mA</strong> above threshold.</li>
+                        <li>Set output <span class="dose">10 mA</span> above threshold.</li>
                         <li><strong>After:</strong>&nbsp;&nbsp;Refer to Cardiology for Transvenous/Permanent Pacemaker. Monitor conscious level.</li>
                     </ul>
                     <div class="plan-b-box">
@@ -1734,10 +1757,10 @@
                             • Call Ophthalmology and MaxFax urgently. Call 2222 only if part of major trauma.<br>
                             • <strong>Retrobulbar Haematoma:</strong>&nbsp;&nbsp;Orbital Compartment Syndrome.<br>
                             • <strong>Signs:</strong>&nbsp;&nbsp;Proptosis, Rock Hard Eye, APD, Vision Loss, 'Cherry Red' macula.<br>
-                            • <strong>IOP:</strong>&nbsp;&nbsp;greater than 40 mmHg.<br>
+                            • <strong>IOP:</strong>&nbsp;&nbsp;> 40 mmHg.<br>
                             • <strong>No Tonometer?</strong>&nbsp;&nbsp;Test by Palpation, Visual Acuity or Ocular US.<br>
                             • <strong>Ultrasound:</strong>&nbsp;&nbsp;Look for "Guitar Pick Sign" (tenting of posterior globe).<br>
-                            • <strong>Rule:</strong>&nbsp;&nbsp;Do NOT wait for CT. <span style="color:#e65100; font-weight:bold;">Time is Vision (less than 120 mins).</span>
+                            • <strong>Rule:</strong>&nbsp;&nbsp;Do NOT wait for CT. <span style="color:#e65100; font-weight:bold;">Time is Vision (< 120 mins).</span>
                         </div>
                     </div>
                     <div class="wt-box">
@@ -1767,7 +1790,7 @@
                         <div class="wt-box-content">
                             <ol class="step-list">
                                 <li><strong>PREP:</strong>&nbsp;&nbsp;Clean with SALINE IRRIGATION. Check allergies. Inject LA into lateral canthus (Aim away from globe).</li>
-                                <li><strong>CRUSH:</strong>&nbsp;&nbsp;Clamp MOSQUITO FORCEPS horizontally across the lateral canthus (approx 1cm). Compress for 1 min (haemostasis).</li>
+                                <li><strong>CRUSH:</strong>&nbsp;&nbsp;Clamp MOSQUITO FORCEPS horizontally across the lateral canthus (~ 1cm). Compress for 1 min (haemostasis).</li>
                                 <li><strong>CANTHOTOMY (Skin):</strong>&nbsp;&nbsp;Remove forceps. Cut the crushed line horizontally to orbital rim with SCISSORS. Point SCISSORS laterally and away from the eye to protect the globe.</li>
                                 <li><strong>CANTHOLYSIS (Inferior Crus):</strong>&nbsp;&nbsp;<br>
                                     • Pull lower eyelid down and out.<br>
@@ -1801,7 +1824,7 @@
                 <div class="section-content">
                     <ul>
                         <li>Proptosis + Trauma + Decreased VA / APD.</li>
-                        <li>IOP greater than 40 mmHg. <strong>Irreversible blindness in 2 hours.</strong></li>
+                        <li>IOP > 40 mmHg. <strong>Irreversible blindness in 2 hours.</strong></li>
                         <li><strong>Call:</strong>&nbsp;&nbsp;Urgent Ophthalmology / Max Fax Review.</li>
                     </ul>
                 </div>
@@ -1890,7 +1913,7 @@
                             <div class="checklist-item"><div class="checkbox"></div> Rapid Rhino Packs (7.5cm / 9cm).</div>
                             <div class="checklist-item"><div class="checkbox"></div> Heavy Suture (0 Silk) - Tongue Stitch.</div>
                             <div class="checklist-item"><div class="checkbox"></div> Dressings/Packs.</div>
-                            <div class="checklist-item"><div class="checkbox"></div> TXA <strong>1g</strong> IV. <span class="drug-badge">Fetch Drug</span></div>
+                            <div class="checklist-item"><div class="checkbox"></div> TXA <span class="dose">1g</span> IV. <span class="drug-badge">Fetch Drug</span></div>
                         </div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--orange-bg);">
@@ -1915,10 +1938,10 @@
                                     • Insert BITE BLOCK to maintain position.</li>
                                 <li><strong>TONGUE STITCH:</strong>&nbsp;&nbsp;Flail mandible? Stitch tongue tip and pull forward.</li>
                                 <li><strong>NASAL PACKING (Choose One):</strong>&nbsp;&nbsp;<br>
-                                    <strong>Option A: EPISTATS</strong>&nbsp;&nbsp;(Double Balloon)<br>
+                                    <strong>Option A:&nbsp;&nbsp;EPISTATS</strong> (Double Balloon)<br>
                                     • Insert. Inflate BOTH balloons at the same time.<br>
-                                    <strong>Option B: FOLEYS + RAPID RHINO</strong>&nbsp;&nbsp;<br>
-                                    • Insert BOTH FOLEY CATHETERS (one each side) posterior. Inflate posterior balloons with <strong>10 to 15ml</strong> of SALINE. Pull back.<br>
+                                    <strong>Option B:&nbsp;&nbsp;FOLEYS + RAPID RHINO</strong><br>
+                                    • Insert BOTH FOLEY CATHETERS (one each side) posterior. Inflate posterior balloons with <span class="dose">10-15ml</span> of SALINE. Pull back.<br>
                                     • THEN insert RAPID RHINOS Anteriorly.</li>
                             </ol>
                         </div>
@@ -1966,7 +1989,7 @@
                     <ul>
                         <li><strong>Epistats:</strong>&nbsp;&nbsp;Inflate <strong>BOTH</strong> balloons at the same time.</li>
                         <li><strong>Foley Method:</strong>&nbsp;&nbsp;Insert Foleys <strong>BEFORE</strong> Rapid Rhinos.</li>
-                        <li>Inflate Foley (Posterior) with <strong>10 to 15ml</strong> of saline, pull back -> Then Pack Anterior.</li>
+                        <li>Inflate Foley (Posterior) with <span class="dose">10-15ml</span> of saline, pull back -> Then Pack Anterior.</li>
                     </ul>
                 </div>
             </div>
@@ -1975,7 +1998,7 @@
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">ADJUNCTS & POST-PROCEDURE</div></div>
                 <div class="section-content">
                     <ul>
-                        <li><strong>TXA 1g IV</strong> stat. Activate MHP. Transfuse early.</li>
+                        <li><strong>TXA <span class="dose">1g</span> IV</strong> stat. Activate MHP. Transfuse early.</li>
                         <li>Consider Tongue Suture if obstructing.</li>
                         <li><strong>Transfer:</strong>&nbsp;&nbsp;CT Head/Face. Theatre/Interventional Radiology.</li>
                     </ul>
@@ -2045,11 +2068,11 @@
                         <div class="wt-box-content">
                             <ol class="step-list">
                                 <li><strong>STOP INJECTION:</strong>&nbsp;&nbsp;Call for Help & Lipid Kit.</li>
-                                <li><strong>AIRWAY:</strong>&nbsp;&nbsp;Intubate. <strong>Hyperventilate</strong> to pH greater than 7.45 (Acidosis increases free drug).</li>
+                                <li><strong>AIRWAY:</strong>&nbsp;&nbsp;Intubate. <strong>Hyperventilate</strong> to pH > 7.45 (Acidosis increases free drug).</li>
                                 <li><strong>SEIZURES:</strong>&nbsp;&nbsp;Benzos. Small dose Propofol (risk of CVS collapse).</li>
-                                <li><strong>CPR:</strong>&nbsp;&nbsp;Extended CPR. <br><strong>Note:</strong>&nbsp;&nbsp;Avoid Lidocaine. Use Amiodarone. Reduce Adrenaline (less than 1mcg/kg).</li>
-                                <li><strong>LIPID BOLUS:</strong>&nbsp;&nbsp;<strong>1.5 ml/kg</strong> (approx <strong>100ml</strong> for a 70kg adult). Give INTRALIPID <strong>20%</strong> over 1 min. Repeat x2 q5min if unstable.</li>
-                                <li><strong>LIPID INFUSION:</strong>&nbsp;&nbsp;<strong>15 ml/kg/hr</strong> (approx <strong>1000ml/hr</strong> for a 70kg adult). Double rate if unstable.</li>
+                                <li><strong>CPR:</strong>&nbsp;&nbsp;Extended CPR. <br><strong>Note:</strong>&nbsp;&nbsp;Avoid Lidocaine. Use Amiodarone. Reduce Adrenaline (< 1mcg/kg).</li>
+                                <li><strong>LIPID BOLUS:</strong>&nbsp;&nbsp;<span class="dose">1.5 ml/kg</span> (~ <span class="dose">100ml</span> for a 70kg adult). Give INTRALIPID <strong>20%</strong> over 1 min. Repeat x2 q5min if unstable.</li>
+                                <li><strong>LIPID INFUSION:</strong>&nbsp;&nbsp;<span class="dose">15 ml/kg/hr</span> (~ <span class="dose">1000ml/hr</span> for a 70kg adult). Double rate if unstable.</li>
                             </ol>
                         </div>
                     </div>
@@ -2085,7 +2108,7 @@
                 <div class="section-header"><div class="icon-box">1</div><div class="section-title">AIRWAY & CPR</div></div>
                 <div class="section-content">
                     <ul>
-                        <li>Intubate. <strong>Hyperventilate</strong> (Goal pH greater than 7.45).</li>
+                        <li>Intubate. <strong>Hyperventilate</strong> (Goal pH > 7.45).</li>
                         <li>Control seizures (Benzo).</li>
                         <li>CPR: <strong>Avoid Lidocaine</strong>. Use Amiodarone.</li>
                         <li>Use smaller Adrenaline doses.</li>
@@ -2097,7 +2120,7 @@
                 <div class="section-header"><div class="icon-box">2</div><div class="section-title">INTRALIPID 20% (BOLUS)</div></div>
                 <div class="section-content">
                     <ul>
-                        <li><strong>Bolus:</strong>&nbsp;&nbsp;<strong>1.5 ml/kg</strong> (~<strong>100ml</strong> for a 70kg adult).</li>
+                        <li><strong>Bolus:</strong>&nbsp;&nbsp;<span class="dose">1.5 ml/kg</span> (~ <span class="dose">100ml</span> for a 70kg adult).</li>
                         <li>Give over 1 minute.</li>
                         <li>Repeat q5min if unstable (Max 3 boluses).</li>
                     </ul>
@@ -2108,7 +2131,7 @@
                 <div class="section-header"><div class="icon-box">3</div><div class="section-title">INTRALIPID 20% (INFUSION) & AFTER</div></div>
                 <div class="section-content">
                     <ul>
-                        <li><strong>Rate:</strong>&nbsp;&nbsp;<strong>15 ml/kg/hour</strong> (~<strong>1000ml/hr</strong> for a 70kg adult).</li>
+                        <li><strong>Rate:</strong>&nbsp;&nbsp;<span class="dose">15 ml/kg/hour</span> (~ <span class="dose">1000ml/hr</span> for a 70kg adult).</li>
                         <li>Double rate if unstable.</li>
                         <li>Continue for 10 mins after stability.</li>
                         <li><strong>Post-Procedure:</strong>&nbsp;&nbsp;ICU Admission. Monitor for recurrence (Lipid sink effect wears off).</li>
@@ -2285,5 +2308,14 @@
          </div>
     </div>
 
+    <script>
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => {
+                const box = item.querySelector('.checkbox');
+                if(box) box.classList.toggle('checked');
+            });
+        });
+    </script>
 </body>
 </html>
