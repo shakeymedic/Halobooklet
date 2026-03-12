@@ -171,8 +171,8 @@
 
         /* Numbered Lists (FIXED PDF POSITIONING BUG) */
         .step-list { counter-reset: step; list-style: none; padding: 0; margin: 0; }
-        .step-list li { display: flex; align-items: flex-start; margin-bottom: 8px; font-size: 9.5pt; }
-        .step-list li::before { counter-increment: step; content: counter(step) ". "; font-weight: 900; color: var(--blue-bg); margin-right: 8px; min-width: 16px; flex-shrink: 0; text-align: right; display: inline-block; }
+        .step-list li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 9.5pt; }
+        .step-list li::before { counter-increment: step; content: counter(step) ". "; font-weight: 900; color: var(--blue-bg); position: absolute; left: 0; top: 0; min-width: 18px; text-align: right; }
 
         /* --- DIAGRAMS --- */
         .diagram-container {
@@ -457,6 +457,7 @@
         .theme-green .section { border-left-color: var(--green-bg); }
         .theme-teal .section { border-left-color: var(--teal-bg); }
         .theme-orange .section { border-left-color: var(--orange-bg); }
+        .theme-yellow .section { border-left-color: var(--yellow-bg); }
 
     </style>
 </head>
@@ -600,7 +601,7 @@
                     </ul>
                 </div>
 
-                <div class="toc-group" style="margin-top:px;">
+                <div class="toc-group">
                     <div class="toc-header" style="background: var(--blue-bg);">Airway (Rescue)</div>
                     <ul class="toc-list">
                         <li class="toc-item"><span>Surgical Airway (eFONA)</span> <span>Pg 26-27</span></li>
@@ -650,7 +651,7 @@
                     </div>
                     <div class="storage-box">
                         <div class="storage-header">📍 STORAGE LOCATION</div>
-                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS (NOT AN OBSTETRIC GRAB BAG).</div>
+                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS.</div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
@@ -745,7 +746,7 @@
                 <div class="section-content">
                     <ul>
                         <li><strong>Placenta:</strong>&nbsp;&nbsp;One gentle tug. If stuck, leave in situ. One hand sweep if bleeding.</li>
-                        <li>Check allergies. <strong>Drugs:</strong>&nbsp;&nbsp;Oxytocin <span class="dose">10iu</span> IV, Antibiotics, TXA <span class="dose">1g</span>.&nbsp;&nbsp;<span class="drug-badge">Fetch Drugs</span></li>
+                        <li>Check allergies. <strong>Drugs:</strong>&nbsp;&nbsp;Oxytocin <span class="dose">10iu</span> IV, Antibiotics, TXA <span class="dose">1g</span>.&nbsp;&nbsp;<span class="drug-badge">Fetch Drug</span></li>
                         <li><strong>Closure:</strong>&nbsp;&nbsp;Pack uterus. Close abdomen with dressings, clingfilm or staples.</li>
                         <li><strong>Transfer:</strong>&nbsp;&nbsp;Emergent Theatre (Obstetrics) if ROSC.</li>
                     </ul>
@@ -797,7 +798,7 @@
                     </div>
                     <div class="storage-box">
                         <div class="storage-header">📍 STORAGE LOCATION</div>
-                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS (NOT AN OBSTETRIC GRAB BAG).</div>
+                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS.</div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
@@ -817,7 +818,7 @@
                                     • Insert fingers behind fetal knee (popliteal fossa).<br>
                                     • Press to <strong>abduct</strong> thigh (move away from midline).<br>
                                     • Leg will flex. Sweep it out.</li>
-                                <li><strong>Arms Stuck (Loveset's):</strong>&nbsp;&nbsp;<br>
+                                <li><strong>Arms Stuck (Lovset's):</strong>&nbsp;&nbsp;<br>
                                     • Hold bony pelvis (thumbs on sacrum).<br>
                                     • Rotate baby 180 degrees (Keep back up/anterior).<br>
                                     • Posterior arm sweeps down over face. Deliver arm.<br>
@@ -868,7 +869,7 @@
             </div>
 
             <div class="section">
-                <div class="section-header"><div class="icon-box">2</div><div class="section-title">ARMS STUCK (Loveset's)</div></div>
+                <div class="section-header"><div class="icon-box">2</div><div class="section-title">ARMS STUCK (Lovset's)</div></div>
                 <div class="section-content">
                     <ul>
                         <li><strong>Sign:</strong>&nbsp;&nbsp;Winged Scapula visible.</li>
