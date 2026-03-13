@@ -34,6 +34,7 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             background-color: #555;
+            counter-reset: page-counter;
         }
 
         /* --- PRINT BUTTON --- */
@@ -64,7 +65,25 @@
             overflow: hidden;
             page-break-after: always;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            counter-increment: page-counter;
         }
+        .page::after {
+            content: counter(page-counter);
+            position: absolute;
+            bottom: 4mm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: #999;
+            z-index: 10;
+            background: white;
+            padding: 0 6px;
+        }
+        /* Hide page number on title page */
+        .page.title-page::after { content: none; }
+        /* Hide page number on debrief page */
+        .page.debrief-page::after { content: none; }
 
         /* --- TITLE PAGE (PG 1) --- */
         .title-page {
@@ -250,8 +269,8 @@
         }
 
         .section-content ul { margin: 2px 0; padding: 0; list-style: none; }
-        .section-content li { margin-bottom: 3px; display: flex; align-items: flex-start; }
-        .section-content li::before { content: "•"; margin-right: 8px; color: #555; font-weight: bold; font-size: 1.2em; line-height: 0.8; }
+        .section-content li { margin-bottom: 3px; position: relative; padding-left: 16px; }
+        .section-content li::before { content: "•"; position: absolute; left: 0; top: 0; color: #555; font-weight: bold; font-size: 1.2em; line-height: 0.8; }
 
         .pro-tip {
             margin-top: 4px;
@@ -651,7 +670,7 @@
                     </div>
                     <div class="storage-box">
                         <div class="storage-header">📍 STORAGE LOCATION</div>
-                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS.</div>
+                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS (NOT AN OBSTETRIC GRAB BAG).</div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
@@ -798,7 +817,7 @@
                     </div>
                     <div class="storage-box">
                         <div class="storage-header">📍 STORAGE LOCATION</div>
-                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS.</div>
+                        <div class="storage-text">NEONATAL RESUSCITATION EQUIPMENT IS KEPT IN PAEDIATRIC RESUS (NOT AN OBSTETRIC GRAB BAG).</div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--pink-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
