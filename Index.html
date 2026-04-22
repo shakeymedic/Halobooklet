@@ -450,21 +450,30 @@
         }
         .toc-icon { margin-right: 5px; font-size: 0.9em; }
 
-        /* Print Media Query (BINDING GUTTER ADDED) */
+        /* Print Media Query (UPDATED FOR PERFECT A4 FIT) */
         @media print {
-            body { background: none; margin: 0; }
-            .print-btn { display: none; }
-            .page { margin: 0; box-shadow: none; page-break-after: always; width: 210mm; height: 297mm; }
-            .page:last-child { page-break-after: auto; }
-            
-            /* Alternating Margins for Double-Sided Bound Printing */
-            @page :left {
-                margin-left: 10mm;
-                margin-right: 15mm;
+            @page {
+                size: A4;
+                margin: 0;
             }
-            @page :right {
-                margin-left: 15mm;
-                margin-right: 10mm;
+            body { 
+                background: none; 
+                margin: 0; 
+                padding: 0;
+            }
+            .print-btn { 
+                display: none; 
+            }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                page-break-after: always; 
+                width: 210mm; 
+                height: 297mm;
+                border: none;
+            }
+            .page:last-child { 
+                page-break-after: auto; 
             }
         }
 
@@ -1834,11 +1843,13 @@
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Suturing Kit</strong> (Scissors/Forceps).</div>
                             <div class="checklist-item"><div class="checkbox"></div> <strong>Artery Forceps.</strong></div>
                             <div class="checklist-item"><div class="checkbox"></div> Sterile Gauze.</div>
+                            <div class="checklist-item"><div class="checkbox"></div> Chloramphenicol eye ointment &amp; Eye patch.</div>
                         </div>
                     </div>
                     <div class="wt-box" style="border-top: 4px solid var(--orange-bg);">
                         <div class="wt-box-header">Post-Procedure Plan</div>
                         <div class="wt-box-content">
+                            • Apply chloramphenicol eye ointment and an eye patch.<br>
                             • Urgent Ophthalmology Review.<br>
                             • CT Orbit.<br>
                             • Medical Management (Mannitol/Acetazolamide).
@@ -1919,7 +1930,7 @@
                         <li>Pull lower lid down. Identify <strong>Inferior Crus</strong> (Guitar String).</li>
                         <li><strong>Cut Inferior Crus</strong> vertically.</li>
                         <li><strong>Success:</strong>&nbsp;&nbsp;Lower lid hangs loose. IOP drops.</li>
-                        <li><strong>After:</strong>&nbsp;&nbsp;Urgent Ophthalmology/MaxFax review. CT Orbit.</li>
+                        <li><strong>After:</strong>&nbsp;&nbsp;Apply chloramphenicol eye ointment and an eye patch. Urgent Ophthalmology/MaxFax review. CT Orbit.</li>
                     </ul>
                      <div class="plan-b-box">
                         <div class="plan-b-title">🛑 PLAN B: IOP STILL HIGH?</div>
@@ -2357,7 +2368,7 @@
             <div style="font-size: 14pt; line-height: 1.8; color: #333;">
                 <strong>1. S</strong>ummarise the case (1 minute).<br>
                 <strong>2. T</strong>hings that went well?<br>
-                <strong>3. O</strong>pportunities to improve?<br>
+                <strong>3. O</strong>opportunities to improve?<br>
                 <strong>4. P</strong>oints for action (Fix equipment, reporting).<br>
                 <strong>5. 5</strong> minutes max.
             </div>
