@@ -487,12 +487,18 @@
         .theme-orange .section { border-left-color: var(--orange-bg); }
         .theme-yellow .section { border-left-color: var(--yellow-bg); }
 
+        /* Screen only: on narrow screens the fixed-width A4 pages scroll sideways
+           inside this wrapper, so the whole browser page no longer scrolls sideways */
+        @media screen {
+            .pages-scroll { overflow-x: auto; }
+        }
     </style>
 </head>
 <body>
 
     <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
 
+    <div class="pages-scroll">
     <div class="page title-page">
         <img src="images/wmebem_logo.png" class="tp-logo" alt="Logo">
         <div class="tp-main-title">HALO</div>
@@ -2365,6 +2371,8 @@
             </div>
          </div>
     </div>
+
+    </div><!-- /.pages-scroll -->
 
     <script>
         document.querySelectorAll('.checklist-item').forEach(item => {
