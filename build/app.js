@@ -2,7 +2,11 @@
 (function () {
   'use strict';
   var inApp = /HaloQrhApp\//.test(navigator.userAgent);
-  if (inApp) document.documentElement.classList.add('in-app');
+  if (inApp) {
+    document.documentElement.classList.add('in-app');
+    // Android's WebView ignores download links; as a plain link the app catches it and saves the PDF itself
+    document.querySelectorAll('[data-pdf]').forEach(function (a) { a.removeAttribute('download'); });
+  }
 
   // Search on the home page (matches procedure names and the full text of both cards)
   var q = document.getElementById('q');
