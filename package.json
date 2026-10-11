@@ -1,0 +1,27 @@
+{
+  "name": "halo-qrh-adults",
+  "version": "1.0.0",
+  "description": "HALO Quick Reference Handbook (Adults): printable booklet, website and Android app",
+  "scripts": {
+    "build": "node build/build.mjs",
+    "pdf": "node build/pdf.mjs",
+    "serve": "npx --yes serve@14 dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakeymedic/halobooklet.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/shakeymedic/halobooklet/issues"
+  },
+  "homepage": "https://github.com/shakeymedic/halobooklet#readme",
+  "devDependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "linkedom": "^0.18.13",
+    "playwright": "1.56",
+    "sharp": "^0.34.5"
+  },
+  "private": true,
+  "type": "module"
+}

@@ -1,0 +1,129 @@
+/* Website and app layer on top of the booklet's own styles (assets/booklet.css).
+   The booklet is laid out as fixed A4 pages; here those pages become fluid cards on screen. */
+
+:root { --ink: #1a1a1a; --muted: #555; --line: #e2e5ea; --bg: #f3f5f8; --brand: #0d47a1; }
+* { padding: 0; }
+body.web { background: var(--bg); color: var(--ink); margin: 0; -webkit-text-size-adjust: 100%; }
+body.web a { color: var(--brand); }
+.sr-only, .skip:not(:focus) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip:focus { position: fixed; top: 8px; left: 8px; z-index: 100; background: #fff; padding: 8px 12px; border-radius: 6px; }
+
+/* App bar */
+.appbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: calc(env(safe-area-inset-top) + 8px) 16px 8px; background: var(--brand); color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.brand { display: flex; align-items: center; gap: 10px; color: #fff !important; text-decoration: none; font-weight: 900; font-size: 18px; letter-spacing: .3px; }
+.brand img { width: 36px; height: 36px; }
+.brand em { font-style: normal; font-weight: 600; opacity: .85; margin-left: 4px; }
+.appbar-pdf { color: #0d47a1 !important; background: #fff; font-weight: 800; font-size: 14px; text-decoration: none; padding: 7px 12px; border-radius: 6px; }
+.adult-strip { background: #b71c1c; color: #fff; text-align: center; font-weight: 800; font-size: 13px; letter-spacing: .4px; text-transform: uppercase; padding: 6px 16px; }
+
+main { max-width: 1080px; margin: 0 auto; padding: 16px; }
+
+/* Home */
+.hero { background: #fff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-top: 6px solid var(--brand); }
+.hero h1 { margin: 0 0 8px; font-size: clamp(24px, 5vw, 34px); line-height: 1.15; color: var(--brand); font-weight: 900; }
+.lede { margin: 0 0 18px; font-size: 16px; line-height: 1.5; color: #333; max-width: 60ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; }
+.pdf-btn { display: inline-flex; align-items: center; gap: 12px; background: #b71c1c; color: #fff !important; text-decoration: none; font-weight: 800; font-size: 17px;
+  padding: 12px 20px 12px 16px; border-radius: 10px; box-shadow: 0 3px 8px rgba(183,28,28,.35); }
+.pdf-btn:hover { background: #9a1515; }
+.pdf-btn svg { width: 28px; height: 28px; flex-shrink: 0; }
+.pdf-btn small { display: block; font-weight: 600; font-size: 13px; opacity: .9; }
+.ghost-btn { display: inline-flex; align-items: center; padding: 12px 18px; border: 2px solid var(--brand); border-radius: 10px; font-weight: 700; text-decoration: none; }
+.meta { margin: 14px 0 0; color: var(--muted); font-size: 13px; font-family: ui-monospace, monospace; }
+
+.search { margin: 18px 0 6px; }
+.search input { width: 100%; font: inherit; font-size: 17px; padding: 13px 14px; border: 2px solid #c9ced6; border-radius: 10px; background: #fff; }
+.search input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(13,71,161,.15); }
+#no-results { color: var(--muted); margin: 10px 2px; }
+.key { color: var(--muted); font-size: 13px; margin: 6px 2px 0; }
+
+.group { margin-top: 18px; }
+.group-title { display: inline-block; margin: 0 0 8px; color: #fff; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; padding: 4px 10px; border-radius: 4px; }
+.proc-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.proc-card { display: flex; flex-direction: column; gap: 4px; height: 100%; box-sizing: border-box; background: #fff; border-radius: 10px; padding: 14px 16px; text-decoration: none;
+  border-left: 6px solid var(--accent); box-shadow: 0 1px 3px rgba(0,0,0,.08); color: var(--ink) !important; }
+.proc-card:hover, .proc-card:focus-visible { box-shadow: 0 3px 10px rgba(0,0,0,.14); }
+.proc-name { font-weight: 800; font-size: 17px; }
+.proc-sub { color: var(--muted); font-size: 14px; }
+.trolley { align-self: flex-start; font-size: 12px; font-weight: 700; background: #f1f1f1; border-radius: 4px; padding: 1px 6px; }
+.extras { margin-top: 24px; }
+
+/* Procedure pages */
+.crumbs { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+.crumbs a { font-weight: 700; text-decoration: none; }
+.tabs { position: sticky; top: calc(env(safe-area-inset-top) + 52px); z-index: 40; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; background: var(--bg); padding: 4px 0 10px; }
+.tabs button { min-width: 0; font: inherit; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; text-align: left; border: 2px solid #c9ced6; background: #fff; border-radius: 10px;
+  padding: 10px 12px; font-weight: 800; font-size: 16px; color: var(--ink); }
+.tabs button b { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #e3e7ee; font-size: 13px; }
+.tabs button small { flex-basis: 100%; font-weight: 600; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tabs button[aria-selected="true"] { border-color: var(--brand); background: var(--brand); color: #fff; }
+.tabs button[aria-selected="true"] b { background: #fff; color: var(--brand); }
+.tabs button[aria-selected="true"] small { color: rgba(255,255,255,.85); }
+
+/* The booklet page, made fluid */
+.web .page { width: auto; height: auto; margin: 0; box-shadow: 0 1px 4px rgba(0,0,0,.12); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; counter-increment: none; }
+.web .page::after { content: none; }
+.web .page > .side-strip { width: auto; height: auto; padding: 5px 12px; border: 0 !important; order: -1; justify-content: flex-start; }
+.web .page > .side-strip span { writing-mode: horizontal-tb; transform: none; font-size: 12px; letter-spacing: 1.5px; }
+.web .content-area { height: auto; padding: 12px; }
+.web .main-header { min-height: 0; padding: 10px 12px; }
+.web .main-header h1 { font-size: clamp(18px, 4.8vw, 24px); line-height: 1.1; }
+.web .main-header h2 { font-size: 13px; }
+.web .halo-badge { font-size: 12px; margin-top: 6px; }
+.web .logo-img { display: none; }
+.web .wt-grid { flex-direction: column; gap: 12px; }
+.web .wt-col { width: auto; gap: 12px; }
+.web .wt-box-header { font-size: 13px; }
+.web .wt-box-content { font-size: 15px; line-height: 1.5; }
+.web .step-list li { font-size: 15px; margin-bottom: 10px; padding-left: 26px; }
+.web .checklist-item { padding: 6px 0; margin: 0; min-height: 30px; align-items: center; }
+.web .checkbox { width: 22px; height: 22px; margin-right: 12px; }
+.web .checkbox.checked::after { font-size: 15px; top: -2px; left: 3px; }
+.web .section-title { font-size: 15px; line-height: 1.2; }
+.web .section-header { padding: 7px 10px; }
+.web .section-content { font-size: 16px; line-height: 1.45; padding: 8px 12px 8px 14px; }
+.web .section-content li { margin-bottom: 6px; padding-left: 18px; }
+.web .pro-tip { font-size: 14px; display: inline-block; }
+.web .plan-b-box, .web .stop-box { font-size: 15px; }
+.web .storage-text { font-size: 15px; }
+.web .diagram-img { max-height: none; width: 100%; height: auto; }
+.web .diagram-caption { font-size: 13px; }
+.web .footer-email { font-size: 13px; margin-top: 12px; }
+.web .ref-bar { font-size: 13px; padding: 10px 4px; }
+.web .ref-link-text { display: inline-block; font-weight: 800; padding: 8px 14px; border: 2px solid #0d47a1; border-radius: 8px; margin-top: 4px; }
+.web .dose { font-size: 1em; padding: 2px 5px; line-height: 1.2; }
+
+/* Guide and debrief pages */
+.web .guide-page, .web .debrief-page { padding: 18px; }
+.web .gp-header { font-size: 22px; }
+.web .gp-text { font-size: 15px; }
+.web .abbrev-item { width: 100%; }
+.web .debrief-card { padding: 18px; max-width: none; box-sizing: border-box; }
+.web .debrief-page .tp-logo { margin-bottom: 12px !important; }
+
+.pager { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin: 16px 0 4px; }
+.pager a { min-width: 0; overflow-wrap: anywhere; background: #fff; border-radius: 10px; padding: 12px 14px; text-decoration: none; font-weight: 800; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.pager a[rel="next"] { text-align: right; }
+.pager small { display: block; color: var(--muted); font-weight: 600; font-size: 12px; }
+
+.site-footer { max-width: 1080px; margin: 8px auto 0; padding: 16px 16px calc(env(safe-area-inset-bottom) + 24px); color: var(--muted); font-size: 13px; line-height: 1.5; }
+.site-footer p { margin: 0 0 8px; }
+
+/* Wider screens: put the two walkthrough columns back side by side */
+@media (min-width: 820px) {
+  .web .wt-grid { flex-direction: row; }
+  .web .wt-col { width: calc(50% - 6px); }
+  .web .logo-img { display: block; height: 40px; }
+  .web .page > .side-strip { padding: 6px 16px; }
+  .web .content-area { padding: 16px 20px; }
+}
+
+/* In the Android app the app shell provides its own top bar colour; hide the website-only bits */
+.in-app .appbar-pdf { display: none; }
+
+@media print {
+  .appbar, .adult-strip, .tabs, .pager, .crumbs, .site-footer, .search, .hero-actions { display: none !important; }
+  .sheet[hidden] { display: block !important; }
+  body.web { background: #fff; }
+}

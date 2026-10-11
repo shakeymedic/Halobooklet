@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HALO QRH</string>
+    <string name="pdf_saved">PDF saved to Downloads</string>
+    <string name="pdf_saved_no_viewer">PDF saved to Downloads. Install a PDF viewer to open it.</string>
+    <string name="pdf_failed">Could not save the PDF</string>
+    <string name="no_app_for_link">No app on this phone can open that link</string>
+</resources>

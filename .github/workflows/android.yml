@@ -1,0 +1,44 @@
+# Builds the Android app from the current booklet. Download the APK/AAB from the run's "Artifacts".
+# If the signing secrets are set (see android/README.md), the release bundle is signed for Google Play.
+name: Android app
+on:
+  push:
+    branches: [main]
+    paths: ['Index.html', 'images/**', 'pdf/**', 'build/**', 'android/**', 'package*.json', '.github/workflows/android.yml']
+  pull_request:
+    paths: ['Index.html', 'images/**', 'pdf/**', 'build/**', 'android/**', 'package*.json', '.github/workflows/android.yml']
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: gradle/actions/setup-gradle@v4
+      - run: npm ci && npm run build
+        env: { PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1' }
+      - name: Decode the upload key
+        env: { KEYSTORE_BASE64: '${{ secrets.HALO_KEYSTORE_BASE64 }}' }
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+            echo "HALO_KEYSTORE_FILE=$RUNNER_TEMP/upload.jks" >> "$GITHUB_ENV"
+          else
+            echo "No signing secrets: building an unsigned release bundle and a debug APK only."
+          fi
+      - name: Build
+        working-directory: android
+        env:
+          HALO_KEYSTORE_PASSWORD: ${{ secrets.HALO_KEYSTORE_PASSWORD }}
+          HALO_KEY_ALIAS: ${{ secrets.HALO_KEY_ALIAS }}
+          HALO_KEY_PASSWORD: ${{ secrets.HALO_KEY_PASSWORD }}
+        run: ./gradlew --no-daemon assembleDebug bundleRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: halo-qrh-android
+          path: |
+            android/app/build/outputs/apk/debug/app-debug.apk
+            android/app/build/outputs/bundle/release/app-release.aab

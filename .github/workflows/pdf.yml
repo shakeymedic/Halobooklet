@@ -1,0 +1,29 @@
+# Regenerates the downloadable PDF whenever the booklet or its images change on main,
+# so the PDF on the website and in the app always matches Index.html.
+name: Update PDF
+on:
+  push:
+    branches: [main]
+    paths: ['Index.html', 'images/**', 'build/**', 'package*.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: pdf
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build && npm run pdf
+      - name: Commit the PDF if it changed
+        run: |
+          if git diff --quiet -- pdf/source.sha256; then echo "PDF already up to date"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898315+github-actions[bot]@users.noreply.github.com"
+          git add pdf/
+          git commit -m "Update the downloadable PDF from Index.html"
+          git push
