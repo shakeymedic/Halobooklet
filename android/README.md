@@ -36,5 +36,28 @@ cd android && ./gradlew assembleDebug bundleRelease
 4. **Play Console listing.** Create the app, opt in to Play App Signing, upload the `.aab`, and complete:
    store listing (title, short and full description, icon 512×512, at least 2 phone screenshots, feature
    graphic 1024×500), content rating questionnaire, target audience (adults), data safety form (the app
-   collects and shares no data), and the privacy policy URL (https://emevidence.org/privacy.html can be used
-   if it covers the app). Health apps may also need the health declaration.
+   collects and shares no data), and the privacy policy URL (https://emevidence.org/privacy.html, which has a
+   section on the apps). See [Play Console answers](#play-console-answers) below.
+
+## Play Console answers
+
+Prepared from what the app actually does (checked 12 October 2026). Jake must confirm them before submitting,
+because the developer is responsible for their accuracy.
+
+- **Data safety:** "Does your app collect or share any of the required user data types?" **No.** The app has no
+  accounts, no analytics and no network calls of its own; links open in the phone's browser, which the form
+  does not count. Saving the PDF stays on the device.
+- **Account deletion:** not applicable (no accounts).
+- **Permissions:** none.
+- **Ads:** none. **App access:** all functionality is available without special access.
+- **Target audience:** 18 and over (healthcare professionals). **Content rating:** answer the questionnaire; the
+  procedures include drawings of surgical procedures, so answer any question about medical or graphic
+  content honestly.
+- **Health apps declaration:** Medical, **Medical reference and education**. It is a cognitive aid and teaching
+  resource, not a medical device; Jake should confirm he is happy with that position.
+- **Testing:** a personal developer account created after 13 November 2023 must run a closed test with at least
+  12 testers, opted in for 14 days in a row, before production is unlocked.
+- **Target API level:** Google Play needs API 36 for new apps and updates from 31 August 2026. The app targets 36.
+- **16 KB page size:** not affected; the app has no native code.
+- **Play Integrity API:** not used, and not needed. It protects requests from an app to its own server, and this
+  app has no server. Play App Signing (step 4) is still worth turning on.
