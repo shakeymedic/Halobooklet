@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Only needed to save the PDF to Downloads on Android 9 and earlier -->
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />
+    <!-- No permissions: on Android 8-9 the PDF goes to the app's own Downloads folder, which needs none,
+         and on Android 10+ it is saved through MediaStore. -->
 
     <application
         android:allowBackup="true"
