@@ -88,6 +88,9 @@ main { max-width: 1080px; margin: 0 auto; padding: 16px; }
 .web .plan-b-box, .web .stop-box { font-size: 15px; }
 .web .storage-text { font-size: 15px; }
 .web .diagram-img { max-height: none; width: 100%; height: auto; }
+.web .diagram-wide { flex: none; display: block; }
+.web .diagram-wide .diagram-img { flex: none; max-height: none; }
+.web .content-area:has(.diagram-wide) > *:not(.diagram-wide) { flex-shrink: 1; }
 .web .diagram-caption { font-size: 13px; }
 .web .footer-email { font-size: 13px; margin-top: 12px; }
 .web .ref-bar { font-size: 13px; padding: 10px 4px; }
@@ -127,3 +130,8 @@ main { max-width: 1080px; margin: 0 auto; padding: 16px; }
   .sheet[hidden] { display: block !important; }
   body.web { background: #fff; }
 }
+
+/* Full-size diagram viewer (tap a diagram) */
+.fig-zoom { position: fixed; inset: 0; z-index: 100; background: #fff; overflow: auto; -webkit-overflow-scrolling: touch; padding: 56px 8px 16px; }
+.fig-zoom img { display: block; width: auto; max-width: none; height: auto; min-width: 100%; }
+.fig-zoom-close { position: fixed; top: 8px; right: 8px; z-index: 101; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 1; padding: 10px 16px; border-radius: 8px; border: 1px solid #ccc; background: #fff; color: #222; }

@@ -69,6 +69,32 @@
     });
   });
 
+  // Diagrams: tap to open full size, so multi-panel figures can be panned and read on a phone
+  document.querySelectorAll('.diagram-img').forEach(function (img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () {
+      var box = document.createElement('div');
+      box.className = 'fig-zoom';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-label', img.alt || 'Diagram');
+      var close = document.createElement('button');
+      close.type = 'button';
+      close.className = 'fig-zoom-close';
+      close.textContent = 'Close';
+      var big = document.createElement('img');
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.appendChild(close);
+      box.appendChild(big);
+      function shut() { box.remove(); document.removeEventListener('keydown', esc); }
+      function esc(e) { if (e.key === 'Escape') shut(); }
+      close.addEventListener('click', shut);
+      document.addEventListener('keydown', esc);
+      document.body.appendChild(box);
+      close.focus();
+    });
+  });
+
   // Offline: the website installs as an app and works with no signal (the Android app bundles everything instead)
   if (!inApp && 'serviceWorker' in navigator && location.protocol === 'https:') {
     window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js'); });
