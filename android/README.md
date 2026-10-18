@@ -25,9 +25,11 @@ cd android && ./gradlew assembleDebug bundleRelease
 
 ## Publishing on Google Play (things only the account owner can do)
 
-1. **Developer account.** Register at <https://play.google.com/console> (one-off US$25 fee, identity
-   verification). Personal accounts created after Nov 2023 must run a **closed test with at least 12 testers
-   for 14 days** before production. An organisation account (needs a D-U-N-S number) skips that.
+1. **Developer account.** Use an **organisation** account in the company's name (West Midlands Evidence Based
+   Emergency Medicine Ltd, company number 16644703) at <https://play.google.com/console> (one-off US$25 fee,
+   D-U-N-S number and identity verification). Google says health apps, such as medical apps, should not be
+   published from a Personal account. An organisation account also avoids the closed test (12 testers for 14 days)
+   that new personal accounts must run, but still use the internal and closed testing tracks before production.
 2. **Upload key.** Create one once and keep it safe (if it is lost, Google can reset it, but it is a hassle):
    `keytool -genkeypair -v -keystore upload.jks -alias upload -keyalg RSA -keysize 2048 -validity 10000`
 3. **GitHub secrets** (repository → Settings → Secrets and variables → Actions):
@@ -49,14 +51,19 @@ because the developer is responsible for their accuracy.
   does not count. Saving the PDF stays on the device.
 - **Account deletion:** not applicable (no accounts).
 - **Permissions:** none.
-- **Ads:** none. **App access:** all functionality is available without special access.
+- **Ads:** none. **App access:** "All functionality in my app is available without any access restrictions"
+  (no sign-in, no codes, no paywall).
 - **Target audience:** 18 and over (healthcare professionals). **Content rating:** answer the questionnaire; the
   procedures include drawings of surgical procedures, so answer any question about medical or graphic
   content honestly.
 - **Health apps declaration:** Medical, **Medical reference and education**. It is a cognitive aid and teaching
   resource, not a medical device; Jake should confirm he is happy with that position.
-- **Testing:** a personal developer account created after 13 November 2023 must run a closed test with at least
-  12 testers, opted in for 14 days in a row, before production is unlocked.
+- **Testing:** upload each new bundle to **Internal testing** first, install it from Play on at least one phone,
+  and check it opens offline, every procedure opens, search works and Download the PDF saves the file. (A personal
+  developer account created after 13 November 2023 would also need a closed test with at least 12 testers, opted
+  in for 14 days in a row, before production; the organisation account does not.)
+- **Store listing:** text, graphics rules and screenshots are in [play-listing.md](play-listing.md). Every
+  screenshot must show the current version; retake them when the booklet changes.
 - **Target API level:** Google Play needs API 36 for new apps and updates from 31 August 2026. The app targets 36.
 - **16 KB page size:** not affected; the app has no native code.
 - **Play Integrity API:** not used, and not needed. It protects requests from an app to its own server, and this
