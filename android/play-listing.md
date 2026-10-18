@@ -15,7 +15,7 @@ Checked against booklet v2.9 on 18 October 2026.
 
 ## Short description (80 characters max)
 
-`Offline step-by-step guides for rare adult emergency procedures, for clinicians.` (79)
+`Offline step-by-step guides for rare adult emergency procedures, for clinicians.` (80)
 
 ## Full description (4,000 characters max)
 
