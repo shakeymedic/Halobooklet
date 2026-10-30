@@ -10,7 +10,7 @@ Checked against booklet v2.9 on 18 October 2026.
 
 - **App name** (30 characters max): `HALO QRH: Adult Procedures` (26)
 - **Category:** Medical. **Tags:** pick the closest to "Medical reference" and "Education".
-- **Contact email:** emevidence999@gmail.com. **Website:** https://wmebemhaloqrh.netlify.app
+- **Contact email:** hello@emevidence.org. **Website:** https://wmebemhaloqrh.netlify.app
 - **Privacy policy:** https://emevidence.org/privacy.html
 
 ## Short description (80 characters max)
