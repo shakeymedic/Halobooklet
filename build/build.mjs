@@ -84,6 +84,9 @@ mkdirSync(join(dist, 'assets', 'fonts'), { recursive: true });
 // Images: same paths as the booklet, resized so phones are not downloading 5 MB diagrams.
 async function copyImages(dir) {
   for (const f of readdirSync(join(root, dir))) {
+    // Skip dot files such as images/.gitignore: Netlify does not serve them, and one 404 in the
+    // service worker's precache list stops the whole offline cache from installing.
+    if (f.startsWith('.')) continue;
     const src = join(root, dir, f);
     const out = join(dist, dir, f);
     if (statSync(src).isDirectory()) { await copyImages(join(dir, f)); continue; }
@@ -296,6 +299,7 @@ writeFileSync(join(dist, 'manifest.webmanifest'), JSON.stringify({
 const precache = [];
 const walkDist = (d) => readdirSync(join(dist, d)).forEach((f) => {
   const p = d ? `${d}/${f}` : f;
+  if (f.startsWith('.')) return;
   if (statSync(join(dist, p)).isDirectory()) return walkDist(p);
   if (p === PDF_NAME || p === 'sw.js' || p.startsWith('icons/maskable') || p === 'icons/icon-512.png') return;
   precache.push(p);
