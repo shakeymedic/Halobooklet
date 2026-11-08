@@ -2,7 +2,6 @@ import groovy.json.JsonSlurper
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
 }
 
 // The app bundles the built website (../dist). Run `npm ci && npm run build` in the repo root first.
@@ -50,19 +49,19 @@ android {
         }
     }
 
-    sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/siteAssets"))
+    // A plain path (not a Provider): AGP 9 refuses Providers here. preBuild depends on copySite below.
+    sourceSets["main"].assets.directories.add(layout.buildDirectory.dir("generated/siteAssets").get().asFile.path)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
     buildFeatures { buildConfig = true }
     // The PDF is already compressed; storing it uncompressed lets it be streamed straight from the APK.
     androidResources { noCompress += "pdf" }
 }
 
-val copySite by tasks.registering(Sync::class) {
+val copySite = tasks.register<Sync>("copySite") {
     doFirst {
         check(siteDir.resolve("index.html").exists()) { "../dist is missing: run `npm ci && npm run build` in the repository root first." }
     }
