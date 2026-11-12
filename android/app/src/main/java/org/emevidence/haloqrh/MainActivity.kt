@@ -179,13 +179,13 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun writePdf(): Uri {
-        val fileName = "HALO-QRH-Adults-v${BuildConfig.VERSION_Adults}.pdf"
+        val fileName = "HALO-QRH-Adults-v${BuildConfig.VERSION_NAME}.pdf"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             val downloads = MediaStore.Downloads.EXTERNAL_CONTENT_URI
             // Without a storage permission this query only sees files this app saved itself
             val existing: Uri? = contentResolver.query(
                 downloads, arrayOf(MediaStore.Downloads._ID),
-                "${MediaStore.Downloads.DISPLAY_Adults} = ?", arrayOf(fileName), null
+                "${MediaStore.Downloads.DISPLAY_NAME} = ?", arrayOf(fileName), null
             )?.use { c -> if (c.moveToFirst()) Uri.withAppendedPath(downloads, c.getLong(0).toString()) else null }
             if (existing != null) {
                 try {
@@ -197,7 +197,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
             val values = ContentValues().apply {
-                put(MediaStore.Downloads.DISPLAY_Adults, fileName)
+                put(MediaStore.Downloads.DISPLAY_NAME, fileName)
                 put(MediaStore.Downloads.MIME_TYPE, PDF_MIME)
                 put(MediaStore.Downloads.IS_PENDING, 1)
             }
