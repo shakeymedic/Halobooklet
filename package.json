@@ -20,7 +20,7 @@
     "@fontsource/inter": "^5.3.0",
     "linkedom": "^0.18.13",
     "playwright": "1.56",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.5"
   },
   "private": true,
   "type": "module"
